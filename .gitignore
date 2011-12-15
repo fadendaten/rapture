@@ -1,0 +1,10 @@
+.DS_Store
+log/*.log
+tmp/**/*
+config/database.yml
+config/legacy_settings.yml
+public/assests/**/*
+public/assets/edi/*
+.sass-cache/*
+
+bliss.tmproj
