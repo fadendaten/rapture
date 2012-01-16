@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120116100118) do
+ActiveRecord::Schema.define(:version => 20120116154403) do
 
   create_table "customers", :force => true do |t|
     t.string   "company"
@@ -24,5 +24,7 @@ ActiveRecord::Schema.define(:version => 20120116100118) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "customers", ["company"], :name => "index_customers_on_company", :unique => true
 
 end
