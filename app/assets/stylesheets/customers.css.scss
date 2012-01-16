@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .form {
-  width: 500px;
+  width: 450px;
 }
 
 .field {
@@ -11,11 +11,19 @@
 }
   
 
-.simple_form{
+.simple_form {
   
   input {
-  float: right;
+    float: right;
   }
+  
+  select {
+    margin-left: 45px;
+  }
+  
+  #submit {
 
-
+  }
+  
+  
 }

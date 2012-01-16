@@ -4,5 +4,6 @@
 .form
   = simple_form_for @customer do |f|
     = render 'layouts/company_fields', :f => f
+    = f.submit "Speichern", :id => "submit"
   
   
