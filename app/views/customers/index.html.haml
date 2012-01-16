@@ -2,3 +2,8 @@
   Alle Kunden
   
 = link_to 'neuen Kunden erfassen', new_path
+
+%ul
+  - @customers.each do |customer|
+    %li
+      = "#{customer.company}, #{customer.phone}, #{customer.email}"
