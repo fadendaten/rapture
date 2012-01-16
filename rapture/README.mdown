@@ -1,0 +1,4 @@
+## This is a CRM for a shoe shop in Zurich
+
+This CRM is built as an improved version of bliss.
+
