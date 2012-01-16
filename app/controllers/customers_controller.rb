@@ -9,14 +9,14 @@ class CustomersController < ApplicationController
   
   def new
     # @title = "Kunden erfassen"
-    # @customer = Customer.new
+    @customer = Customer.new
     render 'forms'
   end
   
   def create
-    #@customer = Customer.new(params[:customer])
+    @customer = Customer.new(params[:customer])
     if @customer.save
-      redirect_to root_path #will probably be changed to show_path
+      redirect_to root_path, :flash => { :success => "Kunde wurde erfolgreich hinzugefuegt." } #will probably be changed to show_path
     else
       @title = "Kunden erfassen"
       render 'forms'
