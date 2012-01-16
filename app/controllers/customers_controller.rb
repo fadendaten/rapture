@@ -27,6 +27,16 @@ class CustomersController < ApplicationController
     render 'forms'
   end
   
+  def update
+    @customer = Customer.find(params[:id])
+     if @customer.update_attributes(params[:customer])
+       redirect_to root_path, :flash => { :success => "Informationen angepasst." }
+     else
+       @title = "Kunden editieren"
+       render 'edit'
+     end
+   end
+  
   def show
     @title = "Kundenname" #provisorisch
   end
