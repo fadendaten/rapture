@@ -1,7 +1,5 @@
-%h1
-  - if @customer.new_record?
-    Neuen Kunden hinzufügen
-  = #{@customer.company} editieren
+%h1= @customer.new_record? ? "Neuen Kunden hinzufügen" : @customer.company
+
   
 .form
   = simple_form_for @customer do |f|

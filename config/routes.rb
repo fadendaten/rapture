@@ -1,12 +1,13 @@
 Rapture::Application.routes.draw do
-  
-  resources :customers
+
   
   root :to => 'customers#index'
   
-  match '/new',           :to => 'customers#new'
-  match '/show',          :to => 'customers#show'
-  match '/:id/edit', :to => 'customers#edit' 
+    resources :customers
+  
+#  match '/new',           :to => 'customers#new'
+#  match '/show',          :to => 'customers#show'
+#  match '/:id/edit', :to => 'customers#edit' 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

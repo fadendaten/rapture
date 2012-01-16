@@ -1,9 +1,12 @@
 %h1
   Alle Kunden
   
-= link_to 'neuen Kunden erfassen', new_path
+= link_to 'neuen Kunden erfassen', new_customer_path()
 
 %ul
   - @customers.each do |customer|
     %li
-      = "#{customer.company}, #{customer.phone}, #{customer.email}"
+      =customer.company
+      =customer.phone
+      =customer.email
+      =link_to  "edit", edit_customer_path(customer)

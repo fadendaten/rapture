@@ -1,18 +1,20 @@
 class CustomersController < ApplicationController
   
+  before_filter :empty_customer, :only => [:new]
+  
   def index
     @title = "Home"
     @customers = Customer.all
   end
   
   def new
-    @title = "Kunden erfassen"
-    @customer = Customer.new
+    # @title = "Kunden erfassen"
+    # @customer = Customer.new
     render 'forms'
   end
   
   def create
-    @customer = Customer.new(params[:customer])
+    #@customer = Customer.new(params[:customer])
     if @customer.save
       redirect_to root_path #will probably be changed to show_path
     else
@@ -41,4 +43,11 @@ class CustomersController < ApplicationController
     @title = "Kundenname" #provisorisch
   end
 
+
+  protected
+  
+  def empty_customer
+    @customer = Customer.new
+  end
+  
 end
