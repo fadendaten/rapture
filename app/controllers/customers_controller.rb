@@ -8,6 +8,7 @@ class CustomersController < ApplicationController
   def new
     @title = "Kunden erfassen"
     @customer = Customer.new
+    render 'forms'
   end
   
   def create
@@ -16,8 +17,14 @@ class CustomersController < ApplicationController
       redirect_to root_path
     else
       @title = "Kunden erfassen"
-      render 'new'
+      render 'forms'
     end
+  end
+  
+  def edit
+    @customer = Customer.find(params[:id])
+    @title = "Kunden editieren"
+    render 'forms'
   end
   
   def show

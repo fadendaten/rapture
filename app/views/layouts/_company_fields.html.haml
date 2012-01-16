@@ -9,6 +9,8 @@
 .field
   = f.input :email,    :label => 'E-Mail:'
 .field
-  = f.input :homepage, :label => 'Homepage:'
-.field
-  = f.input :language, :label => 'Sprache:', :as => :select
+  = f.input :homepage, :label => 'Homepage:', :input_html => { :value => 'http://' }
+.select
+  %label
+    Sprache:
+  = f.select :language, options_for_select(["Deutsch", "Français", "Italiano", "English"])
