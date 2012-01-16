@@ -4,7 +4,8 @@ class Customer < ActiveRecord::Base
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   homepage_regex = /https?:\/\/(\w+\.)+[a-z]+/i
   
-  validates :company,  :presence => :true
+  validates :company,  :presence => :true,
+                       :uniqueness => { :case_sensitive => true }
   validates :phone,    :presence => :true,
                        :length   => { :within => 10..15 }
   validates :mobile,   :length   => { :within => 10..15 }

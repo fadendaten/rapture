@@ -14,7 +14,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(params[:customer])
     if @customer.save
-      redirect_to root_path
+      redirect_to root_path #will probably be changed to show_path
     else
       @title = "Kunden erfassen"
       render 'forms'
