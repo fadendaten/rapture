@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/edendevelopment/paginate_alphabetically.git
+  revision: f9ed9c1b043de06a2c60dd11a324b2eb4657635b
+  branch: bundler
+  specs:
+    paginate_alphabetically (0.3.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -182,6 +189,7 @@ DEPENDENCIES
   haml
   jquery-rails
   mysql2 (~> 0.3.0)
+  paginate_alphabetically!
   rails (= 3.1.0)
   rspec-rails
   sass-rails (~> 3.1.0)

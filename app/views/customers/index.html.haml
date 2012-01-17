@@ -4,10 +4,12 @@
 .actions
   = link_to 'neuen Kunden erfassen', new_customer_path()
   %hr
-
-/ %h3
-/   - ("a".."z").each do |character|
-/     = link_to character, customers_path(:name => character)
+    
+%ul.pagination
+  %strong Springen zu:
+  - Customer.pagination_letters.each do |letter|
+    %li
+      = link_to(letter, customers_path(:letter => letter))
 
 .customers.round
   - @customers.each do |customer|

@@ -1,4 +1,7 @@
 class Customer < ActiveRecord::Base
+  
+  paginate_alphabetically :by => :company
+  
   attr_accessible :company, :phone, :mobile, :fax, :email, :language, :homepage
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
   
   def index
     @title = "Home"
-    @customers = Customer.find(:all, :order => 'company')
+    @customers = Customer.alphabetical_group(params[:letter])
   end
   
   def new
