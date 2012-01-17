@@ -9,7 +9,7 @@ class CustomersController < ApplicationController
   
   def new
     # @title = "Kunden erfassen"
-    @customer = Customer.new
+    # @customer = Customer.new
     render 'forms'
   end
   
