@@ -16,9 +16,19 @@ class Customer < ActiveRecord::Base
                        :if => :email? 
   validates :homepage, :format => { :with   => homepage_regex },
                        :if => :homepage?
+                       
+  before_validation :format_homepage_url
   
   def to_s
     company
+  end
+  
+  def format_homepage_url
+    unless homepage.starts_with?("http://", "https://")
+      "http://#{homepage}"
+    else
+      homepage
+    end
   end
                       
 end
