@@ -12,5 +12,9 @@ class Customer < ActiveRecord::Base
   validates :fax,      :length   => { :within => 10..15 }
   validates :email,    :format   => { :with   => email_regex }
   validates :homepage, :format   => { :with   => homepage_regex }
+  
+  def to_s
+    company
+  end
                       
 end
