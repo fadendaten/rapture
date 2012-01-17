@@ -6,7 +6,7 @@
 %ul
   - @customers.each do |customer|
     %li
-      =link_to "#{customer.company}", customer_path(customer)
+      =link_to "#{customer.company}", customer
       =customer.phone
       =customer.email
       =link_to  "edit", edit_customer_path(customer)

@@ -15,7 +15,7 @@ class CustomersController < ApplicationController
   def create
     @customer = Customer.new(params[:customer])
     if @customer.save
-      redirect_to root_path, :flash => { :success => "Kunde wurde erfolgreich hinzugefuegt." } #will probably be changed to show_path
+      redirect_to @customer, :flash => { :success => "Kunde wurde erfolgreich erfasst." }
     else
       @title = "Kunden erfassen"
       render 'forms'
@@ -31,7 +31,7 @@ class CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
      if @customer.update_attributes(params[:customer])
-       redirect_to root_path, :flash => { :success => "Informationen angepasst." }
+       redirect_to @customer, :flash => { :success => "Informationen angepasst." }
      else
        @title = "Kunden editieren"
        render 'forms'
@@ -40,7 +40,7 @@ class CustomersController < ApplicationController
   
   def show
     @customer = Customer.find(params[:id])
-    @title = "Kundenname" #provisorisch
+    @title = @customer.company
   end
 
 
