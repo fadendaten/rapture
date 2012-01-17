@@ -8,8 +8,13 @@ class CustomersController < ApplicationController
   end
   
   def new
-    @title = "Kunden erfassen"
+<<<<<<< HEAD
+    # @title = "Kunden erfassen"
     # @customer = Customer.new
+=======
+    @title = "Kunden erfassen"
+    @customer = Customer.new
+>>>>>>> 27d7aed4f2816d77704772e571ef600e96591ca1
     render 'forms'
   end
   
