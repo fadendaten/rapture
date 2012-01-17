@@ -13,4 +13,4 @@
 .select
   %label
     Sprache:
-  = f.select :language, options_for_select(["Deutsch", "Français", "Italiano", "English"])
+  = f.select :language, options_for_select(["Deutsch", "Français", "Italiano", "English"], @customer.language)
