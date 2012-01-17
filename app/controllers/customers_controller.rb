@@ -8,7 +8,7 @@ class CustomersController < ApplicationController
   end
   
   def new
-    # @title = "Kunden erfassen"
+    @title = "Kunden erfassen"
     @customer = Customer.new
     render 'forms'
   end

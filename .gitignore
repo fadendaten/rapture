@@ -7,4 +7,4 @@ public/assests/**/*
 public/assets/edi/*
 .sass-cache/*
 
-bliss.tmproj
+*.tmproj
