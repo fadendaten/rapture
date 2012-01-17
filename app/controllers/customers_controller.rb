@@ -34,7 +34,7 @@ class CustomersController < ApplicationController
        redirect_to root_path, :flash => { :success => "Informationen angepasst." }
      else
        @title = "Kunden editieren"
-       render 'edit'
+       render 'forms'
      end
    end
   
