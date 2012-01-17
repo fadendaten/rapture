@@ -18,12 +18,35 @@
   }
   
   select {
-    margin-left: 80px;
+    margin-left: 82px;
   }
   
   #submit {
 
   }
   
-  
+}
+
+.customer {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			list-style-type: none;
+			display: inline-block;
+			padding: 0.2em 0;
+			width: 230px;
+		}
+	}
+}
+
+.edit_column {
+	text-align: right;
+}
+
+.actions {
+	text-align: right;
+	margin-bottom: 30px;
 }

@@ -1,12 +1,24 @@
 %h1
   Alle Kunden
-  
-= link_to 'neuen Kunden erfassen', new_customer_path()
 
-%ul
+.actions
+  = link_to 'neuen Kunden erfassen', new_customer_path()
+  %hr
+
+/ %h3
+/   - ("a".."z").each do |character|
+/     = link_to character, customers_path(:name => character)
+
+.customers.round
   - @customers.each do |customer|
-    %li
-      =link_to "#{customer.company}", customer
-      =customer.phone
-      =customer.email
-      =link_to  "edit", edit_customer_path(customer)
+    .customer
+      %ul
+        %li.company_column
+          = link_to "#{customer.company}", customer
+        %li.phone_column
+          = customer.phone
+        %li.email_column
+          = customer.email
+        %li.edit_column
+          = link_to  "editieren", edit_customer_path(customer)
+        %hr
