@@ -15,7 +15,7 @@ class Customer < ActiveRecord::Base
   validates :email,    :format => { :with   => email_regex },
                        :if => :email? 
   validates :homepage, :format => { :with   => homepage_regex },
-                       :if => :homepage? 
+                       :if => :homepage?
   
   def to_s
     company
