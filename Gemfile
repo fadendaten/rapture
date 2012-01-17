@@ -32,13 +32,15 @@ gem 'jquery-rails'
 group :development do
   gem 'rspec-rails'
   gem 'cucumber-rails'
+  gem 'factory_girl_rails'
 end
 
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
-  gem 'rspec'
+  gem 'rspec-rails'
   gem 'spork'
   gem 'autotest-standalone'
+  gem 'factory_girl_rails'
   gem 'cucumber-rails'
 end
