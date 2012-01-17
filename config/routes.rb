@@ -1,9 +1,8 @@
 Rapture::Application.routes.draw do
 
-  
   root :to => 'customers#index'
   
-    resources :customers
+  resources :customers
   
 #  match '/new',           :to => 'customers#new'
 #  match '/show',          :to => 'customers#show'
