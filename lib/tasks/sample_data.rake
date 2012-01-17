@@ -4,7 +4,7 @@ namespace :db do
   desc "Fill database with sample data"
   task :populate => :environment do
     Rake::Task['db:reset'].invoke
-    500.times do
+    1000.times do
       company = Faker::Name.name
       phone = "1234567890"
       email = Faker::Internet.email

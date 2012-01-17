@@ -12,7 +12,6 @@
   
 
 .simple_form {
-  
   input {
     float: right;
   }
@@ -24,7 +23,6 @@
   #submit {
 
   }
-  
 }
 
 .customer {
@@ -42,6 +40,10 @@
 	}
 }
 
+.company_column {
+	margin-left: 10px;
+}
+
 .edit_column {
 	text-align: right;
 }
@@ -49,4 +51,26 @@
 .actions {
 	text-align: right;
 	margin-bottom: 30px;
+}
+
+// For pagination 
+
+ul.pagination {
+	text-align: center;
+  list-style: none;
+  color: #D8D8D8;
+  padding: 1em 0.5em;
+}
+
+ul.pagination strong {
+  color: black;
+}
+
+ul.pagination li {
+  display: inline;
+  font-size: 1.1em;
+}
+
+ul.pagination li:before {
+  content: '| ';
 }
