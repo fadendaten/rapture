@@ -24,7 +24,7 @@ class CustomersController < ApplicationController
   
   def edit
     @customer = Customer.find(params[:id])
-    @title = "Kunden editieren"
+    @title = "#{@customer} editieren"
     render 'forms'
   end
   
@@ -33,7 +33,7 @@ class CustomersController < ApplicationController
      if @customer.update_attributes(params[:customer])
        redirect_to @customer, :flash => { :success => "Informationen angepasst." }
      else
-       @title = "Kunden editieren"
+       @title = "#{@customer} editieren"
        render 'forms'
      end
    end

@@ -44,4 +44,5 @@ group :test do
   gem 'autotest-standalone'
   gem 'factory_girl_rails'
   gem 'cucumber-rails'
+  gem 'webrat'
 end
