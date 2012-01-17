@@ -10,7 +10,7 @@
   %body
     .container
       = render 'layouts/header'
-      .section.round
+      %section.round
         - flash.each do |key, value|
           = content_tag(:div, value, :class => "flash #{key}")
         = yield
