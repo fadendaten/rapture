@@ -9,7 +9,7 @@
   %strong Springen zu:
   - Customer.pagination_letters.each do |letter|
     %li
-      = link_to(letter, customers_path(:letter => letter))
+      = link_to letter, customers_path(:letter => letter)
 
 .customers.round
   - @customers.each do |customer|

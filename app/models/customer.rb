@@ -4,6 +4,8 @@ class Customer < ActiveRecord::Base
   
   attr_accessible :company, :phone, :mobile, :fax, :email, :language, :homepage
   
+  has_many :addresses, :dependent => :destroy 
+  
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   homepage_regex = /https?:\/\/(\w+\.)+[a-z]+/i
   
@@ -27,7 +29,7 @@ class Customer < ActiveRecord::Base
   end
   
   def format_homepage_url
-    unless homepage.starts_with?("http://", "https://")
+    unless homepage.blank? || homepage.starts_with?("http://", "https://")
       "http://#{homepage}"
     else
       homepage

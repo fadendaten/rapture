@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120116154403) do
+ActiveRecord::Schema.define(:version => 20120117151136) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "line_1"
+    t.string   "line_2"
+    t.string   "line_3"
+    t.string   "zip_code"
+    t.string   "city"
+    t.string   "country_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "customers", :force => true do |t|
     t.string   "company"
@@ -26,5 +37,14 @@ ActiveRecord::Schema.define(:version => 20120116154403) do
   end
 
   add_index "customers", ["company"], :name => "index_customers_on_company", :unique => true
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "encrypted_password"
+    t.string   "salt"
+  end
 
 end

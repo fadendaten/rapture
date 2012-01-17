@@ -3,6 +3,11 @@ Rapture::Application.routes.draw do
   root :to => 'customers#index'
   
   resources :customers
+  resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
+  match '/signup',  :to => 'users#new'
+  match '/signin',  :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
   
 #  match '/new',           :to => 'customers#new'
 #  match '/show',          :to => 'customers#show'

@@ -1,0 +1,10 @@
+%h1 Einloggen
+
+= simple_form_for(:session, :url => sessions_path) do |f|
+  .field
+    = f.text_field :username,     :label => "Benutzername"
+  .field
+    = f.password_field :password, :label => "Passwort"
+  .actions
+    = f.submit "Einloggen", :id => "submit"
+    
