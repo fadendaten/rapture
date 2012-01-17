@@ -8,3 +8,4 @@ public/assets/edi/*
 .sass-cache/*
 
 *.tmproj
+*.orig
