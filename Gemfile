@@ -32,6 +32,7 @@ gem 'jquery-rails'
 group :development do
   gem 'rspec-rails'
   gem 'cucumber-rails'
+  gem 'faker'
 end
 
 group :test do

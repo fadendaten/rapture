@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
   
   def index
     @title = "Home"
-    @customers = Customer.all
+    @customers = Customer.find(:all, :order => 'company')
   end
   
   def new
