@@ -20,7 +20,7 @@ config.error_tag = :div
   # config.error_method = :first
 
   # Default tag used for error notification helper.
-  # config.error_notification_tag = :p
+config.error_notification_tag = :span
 
   # CSS class to add for error notification helper.
   # config.error_notification_class = :error_notification
@@ -35,7 +35,7 @@ config.error_tag = :div
   # config.wrapper_class = :input
 
   # CSS class to add to the wrapper if the field has errors.
-  # config.wrapper_error_class = :field_with_errors
+config.wrapper_error_class = :field_with_errors
 
   # You can wrap a collection of radio/check boxes in a pre-defined tag, defaulting to none.
   # config.collection_wrapper_tag = nil
