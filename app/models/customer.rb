@@ -26,10 +26,10 @@ class Customer < ActiveRecord::Base
   validates :company,  :presence   => :true,
                        :uniqueness => { :case_sensitive => true }
   validates :phone,    :presence => :true,
-                       :length   => { :within => 10..15 }
-  validates :mobile,   :length => { :within => 10..15 },
+                       :length   => { :within => 10..20 }
+  validates :mobile,   :length => { :within => 10..20 },
                        :if     => :mobile?
-  validates :fax,      :length => { :within => 10..15 },
+  validates :fax,      :length => { :within => 10..20 },
                        :if     => :fax?
   validates :email,    :format => { :with   => email_regex },
                        :if => :email? 
