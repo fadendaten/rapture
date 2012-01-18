@@ -7,3 +7,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+var searchAction = #{jsAction @UserController.searchUser(':query') /}
+
+$(document).ready(function (){
+	$('#search').keyup(function () {
+		$('#results p').load(searchAction({query: this.value}));
+	});		
+});
