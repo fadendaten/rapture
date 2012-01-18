@@ -2,14 +2,14 @@
   Alle Kunden
   
 .customer_search
+  = form_tag '/customers/query', :controller => 'customers', :action => 'search' do
+    = search_field_tag 'search'
+    = submit_tag "Kunden suchen"
 
-  / = render 'layouts/search_function', :f => f
+
+%ul.result
     
-
-
-#results
-  %p
-
+    
 
 .actions
   = link_to 'neuen Kunden erfassen', new_customer_path()
