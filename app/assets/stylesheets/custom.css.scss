@@ -62,13 +62,11 @@ h3 {
 
 //signin
 .signin_form {
-//	background-color: green;
 	width: 500px;
 }
 
 // customer
 .customer_form {
-//	background-color: red;
   width: 500px;
 }
 
@@ -80,11 +78,12 @@ h3 {
   }
   
   select {
-    margin-left: 82px;
+    margin-left: 63px;
   }
   
   #submit {
-
+		margin-top: 20px;
+		float: left;
   }
 
 .field {
