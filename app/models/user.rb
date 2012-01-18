@@ -20,13 +20,15 @@ class User < ActiveRecord::Base
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
-  validates :username, :presence => true,
-                       :length   => { :maximum => 15 }
-  validates :email,    :presence   => true,
-                       :format     => { :with => email_regex },
-                       :uniqueness => { :case_sensitive => false }
-  validates :password, :presence     => true,
-                       :length       => { :within => 6..40 }
+  validates :username,   :presence => true,
+                         :length   => { :maximum => 15 }
+  validates :email,      :presence   => true,
+                         :format     => { :with => email_regex },
+                         :uniqueness => { :case_sensitive => false }
+  validates :password,   :presence     => true,
+                         :length       => { :within => 6..40 }
+  validates :first_name, :presence => true
+  validates :last_name,  :presence => true
                        
   before_save :encrypt_password
 
