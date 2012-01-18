@@ -16,7 +16,7 @@
 class User < ActiveRecord::Base
   
   attr_accessor   :password
-  attr_accessible :username, :email, :password
+  attr_accessible :username, :email, :password, :first_name, :last_name
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
@@ -38,6 +38,10 @@ class User < ActiveRecord::Base
   def self.authenticate_with_salt(id, cookie_salt)
     user = User.find_by_id(id)
     (user && user.salt == cookie_salt) ? user : nil
+  end
+  
+  def name
+    "#{first_name} #{last_name}"
   end
 
   private
