@@ -1,7 +1,14 @@
 %h1
   Alle Kunden
   
-= render 'layouts/search_function'
+.customer_search
+  = simple_form_for @customer do |f|
+    = render 'layouts/display_customers', :f => f
+    = f.button "Suchen", :id => "submit"
+
+#results
+  %p
+
 
 .actions
   = link_to 'neuen Kunden erfassen', new_customer_path()
@@ -14,15 +21,16 @@
       = link_to letter, customers_path(:letter => letter)
 
 .customers.round
-  - @customers.each do |customer|
-    .customer
-      %ul
-        %li.company_column
-          = link_to "#{customer.company}", customer
-        %li.phone_column
-          = customer.phone
-        %li.email_column
-          = customer.email
-        %li.edit_column
-          = link_to  "editieren", edit_customer_path(customer)
-        %hr
+ - @customers.each do |customer|
+   .customer
+     %ul
+       %li.company_column
+         = link_to "#{customer.company}", customer
+       %li.phone_column
+         = customer.phone
+       %li.email_column
+         = customer.email
+       %li.edit_column
+         = link_to  "editieren", edit_customer_path(customer)
+       %hr
+    

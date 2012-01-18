@@ -54,7 +54,5 @@ class CustomersController < ApplicationController
     def authenticate
       deny_access unless signed_in?
     end
-  
-  
-  
+
 end

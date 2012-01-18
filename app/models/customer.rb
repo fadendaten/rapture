@@ -49,6 +49,15 @@ class Customer < ActiveRecord::Base
       self.homepage = homepage
     end
   end
+  
+  def self.search(search)
+    puts "#{search}"
+    if search
+      where('company LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
                       
 end
 
