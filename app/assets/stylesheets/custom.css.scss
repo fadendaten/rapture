@@ -57,3 +57,52 @@ h2 {
 h3 {
 	font-size: 1.2em;
 }
+
+// Simple form
+
+//signin
+.signin_form {
+//	background-color: green;
+	width: 500px;
+}
+
+// customer
+.customer_form {
+//	background-color: red;
+  width: 500px;
+}
+
+.simple_form {
+
+  input {
+    float: right;
+		
+  }
+  
+  select {
+    margin-left: 82px;
+  }
+  
+  #submit {
+
+  }
+
+.field {
+	margin-bottom: 15px;
+}
+
+	.field_with_errors {
+		border: solid;
+		border-color: red;
+		padding-right: 15px;
+		padding-left: 15px;
+		
+		
+		.error {
+			color: red;
+			background-color: white;
+			border: none;
+		}
+	}
+}
+

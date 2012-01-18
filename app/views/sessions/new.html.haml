@@ -1,10 +1,8 @@
 %h1 Einloggen
 
-= simple_form_for(:session, :url => sessions_path) do |f|
-  .field
-    = f.text_field :username,     :label => "Benutzername"
-  .field
-    = f.password_field :password, :label => "Passwort"
-  .actions
+
+.signin_form
+  = simple_form_for(:session, :url => sessions_path) do |f|
+    = render 'layouts/signin_fields', :f => f
     = f.submit "Einloggen", :id => "submit"
     
