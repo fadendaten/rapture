@@ -1,4 +1,3 @@
-
 FactoryGirl.define do
   factory :customer do
     company     "Foo_Bar Inc"

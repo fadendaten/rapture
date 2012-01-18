@@ -16,8 +16,11 @@
 # Read about factories at http://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :user do
-    username "MyString"
-    email "MyString"
+  factory :user do |user|
+    user.username   "dummy"
+    user.email      "dummy@dummy.com"
+    user.password   "foobar"
+    user.first_name "Benjamin"
+    user.last_name  "Marti"
   end
 end
