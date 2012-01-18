@@ -45,7 +45,7 @@ class CustomersController < ApplicationController
   end
   
   def search
-    @title = "NOT HOME"
+    @title = "Home"
     @customers = Customer.search(params[:search])
     render 'index'
   end
