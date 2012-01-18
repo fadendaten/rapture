@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120117151136) do
+ActiveRecord::Schema.define(:version => 20120118085928) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line_1"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(:version => 20120117151136) do
     t.datetime "updated_at"
     t.string   "encrypted_password"
     t.string   "salt"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
 end

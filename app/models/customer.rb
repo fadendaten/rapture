@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: customers
+#
+#  id         :integer(4)      not null, primary key
+#  company    :string(255)
+#  phone      :string(255)
+#  mobile     :string(255)
+#  fax        :string(255)
+#  email      :string(255)
+#  language   :string(255)
+#  homepage   :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Customer < ActiveRecord::Base
   
   paginate_alphabetically :by => :company
@@ -35,3 +51,4 @@ class Customer < ActiveRecord::Base
   end
                       
 end
+
