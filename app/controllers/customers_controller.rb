@@ -45,6 +45,7 @@ class CustomersController < ApplicationController
   end
   
   def search
+    puts "blabnjafsdAERGSRHErszherzhEZRHJETZHTZ"
     @title = "Home"
     @customers = Customer.search(params[:search])
     render 'index'

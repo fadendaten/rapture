@@ -8,7 +8,7 @@ Rapture::Application.routes.draw do
   match '/signup',          :to => 'users#new'
   match '/signin',          :to => 'sessions#new'
   match '/signout',         :to => 'sessions#destroy'
-  post 'customers/query' => 'customers#search'
+  get '/query' => 'customers#search'
   
   
 #  match '/new',           :to => 'customers#new'

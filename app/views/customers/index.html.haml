@@ -1,8 +1,8 @@
 %h1
   Alle Kunden
   
-.customer_search
-  = form_tag '/customers/query', :controller => 'customers', :action => 'search' do
+#search_function
+  = form_tag '/query', :controller => 'customers', :action => 'search', :method => 'get', :id => 'customer_search', :remote => true do
     = search_field_tag 'search'
     = submit_tag "Kunden suchen"
 
@@ -21,6 +21,6 @@
     %li
       = link_to letter, customers_path(:letter => letter)
 
-
-.customers.round
-  = render 'layouts/display_customers'
+#customers
+  .customers.round
+    = render 'layouts/display_customers'
