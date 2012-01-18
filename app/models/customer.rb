@@ -49,6 +49,12 @@ class Customer < ActiveRecord::Base
       self.homepage = homepage
     end
   end
-             
+
+  def self.search(search)
+    puts "DANIDANIDNAIDANIDANIDANI"
+    search_condition = "%" + search + "%"
+    find(:all, :conditions => ['company LIKE ? OR phone LIKE ?', search_condition, search_condition])
+  end
+
 end
 

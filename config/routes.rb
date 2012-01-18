@@ -5,9 +5,11 @@ Rapture::Application.routes.draw do
   resources :customers
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
-  match '/signup',  :to => 'users#new'
-  match '/signin',  :to => 'sessions#new'
-  match '/signout', :to => 'sessions#destroy'
+  match '/signup',          :to => 'users#new'
+  match '/signin',          :to => 'sessions#new'
+  match '/signout',         :to => 'sessions#destroy'
+  post 'customers/query' => 'customers#search'
+  
   
 #  match '/new',           :to => 'customers#new'
 #  match '/show',          :to => 'customers#show'

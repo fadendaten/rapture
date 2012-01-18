@@ -43,6 +43,12 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @title = @customer.company
   end
+  
+  def search
+    @title = "NOT HOME"
+    @customers = Customer.search(params[:search])
+    render 'index'
+  end
 
 
   protected
