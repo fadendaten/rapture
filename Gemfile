@@ -44,6 +44,8 @@ group :test do
   gem 'rspec-rails'
   gem 'spork'
   gem 'autotest-standalone'
+  gem 'autotest-fsevent'
+  gem 'autotest-growl'
   gem 'factory_girl_rails'
   gem 'cucumber-rails'
   gem 'webrat'
