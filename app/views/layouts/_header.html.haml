@@ -4,7 +4,7 @@
     %li.current_user
       - if current_user
         Eingeloggt als
-        = current_user.name
+        = current_user.full_name
     %li
       = link_to "Home", root_path
     - if signed_in?

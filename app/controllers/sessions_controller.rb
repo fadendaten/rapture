@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       render 'new'
     else
       sign_in user
-      redirect_to customers_path, :flash => { :success => "Erfolgreich eingeloggt." }
+      redirect_to customers_path
     end
   end
   

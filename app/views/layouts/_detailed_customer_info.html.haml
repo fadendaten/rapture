@@ -1,0 +1,44 @@
+.customer_info
+  %ul
+    %li
+      %span.column_left
+        Firmenname:
+      %span.column_right
+        = @customer.company
+      %hr
+    %li
+      %span.column_left
+        Telefon:
+      %span.column_right
+        = @customer.phone
+      %hr
+    %li
+      %span.column_left
+        Mobile:
+      %span.column_right
+        = @customer.mobile
+      %hr
+    %li
+      %span.column_left
+        Fax:
+      %span.column_right
+        = @customer.fax
+      %hr
+    %li
+      %span.column_left
+        Email:
+      %span.column_right
+        = @customer.email
+      %hr
+    %li
+      %span.column_left
+        Korrespondenzsprache:
+      %span.column_right
+        = @customer.language
+      %hr
+    %li
+      %span.column_left
+        Homepage:
+      %span.column_right
+        = link_to "#{@customer.homepage}", @customer.homepage
+      %hr
