@@ -8,12 +8,12 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:session][:username],
                              params[:session][:password])
     if user.nil?
-      flash.now[:error] = "Ungueltige Benutzername/Passwort Kombination."
+      flash.now[:error] = "Falsche Benutzername/Passwort Kombination."
       @title = "Einloggen"
       render 'new'
     else
       sign_in user
-      redirect_to customers_path
+      redirect_to customers_path, :flash => { :success => "Erfolgreich eingeloggt." }
     end
   end
   

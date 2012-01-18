@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   
   before_filter :empty_customer, :only => [:new]
+  before_filter :authenticate
   
   def index
     @title = "Home"
@@ -46,8 +47,14 @@ class CustomersController < ApplicationController
 
   protected
   
-  def empty_customer
-    @customer = Customer.new
-  end
+    def empty_customer
+      @customer = Customer.new
+    end
+    
+    def authenticate
+      deny_access unless signed_in?
+    end
+  
+  
   
 end

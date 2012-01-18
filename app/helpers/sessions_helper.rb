@@ -25,6 +25,11 @@ module SessionsHelper
     user == current_user
   end
   
+  def deny_access
+    # store_location
+    redirect_to signin_path, :notice => "Bitte loggen Sie sich ein."
+  end
+  
   private
     
     def user_from_remember_token
