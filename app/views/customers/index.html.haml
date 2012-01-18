@@ -1,19 +1,17 @@
 %h1
   Alle Kunden
   
-#search_function
-  = form_tag '/query', :controller => 'customers', :action => 'search', :method => 'get', :id => 'customer_search', :remote => true do
-    = search_field_tag 'search'
-    = submit_tag "Kunden suchen"
-
 
 %ul.result
-    
-    
 
 .actions
-  = link_to 'neuen Kunden erfassen', new_customer_path()
-  %hr
+  .search_function
+    = form_tag '/query', :controller => 'customers', :action => 'search', :method => 'get', :id => 'customer_search', :remote => true do
+      = search_field_tag 'search'
+      = submit_tag "Kunden suchen"
+  .new_customer    
+    = link_to 'neuen Kunden erfassen', new_customer_path()
+%hr
     
 %ul.pagination
   %strong Springen zu:
