@@ -220,12 +220,7 @@ describe Customer do
       end
       
       it "should not accept wrong url formats" do
-        @attr[:homepage] = "www.nohttp.com"
-        @customer = Customer.new(@attr)
-        @customer.should_not be_valid
-        
-        @attr[:homepage] = "http:/www.google.com"
-        @customer = Customer.new(@attr)
+        @customer = Customer.new(@attr.merge(:homepage => "http:/www.google.com"))
         @customer.should_not be_valid
       end
       
