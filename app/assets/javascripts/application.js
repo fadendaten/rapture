@@ -8,7 +8,7 @@
 //= require jquery_ujs
 //= require_tree .
 
-var searchAction = #{jsAction @UserController.searchUser(':query') /}
+var searchAction = #{jsAction Customer.search(':query') /}
 
 $(document).ready(function (){
 	$('#search').keyup(function () {
