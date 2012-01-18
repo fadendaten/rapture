@@ -1,7 +1,7 @@
 %h1= @customer.new_record? ? "Neuen Kunden hinzufügen" : @customer.company
 
   
-.form
+.customer_form
   = simple_form_for @customer do |f|
     = render 'layouts/company_fields', :f => f
     = f.submit "Speichern", :id => "submit"
