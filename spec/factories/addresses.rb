@@ -11,6 +11,8 @@
 #  country_code :string(255)
 #  created_at   :datetime
 #  updated_at   :datetime
+#  type         :string(255)
+#  customer_id  :integer(4)
 #
 
 # Read about factories at http://github.com/thoughtbot/factory_girl

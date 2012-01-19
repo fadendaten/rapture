@@ -20,6 +20,10 @@ class Customer < ActiveRecord::Base
   
   attr_accessible :company, :phone, :mobile, :fax, :email, :language, :homepage
   
+  has_one :contact_address,  :as => :parent, :dependent => :destroy
+  has_one :invoice_address,  :as => :parent, :dependent => :destroy
+  has_one :delivery_address, :as => :parent, :dependent => :destroy
+  
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   homepage_regex = /https?:\/\/(\w+\.)+[a-z]+/i
   
