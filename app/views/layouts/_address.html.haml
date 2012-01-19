@@ -1,0 +1,7 @@
+- address.lines.each do |line|
+  - unless line.blank?
+    %div
+      = line
+%div
+  = address.zip_code + " " + address.city
+  
