@@ -8,13 +8,13 @@
 // = require jquery_ujs
 // = require_tree .
 
-// $(function() {
-//   $("#pagination a").live("click", function() {
-//     $.getScript('assets/customers.js.coffee');
-//     return false;
-//   });
-//   $("#customer_search input").keyup(function() {
-//     $.get($("#customer_search").attr("action"), $("#customer_search").serialize(), null, "script");
-//     return false;
-//   });
-// });
+$(function() {
+  $("#pagination a").live("click", function() {
+    $.getScript('assets/customers.js.coffee');
+    return false;
+  });
+  // $("#customer_search input").keyup(function() {
+  //     $.get($("#customer_search").attr("action"), $("#customer_search").serialize(), null, "script");
+  //     return false;
+  //   });
+});

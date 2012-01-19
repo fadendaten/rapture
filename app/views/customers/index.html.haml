@@ -1,6 +1,8 @@
 %h1
   Alle Kunden
 
+#results
+
 .actions
   .search_function
     = form_tag '/query', :controller => 'customers', :action => 'search', :method => 'get', :id => 'customer_search', :remote => true do

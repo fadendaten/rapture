@@ -3,4 +3,5 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 
-# $('#customers').html("<%= escape_javascript(render ':partial => layouts/display_customers' )%>");
+$('#results').html(" <%= escape_javascript('render :partial => display_customers')");
+$("#results").html("<%= raw (render("products")) %>");
