@@ -42,12 +42,27 @@
       %span.column_right
         = link_to "#{@customer.homepage}", @customer.homepage
       %hr
-
+%br
 .address    
   %h3 
     Kontaktadresse
-  - unless @customer.contact_address.nil?
-    - @customer.contact_address.lines.each do |line|
-      - if line
-        %div= line
-    %div= @customer.contact_address.zip_code
+  - if @customer.contact_address.nil?
+    %div keine
+  - else
+    = render 'layouts/address', :address => @customer.contact_address
+    
+.address    
+  %h3 
+    Rechnungsadresse
+  - if @customer.invoice_address.nil?
+    %div keine
+  - else
+    = render 'layouts/address', :address => @customer.invoice_address
+    
+.address    
+  %h3 
+    Lieferadresse
+  - if @customer.delivery_address.nil?
+    %div keine
+  - else
+    = render 'layouts/address', :address => @customer.delivery_address
