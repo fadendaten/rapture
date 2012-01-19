@@ -81,7 +81,7 @@ describe Customer do
         @customer2.should_not be_valid
       end
       
-      it "should be within 10..15 digits" do
+      it "should be within 10..20 digits" do
         @customer = Customer.new(@attr)
         @customer.should be_valid
         
@@ -93,7 +93,7 @@ describe Customer do
         @customer = Customer.new(@attr)
         @customer.should be_valid
         
-        @attr[:phone] = "123 456 78 90 11 12"
+        @attr[:phone] = "123 456 78 90 11 12 23 23 23"
         @customer2 = Customer.new(@attr)
         @customer2.should_not be_valid
       end
@@ -111,7 +111,7 @@ describe Customer do
         @customer.should be_valid
       end
       
-      it "should be within 10..15 digits" do
+      it "should be within 10..20 digits" do
         @customer = Customer.new(@attr)
         @customer.should be_valid
         
@@ -123,7 +123,7 @@ describe Customer do
         @customer = Customer.new(@attr)
         @customer.should be_valid
         
-        @attr[:mobile] = "123 456 78 90 11 12"
+        @attr[:mobile] = "123 456 78 90 11 12 23 23 23"
         @customer2 = Customer.new(@attr)
         @customer2.should_not be_valid
       end
@@ -141,7 +141,7 @@ describe Customer do
         @customer.should be_valid
       end
       
-      it "should be within 10..15 digits" do
+      it "should be within 10..20 digits" do
         @customer = Customer.new(@attr)
         @customer.should be_valid
         
@@ -153,7 +153,7 @@ describe Customer do
         @customer = Customer.new(@attr)
         @customer.should be_valid
         
-        @attr[:fax] = "123 456 78 90 11 12"
+        @attr[:fax] = "123 456 78 90 11 12 23 23 23"
         @customer2 = Customer.new(@attr)
         @customer2.should_not be_valid
       end
