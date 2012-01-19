@@ -17,14 +17,15 @@
 
 class Address < ActiveRecord::Base
   
-  attr_accessible :line_1, :line_2, :line_3, :zip_code, :city, :country_id, :type
+  attr_accessible :line_1, :line_2, :line_3, :zip_code, :city, :country_code, :type
   
-  belongs_to :customer
+  belongs_to :customer, :polymorphic => true
   
-  validates :line_1, :presence => true
-  validates :zip_code, :presence => true
-  validates :city, :presence => true
-  validates :country_id, :presence => true
+  validates :line_1,       :presence => true
+  validates :zip_code,     :presence => true
+  validates :city,         :presence => true
+  validates :country_code, :presence => true
+  validates :type,         :presence => true
   
 end
 

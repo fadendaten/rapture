@@ -20,9 +20,9 @@ class Customer < ActiveRecord::Base
   
   attr_accessible :company, :phone, :mobile, :fax, :email, :language, :homepage
   
-  has_one :contact_address,  :as => :parent, :dependent => :destroy
-  has_one :invoice_address,  :as => :parent, :dependent => :destroy
-  has_one :delivery_address, :as => :parent, :dependent => :destroy
+  has_one :address
+  
+  accepts_nested_attributes_for :address
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   homepage_regex = /https?:\/\/(\w+\.)+[a-z]+/i
@@ -36,9 +36,9 @@ class Customer < ActiveRecord::Base
   validates :fax,      :length => { :within => 10..20 },
                        :if     => :fax?
   validates :email,    :format => { :with   => email_regex },
-                       :if => :email? 
+                       :if     => :email? 
   validates :homepage, :format => { :with   => homepage_regex },
-                       :if => :homepage?
+                       :if     => :homepage?
                        
   before_validation :format_homepage_url
   
