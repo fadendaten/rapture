@@ -42,3 +42,11 @@
       %span.column_right
         = link_to "#{@customer.homepage}", @customer.homepage
       %hr
+      
+%h3 
+  Kontaktadresse
+  - unless @customer.contact_address.nil?
+    - @customer.contact_address.lines.each do |line|
+      - if line?
+        = line
+    = @customer.contact_address.zip_code

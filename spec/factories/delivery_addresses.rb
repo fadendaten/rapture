@@ -16,8 +16,9 @@
 #  parent_type  :string(255)
 #
 
-require 'spec_helper'
+# Read about factories at http://github.com/thoughtbot/factory_girl
 
-describe Address do
-
+FactoryGirl.define do
+  factory :delivery_address do
+  end
 end

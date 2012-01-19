@@ -37,6 +37,8 @@ describe Customer do
       :language =>  "Italiano",
       :homepage =>  "http://www.foobar.com"
     }
+    
+    @long_number = "1" * 31
   end
   
   describe "validations" do
@@ -93,7 +95,7 @@ describe Customer do
         @customer = Customer.new(@attr)
         @customer.should be_valid
         
-        @attr[:phone] = "123 456 78 90 11 12 23 23 23"
+        @attr[:phone] = @long_number
         @customer2 = Customer.new(@attr)
         @customer2.should_not be_valid
       end
@@ -123,7 +125,7 @@ describe Customer do
         @customer = Customer.new(@attr)
         @customer.should be_valid
         
-        @attr[:mobile] = "123 456 78 90 11 12 23 23 23"
+        @attr[:mobile] = @long_number
         @customer2 = Customer.new(@attr)
         @customer2.should_not be_valid
       end
@@ -153,7 +155,7 @@ describe Customer do
         @customer = Customer.new(@attr)
         @customer.should be_valid
         
-        @attr[:fax] = "123 456 78 90 11 12 23 23 23"
+        @attr[:fax] = @long_number
         @customer2 = Customer.new(@attr)
         @customer2.should_not be_valid
       end
