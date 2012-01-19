@@ -16,8 +16,5 @@
 #  parent_type  :string(255)
 #
 
-require 'spec_helper'
-
-describe Address do
-
+class InvoiceAddress < Address
 end

@@ -1,6 +1,10 @@
-= f.input :line_1,  :label => "Zeile 1:"
-= f.input :line_2,  :label => "Zeile 2:"
-= f.input :line_3,  :label => "Zeile 3:"
-/ = f.input :zip_code
-/ = f.input :city
-/ = f.input :country_code
+.field
+  = f.input :line_1,   :label => "Zeile 1:"
+.field
+  = f.input :line_2,   :label => "Zeile 2:"
+.field  
+  = f.input :line_3,   :label => "Zeile 3:"
+.field
+  = f.input :zip_code, :label => "Postleitzahl:"
+.field
+  = f.input :city,     :label => "Stadt"

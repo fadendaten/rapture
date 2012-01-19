@@ -12,7 +12,8 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #  type         :string(255)
-#  customer_id  :integer(4)
+#  parent_id    :integer(4)
+#  parent_type  :string(255)
 #
 
 # Read about factories at http://github.com/thoughtbot/factory_girl
