@@ -73,6 +73,7 @@ class Customer < ActiveRecord::Base
     start_with_query.sort!
     start_with_query | found_customers
   end
+  
 
 end
 
