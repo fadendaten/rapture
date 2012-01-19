@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  respond_to :html, :js
   
   before_filter :empty_customer, :only => [:new]
   before_filter :authenticate

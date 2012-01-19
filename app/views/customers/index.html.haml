@@ -1,8 +1,5 @@
 %h1
   Alle Kunden
-  
-
-%ul.result
 
 .actions
   .search_function
@@ -14,11 +11,9 @@
 %hr
     
 %ul.pagination
-  %strong Springen zu:
-  - Customer.pagination_letters.each do |letter|
-    %li
-      = link_to letter, customers_path(:letter => letter)
+  #pagination
+    = render 'layouts/pagination'
 
 #customers
-  .customers.round
+  .customers.round  
     = render 'layouts/display_customers'
