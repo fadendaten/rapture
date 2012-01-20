@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   
+  load_and_authorize_resource
   before_filter :empty_customer, :only => [:new]
   before_filter :authenticate
   
