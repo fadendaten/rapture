@@ -49,6 +49,12 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+  
+  def has_role?(role_sym)
+    self.user_roles.any? {
+      |role| role.name.to_sym == role_sym
+    }
+  end
 
   private
 
