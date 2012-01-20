@@ -5,6 +5,7 @@ gem 'mysql2', '~>0.3.0'
 gem 'haml'
 gem 'simple_form'
 gem 'paginate_alphabetically', git: 'git://github.com/edendevelopment/paginate_alphabetically.git', branch: 'bundler'
+gem 'cancan'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
