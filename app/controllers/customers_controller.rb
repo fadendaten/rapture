@@ -1,6 +1,7 @@
 class CustomersController < ApplicationController
   
   load_and_authorize_resource
+  skip_authorize_resource :only => :search
   before_filter :empty_customer, :only => [:new]
   before_filter :authenticate
   
