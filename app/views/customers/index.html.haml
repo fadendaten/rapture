@@ -1,37 +1,15 @@
-/%h1
-/  Alle Kunden
-/
-/%ul
-/  #results
-/
-/.actions
-/  .search_function
-/    = form_tag '/query', :controller => 'customers', :action => 'search', :method => 'get', :id => 'customer_search', :remote => true do
-/      = search_field_tag 'search', params[:search]
-/      = submit_tag "Kunden suchen"
-/      
-/  .new_customer    
-/    = link_to 'neuen Kunden erfassen', new_customer_path()
-/%hr
-/
-/%ul.pagination
-/  #pagination
-/    = render 'layouts/pagination'
-/#customers  
-/  .customers.round  
-/    = render 'layouts/display_customers'
-     
 %h1
   Alle Kunden
 
 
-%ul.result
+#result
 
 .actions
   .search_function
-    = form_tag '/query', :controller => 'customers', :action => 'search', :id => 'customer_search' do
-      = search_field_tag 'search'
+    = form_tag '/search', {:controller => 'customers', :action => 'search', :id => 'customer_search'} do
+      = search_field_tag 'search', params[:search]
       = submit_tag "Kunden suchen"
+      
   .new_customer    
     = link_to 'neuen Kunden erfassen', new_customer_path()
 %hr
@@ -44,15 +22,4 @@
 
 #customers
   .customers.round
-    - @customers.each do |customer|
-      .customer
-        %ul
-          %li.company_column
-            = link_to "#{customer.company}", customer
-          %li.phone_column
-            = customer.phone
-          %li.email_column
-            = customer.email
-          %li.edit_column
-            = link_to  "editieren", edit_customer_path(customer)
-          %hr
+    = render 'layouts/display_customers'

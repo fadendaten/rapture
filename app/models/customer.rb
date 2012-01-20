@@ -61,7 +61,7 @@ class Customer < ActiveRecord::Base
 
   def self.search(search)
     search_condition = "%" + search + "%"
-    found_customers = find(:all, :conditions => ['company LIKE ? OR phone LIKE ?', search_condition, search_condition])
+    found_customers = find(:all, :conditions => ['LOWER(company) LIKE ? OR LOWER(phone) LIKE ?', search_condition, search_condition])
     
     # sort mechanism: sorts results, ones that start with the search string are presented first,
     # and results where the search string is somewhere in the result are presented afterwards.
