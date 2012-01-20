@@ -18,6 +18,8 @@ class Customer < ActiveRecord::Base
   
   paginate_alphabetically :by => :company
   
+  # TODO: Refactor into modules and eradicate duplicated code
+  
   has_one  :contact_address,  :as => :parent, :dependent => :destroy
   has_one  :invoice_address,  :as => :parent, :dependent => :destroy
   has_one  :delivery_address, :as => :parent, :dependent => :destroy
