@@ -15,6 +15,9 @@
 
 class User < ActiveRecord::Base
   
+  has_many :user_role_assignments
+  has_many :user_roles, :through => :user_role_assignments
+  
   attr_accessor   :password
   attr_accessible :username, :email, :password, :password_confirmation, :first_name, :last_name
   
