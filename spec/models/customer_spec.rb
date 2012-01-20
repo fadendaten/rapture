@@ -18,30 +18,30 @@ require 'spec_helper'
 
 describe Customer do
   
-  before(:each) do
-    @attr = {
-      :company =>   "Foo_Bar Inc.",
-      :phone =>     "123 123 12 34",
-      :mobile =>    "123 123 12 34",
-      :fax =>       "123 123 12 34",
-      :email =>     "foo@bar.com",
-      :language =>  "English",
-      :homepage =>  "http://www.example.com"
-    }
-    @attr2 = {
-      :company =>   "Foo_Bar Inc.",
-      :phone =>     "444 444 44 55",
-      :mobile =>    "444 444 44 55",
-      :fax =>       "444 444 44 55",
-      :email =>     "dani@dani.com",
-      :language =>  "Italiano",
-      :homepage =>  "http://www.foobar.com"
-    }
-    
-    @long_number = "1" * 31
-  end
-  
   describe "validations" do
+    
+    before(:each) do
+      @attr = {
+        :company =>   "Foo_Bar Inc.",
+        :phone =>     "123 123 12 34",
+        :mobile =>    "123 123 12 34",
+        :fax =>       "123 123 12 34",
+        :email =>     "foo@bar.com",
+        :language =>  "English",
+        :homepage =>  "http://www.example.com"
+      }
+      @attr2 = {
+        :company =>   "Foo_Bar Inc.",
+        :phone =>     "444 444 44 55",
+        :mobile =>    "444 444 44 55",
+        :fax =>       "444 444 44 55",
+        :email =>     "dani@dani.com",
+        :language =>  "Italiano",
+        :homepage =>  "http://www.foobar.com"
+      }
+
+      @long_number = "1" * 31
+    end
     
     describe "company validation" do
       
@@ -230,12 +230,26 @@ describe Customer do
     
   end
   
-  describe "to_s" do
+  describe "attributes" do
     
-    it "should return company" do
-      @attr[:company].should == "Foo_Bar Inc."
-      @customer = Customer.new(@attr)
-      @customer.to_s.should == "Foo_Bar Inc."
+    before(:each) do
+      @customer = Factory(:customer)
+    end
+  
+    describe "address attributes" do
+      
+      it "should have a contact_address attribe" do
+        @customer.should respond_to(:contact_address)
+      end
+      
+      it "should have a invoice_address attribe" do
+        @customer.should respond_to(:invoice_address)
+      end
+      
+      it "should have a delivery_address attribe" do
+        @customer.should respond_to(:delivery_address)
+      end
+      
     end
     
   end
