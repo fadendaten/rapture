@@ -4,6 +4,13 @@ namespace :db do
   desc "Fill database with sample data"
   task :populate => :environment do
     Rake::Task['db:reset'].invoke
+    admin_role = UserRole.create!(:name => 'admin')
+    admin = User.create!(:username => "admin",
+                 :email => "felix@uhu.com",
+                 :password => "test123",
+                 :first_name => "Chrigu",
+                 :last_name => "DaBoss")
+    admin.user_roles.push(admin_role)
     User.create!(:username => "felix",
                  :email => "felix@uhu.com",
                  :password => "test123",

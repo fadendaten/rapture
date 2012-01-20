@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
   
   def has_role?(role_sym)
     self.user_roles.any? {
-      |role| role.name.to_sym == role_sym
+      |role| role.name.underscore.to_sym == role_sym
     }
   end
 
