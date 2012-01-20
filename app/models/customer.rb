@@ -18,8 +18,6 @@ class Customer < ActiveRecord::Base
   
   paginate_alphabetically :by => :company
   
-  attr_accessible :company, :phone, :mobile, :fax, :email, :language, :homepage, :contact_address_attributes, :invoice_address_attributes, :delivery_address_attributes
-  
   has_one  :contact_address,  :as => :parent, :dependent => :destroy
   has_one  :invoice_address,  :as => :parent, :dependent => :destroy
   has_one  :delivery_address, :as => :parent, :dependent => :destroy
