@@ -67,7 +67,7 @@ class Customer < ActiveRecord::Base
     # and results where the search string is somewhere in the result are presented afterwards.
     start_with_query = Array.new
     found_customers.each do |found|
-      start_with_query.push(found) if found.company.start_with?(search)
+      start_with_query.push(found) if found.company.downcase.start_with?(search.downcase)
     end
     found_customers.sort!
     start_with_query.sort!
