@@ -8,5 +8,6 @@
       %li.email_column
         = customer.email
       %li.edit_column
-        = link_to  "editieren", edit_customer_path(customer)
+        - if can? :update, Customer
+          = link_to  "editieren", edit_customer_path(customer)
       %hr
