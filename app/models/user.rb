@@ -43,7 +43,7 @@ class User < ActiveRecord::Base
     self.user_roles.any? {
       |role| role.name.underscore.to_sym == role_sym
     }
-  end 
+  end
 
 end
 

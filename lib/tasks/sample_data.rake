@@ -17,27 +17,27 @@ namespace :db do
                           :password   => "test123",
                           :first_name => "Simon",
                           :last_name  => "Fuetzgue")
-      sudo.user_roles << sudo_role
+      sudo.user_roles.push(sudo_role)
       
       admin = User.create!(:username   => "admin",
                            :email      => "admin@admin.com",
                            :password   => "test123", 
                            :first_name => "Chrigu",
                            :last_name  => "Da Boss")
-      admin.user_roles << admin_role
+      admin.user_roles.push(admin_role)
       
       base = User.create!(:username   => "spongebob",
                           :email      => "squarepants@bikinibottom.com",
                           :password   => "test123",
                           :first_name => "Felix",
                           :last_name  => "Uhu")
-      base.user_roles << base_role
+      base.user_roles.push(base_role)
       
       # Create customers
       500.times do
         company = Faker::Name.name
-        phone = Faker::PhoneNumber.phone_number
-        email = Faker::Internet.email
+        phone   = Faker::PhoneNumber.phone_number
+        email   = Faker::Internet.email
         Customer.create!(:company => company, :phone => phone, :email => email)
       end
     end
