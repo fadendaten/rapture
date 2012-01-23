@@ -5,6 +5,8 @@ describe CustomersController do
   
   before(:each) do
     @customer = Factory(:customer)
+    @user = Factory(:user)
+    @user.user_roles.push(UserRole.where(:name => "admin"))
   end
 
   describe "GET 'new'" do
@@ -21,7 +23,7 @@ describe CustomersController do
     describe "for signed in users" do
       
       before(:each) do
-        @user = test_sign_in(Factory(:user))
+        test_sign_in(@user)
       end
       
       it "should return http success" do
@@ -52,7 +54,7 @@ describe CustomersController do
     describe "for signed in users" do
       
       before(:each) do
-        @user = test_sign_in(Factory(:user))
+        test_sign_in(@user)
       end
       
       it "should return http success" do
