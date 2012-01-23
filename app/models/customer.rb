@@ -16,21 +16,11 @@
 
 class Customer < ActiveRecord::Base
   
-  paginate_alphabetically :by => :company
-  
-  # TODO: Refactor into modules and eradicate duplicated code
-  
-  has_one  :contact_address,  :as => :parent, :dependent => :destroy
-  has_one  :invoice_address,  :as => :parent, :dependent => :destroy
-  has_one  :delivery_address, :as => :parent, :dependent => :destroy
-  has_many :comments,         :as => :parent, :dependent => :destroy
-  
-  accepts_nested_attributes_for :contact_address,  :reject_if => lambda { |a| a[:line_1].blank? }
-  accepts_nested_attributes_for :invoice_address,  :reject_if => lambda { |a| a[:line_1].blank? }
-  accepts_nested_attributes_for :delivery_address, :reject_if => lambda { |a| a[:line_1].blank? }
-  
-  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  homepage_regex = /https?:\/\/(\w+\.)+[a-z]+/i
+  include Accountable
+  act_as_addressable
+  act_as_customer
+
+  has_many :comments, :as => :parent, :dependent => :destroy
   
   validates :company,  :presence   => :true,
                        :uniqueness => { :case_sensitive => true }
@@ -40,40 +30,14 @@ class Customer < ActiveRecord::Base
                        :if     => :mobile?
   validates :fax,      :length => { :within => 10..30 },
                        :if     => :fax?
-  validates :email,    :format => { :with   => email_regex },
+  validates :email,    :format => { :with   => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                        :if     => :email? 
-  validates :homepage, :format => { :with   => homepage_regex },
+  validates :homepage, :format => { :with   => /https?:\/\/(\w+\.)+[a-z]+/i },
                        :if     => :homepage?
                        
   before_validation :format_homepage_url
   
-  def to_s
-    company
-  end
-  
-  def format_homepage_url
-    unless homepage.blank? || homepage.starts_with?("http://", "https://")
-      self.homepage = "http://#{homepage}"
-    else
-      self.homepage = homepage
-    end
-  end
-
-  def self.search(search)
-    search_condition = "%" + search + "%"
-    found_customers = find(:all, :conditions => ['LOWER(company) LIKE ? OR LOWER(phone) LIKE ?', search_condition, search_condition])
-    
-    # sort mechanism: sorts results, ones that start with the search string are presented first,
-    # and results where the search string is somewhere in the result are presented afterwards.
-    start_with_query = Array.new
-    found_customers.each do |found|
-      start_with_query.push(found) if found.company.downcase.start_with?(search.downcase)
-    end
-    found_customers.sort!
-    start_with_query.sort!
-    start_with_query | found_customers
-  end
-  
+  paginate_alphabetically :by => :company
 
 end
 

@@ -15,19 +15,18 @@
 
 class User < ActiveRecord::Base
   
+  include Authenticated
+  
   has_many :user_role_assignments
   has_many :user_roles, :through => :user_role_assignments
   
-  attr_accessor   :password
   attr_accessible :username, :email, :password, :password_confirmation, :first_name, :last_name
-  
-  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   
   validates :username,   :presence => true,
                          :length   => { :within => 4..40 },
                          :uniqueness => true 
   validates :email,      :presence   => true,
-                         :format     => { :with => email_regex }
+                         :format     => { :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :password,   :presence     => true,
                          :confirmation => true,
                          :length       => { :within => 6..40 }
@@ -36,16 +35,6 @@ class User < ActiveRecord::Base
                        
   before_save :encrypt_password
 
-  def self.authenticate(username, submitted_password)
-    user = User.find_by_username(username)
-    (user && user.encrypted_password == Digest::SHA2.hexdigest("#{user.salt}--#{submitted_password}")) ? user : nil
-  end
-
-  def self.authenticate_with_salt(id, cookie_salt)
-    user = User.find_by_id(id)
-    (user && user.salt == cookie_salt) ? user : nil
-  end
-  
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -54,26 +43,7 @@ class User < ActiveRecord::Base
     self.user_roles.any? {
       |role| role.name.underscore.to_sym == role_sym
     }
-  end
-
-  private
-
-    def encrypt_password
-      self.salt = make_salt if new_record?
-      self.encrypted_password = encrypt(password)
-    end
-
-    def encrypt(string)
-      secure_hash("#{salt}--#{string}")
-    end
-
-    def make_salt
-      secure_hash("#{Time.now.utc}--#{password}")
-    end
-
-    def secure_hash(string)
-      Digest::SHA2.hexdigest(string)
-    end
+  end 
 
 end
 
