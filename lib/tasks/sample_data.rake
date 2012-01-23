@@ -5,18 +5,35 @@ namespace :db do
     desc "Fill database with sample data"
     task :seed => :environment do
       Rake::Task['db:reset'].invoke
-      admin_role = UserRole.create!(:name => 'admin')
-      admin = User.create!(:username => "admin",
-                   :email => "felix@uhu.com",
-                   :password => "test123",
-                   :first_name => "Chrigu",
-                   :last_name => "DaBoss")
-      admin.user_roles.push(admin_role)
-      User.create!(:username => "felix",
-                   :email => "felix@uhu.com",
-                   :password => "test123",
-                   :first_name => "Felix",
-                   :last_name => "Uhu")
+      
+      # Create roles
+      sudo_role  = UserRole.create!(:name => "sudo")
+      admin_role = UserRole.create!(:name => "admin")
+      base_role  = UserRole.create!(:name => "base")
+      
+      # Create users
+      sudo = User.create!(:username   => "sudo", 
+                          :email      => "sudo@sudo.com",
+                          :password   => "test123",
+                          :first_name => "Simon",
+                          :last_name  => "Fuetzgue")
+      sudo.user_roles << sudo_role
+      
+      admin = User.create!(:username   => "admin",
+                           :email      => "admin@admin.com",
+                           :password   => "test123", 
+                           :first_name => "Chrigu",
+                           :last_name  => "Da Boss")
+      admin.user_roles << admin_role
+      
+      base = User.create!(:username   => "spongebob",
+                          :email      => "squarepants@bikinibottom.com",
+                          :password   => "test123",
+                          :first_name => "Felix",
+                          :last_name  => "Uhu")
+      base.user_roles << base_role
+      
+      # Create customers
       500.times do
         company = Faker::Name.name
         phone = Faker::PhoneNumber.phone_number

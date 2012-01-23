@@ -1,13 +1,13 @@
 class CustomersController < ApplicationController
   
-  load_and_authorize_resource
+  load_and_authorize_resource :except => :browse_tours
   skip_authorize_resource :only => :search
   before_filter :authenticate
   before_filter :empty_customer, :only => [:new]
   
   def index
     @title = "Home"
-    @customers = Customer.alphabetical_group(params[:letter])
+    # @customers = Customer.alphabetical_group(params[:letter])
   end
   
   def new
@@ -16,7 +16,7 @@ class CustomersController < ApplicationController
   end
   
   def create
-    @customer = Customer.new(params[:customer])
+    # @customer = Customer.new(params[:customer])
     if @customer.save
       redirect_to @customer, :flash => { :success => "Kunde wurde erfolgreich erfasst." }
     else
@@ -26,13 +26,13 @@ class CustomersController < ApplicationController
   end
   
   def edit
-    @customer = Customer.find(params[:id])
+    # @customer = Customer.find(params[:id])
     @title = "#{@customer} editieren"
     render 'forms'
   end
   
   def update
-    @customer = Customer.find(params[:id])
+    # @customer = Customer.find(params[:id])
      if  @customer.update_attributes(params[:customer])
        redirect_to @customer, :flash => { :success => "Informationen angepasst." }
      else
@@ -42,13 +42,13 @@ class CustomersController < ApplicationController
    end
   
   def show
-    @customer = Customer.find(params[:id])
+    # @customer = Customer.find(params[:id])
     @title = @customer.company
   end
   
   def search
     @title = "Home"
-    @customers = Customer.search(params[:search])
+    # @customers = Customer.search(params[:search])
     render 'index'
   end
 
