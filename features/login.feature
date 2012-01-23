@@ -4,11 +4,12 @@ Feature: Login
   I want to be able to login with a secure password.
   
   Scenario: normal user logs into rapture.
-    Given I go to the signin page
+    Given A normal user exists
+    And I go to the signin page
     And I fill in "Benutzername:" with "dummy"
-    And I fill in "Passwort:" with "test123"
+    And I fill in "Passwort:" with "foobar"
     When I press "Einloggen"
-    Then I should be on the index page
-    And I should see some Customers
+    Then I should be on the customers page
+    And I should see "Kunden"
   
   
