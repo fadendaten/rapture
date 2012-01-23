@@ -5,7 +5,7 @@
   %h3
     Firma
   = simple_form_for @customer do |f|
-    = render 'layouts/company_fields', :f => f
+    = render 'customers/shared/company_fields', :f => f
     %br
     %hr
     
@@ -13,7 +13,7 @@
       Kontaktadresse
     - @customer.build_contact_address unless @customer.contact_address
     = f.simple_fields_for :contact_address do |builder|
-      = render 'layouts/address_fields', :f => builder
+      = render 'customers/shared/address_fields', :f => builder
       %br
       %hr
       
@@ -21,7 +21,7 @@
       Rechnungsadresse
     - @customer.build_invoice_address unless @customer.invoice_address
     = f.simple_fields_for :invoice_address do |builder|
-      = render 'layouts/address_fields', :f => builder
+      = render 'customers/shared/address_fields', :f => builder
       %br
       %hr
       
@@ -29,7 +29,7 @@
       Lieferungsadresse
     - @customer.build_delivery_address unless @customer.delivery_address
     = f.simple_fields_for :delivery_address do |builder|
-      = render 'layouts/address_fields', :f => builder
+      = render 'customers/shared/address_fields', :f => builder
       %br
       %hr
     

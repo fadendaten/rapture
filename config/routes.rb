@@ -3,11 +3,13 @@ Rapture::Application.routes.draw do
   root :to => 'customers#index'
   
   resources :customers
-  resources :users
+  # resources :users # Not used right now
   resources :sessions, :only => [:new, :create, :destroy]
+  
   match '/signin',          :to => 'sessions#new'
   match '/signout',         :to => 'sessions#destroy'
-  post '/search' => 'customers#search'
+  
+  post  '/search' => 'customers#search'
   
   
 #  match '/new',           :to => 'customers#new'

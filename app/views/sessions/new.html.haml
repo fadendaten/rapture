@@ -2,6 +2,6 @@
 
 .signin_form
   = simple_form_for(:session, :url => sessions_path) do |f|
-    = render 'layouts/signin_fields', :f => f
+    = render 'sessions/shared/signin_fields', :f => f
     = f.submit "Einloggen", :id => "submit"
     

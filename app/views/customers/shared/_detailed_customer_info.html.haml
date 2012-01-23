@@ -49,7 +49,7 @@
   - if @customer.contact_address.nil?
     %div keine
   - else
-    = render 'layouts/address', :address => @customer.contact_address
+    = render 'customers/shared/address', :address => @customer.contact_address
     
 .address    
   %h3 
@@ -57,7 +57,7 @@
   - if @customer.invoice_address.nil?
     %div keine
   - else
-    = render 'layouts/address', :address => @customer.invoice_address
+    = render 'customers/shared/address', :address => @customer.invoice_address
     
 .address    
   %h3 
@@ -65,4 +65,4 @@
   - if @customer.delivery_address.nil?
     %div keine
   - else
-    = render 'layouts/address', :address => @customer.delivery_address
+    = render 'customers/shared/address', :address => @customer.delivery_address

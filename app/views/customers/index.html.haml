@@ -1,9 +1,6 @@
 %h1
   Alle Kunden
 
-
-#result
-
 .actions
   .search_function
     = form_tag '/search', {:controller => 'customers', :action => 'search', :id => 'customer_search'} do
@@ -23,4 +20,4 @@
 
 #customers
   .customers.round
-    = render 'layouts/display_customers'
+    = render 'customers/shared/display_customers'
