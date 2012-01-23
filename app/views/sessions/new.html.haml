@@ -1,6 +1,5 @@
 %h1 Einloggen
 
-
 .signin_form
   = simple_form_for(:session, :url => sessions_path) do |f|
     = render 'layouts/signin_fields', :f => f

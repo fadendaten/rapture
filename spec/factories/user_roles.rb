@@ -12,6 +12,6 @@
 
 FactoryGirl.define do
   factory :user_role do
-    name "MyString"
+    name "admin"
   end
 end
