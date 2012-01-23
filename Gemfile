@@ -4,7 +4,7 @@ gem 'rails', '3.1.0'
 gem 'mysql2', '~>0.3.0'
 gem 'haml'
 gem 'simple_form'
-gem 'paginate_alphabetically', git: 'git://github.com/edendevelopment/paginate_alphabetically.git', branch: 'bundler'
+gem 'paginate_alphabetically', :git => 'git://github.com/edendevelopment/paginate_alphabetically.git', :branch => 'bundler'
 gem 'cancan'
 
 # Bundle edge Rails instead:
@@ -50,4 +50,5 @@ group :test do
   gem 'factory_girl_rails'
   gem 'cucumber-rails'
   gem 'webrat'
+  gem 'database_cleaner'
 end

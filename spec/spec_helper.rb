@@ -7,6 +7,10 @@ Spork.prefork do
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
   require 'rspec/autorun'
+  
+  # Database cleaner: is used for Cucumber tests, see https://gist.github.com/1209207
+  require 'database_cleaner'
+  DatabaseCleaner.strategy = :truncation
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -44,6 +48,7 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
+  DatabaseCleaner.clean
   
 end
 
