@@ -40,21 +40,7 @@ module Accountable
       end
     end
 
-    #TODO: Refactor
-    def self.search(search)
-      search_condition = "%" + search + "%"
-      found_customers = find(:all, :conditions => ['LOWER(company) LIKE ? OR LOWER(phone) LIKE ?', search_condition, search_condition])
-
-      # sort mechanism: sorts results, ones that start with the search string are presented first,
-      # and results where the search string is somewhere in the result are presented afterwards.
-      start_with_query = Array.new
-      found_customers.each do |found|
-        start_with_query.push(found) if found.company.downcase.start_with?(search.downcase)
-      end
-      found_customers.sort!
-      start_with_query.sort!
-      start_with_query | found_customers
-    end
+    
   end
   
 end
