@@ -7,7 +7,6 @@ describe CustomersController do
     @customer = Factory(:customer)
     @user = Factory(:user)
     @user.user_roles << UserRole.where(:name => "admin")
-    @user.save
   end
 
   describe "GET 'new'" do
@@ -16,7 +15,7 @@ describe CustomersController do
       
       it "should deny access" do
         get :new
-        response.should redirect_to(signin_path)
+        response.should redirect_to(root_path)
       end
       
     end
@@ -47,7 +46,7 @@ describe CustomersController do
       
       it "should deny access" do
         get :edit, :id => @customer 
-        response.should redirect_to(signin_path)
+        response.should redirect_to(root_path)
       end
       
     end
