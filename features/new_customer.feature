@@ -17,6 +17,16 @@ Feature: New customer
     And I press "Speichern"
     Then I should see "Kunde wurde erfolgreich erfasst"
     And I should see "Fadendaten"
+    
+  Scenario: base user tries to invoke new action for customer
+    Given I am logged in as a "base"
+    And I should not see "neuen Kunden erfassen"
+    When I go to the new customer page
+    Then I should be on the home page
+    And I should see "You tried to bypass our security measures."
+  
+  
+  
   
   
   
