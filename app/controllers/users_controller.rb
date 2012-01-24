@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   
   load_and_authorize_resource
   
+  
   def index
     @title = "Alle Benutzer"
     @users = User.all
@@ -22,11 +23,17 @@ class UsersController < ApplicationController
   end
   
   def edit
-    
+    @title = "#{@user.username} editieren"
+    render 'user_form'
   end
   
   def update
-    
+    if  @user.update_attributes(params[:user])
+       redirect_to @user, :flash => { :success => "Informationen angepasst." }
+     else
+       @title = "#{@user} editieren"
+       render 'user_form'
+     end
   end
   
   def show
