@@ -4,11 +4,14 @@ Feature: Search
   I want fast and reliable search possibilities
   
   Scenario: normal user searches for customer Chuck Testa
-    Given A customer with name "Chuck Testa" exists
-    And I am logged in
+    Given A customer with companyname "Chuck Testa" exists
+    And A customer with companyname "Anne Banne" exists
+    And I am logged in as a "admin"
     And I am on the home page
-    When I fill_in "search" with "Chuck"
-    and press "Kunde suchen"
+    And I should see "Alle Kunden"
+    And I should not see "Chuck Testa"
+    When I fill in "search_field" with "Chuck"
+    And press "Kunden suchen"
     Then I should see "Chuck Testa"
   
   

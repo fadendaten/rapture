@@ -11,7 +11,17 @@
 # Read about factories at http://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :user_role do
+  
+  factory :sudo, :class => UserRole do
+    name "sudo"
+  end
+  
+  factory :admin, :class => UserRole do
     name "admin"
   end
+  
+  factory :base, :class => UserRole do
+    name "base"
+  end
+  
 end

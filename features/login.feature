@@ -4,7 +4,7 @@ Feature: Login
   I want to be able to login with a secure password.
   
   Scenario: normal user logs into rapture.
-    Given A normal user exists
+    Given A base user exists
     And I go to the signin page
     And I fill in "Benutzername:" with "dummy"
     And I fill in "Passwort:" with "foobar"
