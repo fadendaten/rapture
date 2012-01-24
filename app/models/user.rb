@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
                          :uniqueness => true
   validates :email,      :presence   => true,
                          :format     => { :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
-  validates :password,   :presence     => true,
+  validates :password,   :presence => true,
                          :confirmation => true,
                          :length       => { :within => 6..40 }
   validates :first_name, :presence => true
@@ -44,6 +44,6 @@ class User < ActiveRecord::Base
       |role| role.name.underscore.to_sym == role_sym
     }
   end
-
+  
 end
 
