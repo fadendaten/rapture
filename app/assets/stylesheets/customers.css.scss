@@ -20,16 +20,25 @@
 			list-style-type: none;
 			display: inline-block;
 			padding: 0.2em 0;
-			width: 230px;
 		}
 	}
 }
 
 .company_column {
 	margin-left: 10px;
+	width: 280px;
+}
+
+.phone_column {
+	width: 280px;
+}
+
+.email_column {
+	width: 280px;
 }
 
 .edit_column {
+	width: 80px;
 	text-align: right;
 }
 

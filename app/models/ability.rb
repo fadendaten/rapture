@@ -41,7 +41,7 @@ class Ability
   end
   
   def define_base_abilities
-    can :view, :all
+    can :read, :all
   end
   
 end
