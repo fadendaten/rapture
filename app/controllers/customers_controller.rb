@@ -16,7 +16,6 @@ class CustomersController < ApplicationController
   end
   
   def create
-    @customer = Customer.new(params[:customer])
     if @customer.save
       redirect_to @customer, :flash => { :success => "Kunde wurde erfolgreich erfasst." }
     else
