@@ -14,5 +14,7 @@
       = f.input :password,              :label => 'Password:'
     .field
       = f.input :password_confirmation, :label => 'Bestätigen:'
+    .field
+      = f.association :user_roles,      :label => 'Berechtigung:'
       
       = f.submit "Speichern", :id => "submit"
