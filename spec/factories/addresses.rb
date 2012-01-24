@@ -21,11 +21,10 @@
 
 FactoryGirl.define do
   factory :address do
-    line_1 "MyString"
-    line_2 "MyString"
-    line_3 "MyString"
-    zip_code "MyString"
-    city "MyString"
-    country_code "MyString"
+    line_1       "NoWhere 23b"
+    line_2       "Everland District"
+    zip_code     "3423"
+    city         "Neverland"
+    country_code "CH"
   end
 end
