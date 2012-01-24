@@ -222,4 +222,16 @@ describe Customer do
     
   end
   
+  describe "search function" do
+    
+    before(:each) do
+      @customer = Factory(:customer)
+    end
+    
+    it "should exist as class method" do
+      @customer.class.should respond_to(:search)
+    end
+    
+  end
+  
 end
