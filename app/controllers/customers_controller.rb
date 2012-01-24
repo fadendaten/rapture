@@ -6,7 +6,7 @@ class CustomersController < ApplicationController
   before_filter :empty_customer, :only => [:new]
   
   def index
-    @title = "Home"
+    @title = "Alle Kunden"
     @customers = Customer.alphabetical_group(params[:letter])
   end
   

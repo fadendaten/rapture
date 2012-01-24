@@ -11,5 +11,13 @@
 require 'spec_helper'
 
 describe UserRole do
+  
+  before(:each) do
+    @user_role = Factory(:sudo)
+  end
 
+  it "should have a name attribute" do
+    @user_role.should respond_to(:name)
+  end
+  
 end
