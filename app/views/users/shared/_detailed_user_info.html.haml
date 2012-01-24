@@ -1,0 +1,14 @@
+.user_info
+  %ul
+    %li
+      %span.column_left
+        Benutzername:
+      %span.column_right
+        = @user.username
+      %hr
+    %li
+      %span.column_left
+        Email:
+      %span.column_right
+        = mail_to @user.email
+      %hr

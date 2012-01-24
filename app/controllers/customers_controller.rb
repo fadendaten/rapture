@@ -3,7 +3,6 @@ class CustomersController < ApplicationController
   load_and_authorize_resource
   skip_authorize_resource :only => [:index, :search]
   before_filter :authenticate
-  before_filter :empty_customer, :only => [:new]
   
   def index
     @title = "Home"
@@ -54,9 +53,5 @@ class CustomersController < ApplicationController
     def authenticate
       deny_access unless signed_in?
     end
-  
-    def empty_customer
-      @customer = Customer.new
-    end
-
+    
 end

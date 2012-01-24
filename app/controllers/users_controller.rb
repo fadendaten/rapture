@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   
   def index
     @title = "Alle Benutzer"
-    
+    @users = User.all
   end
   
   def new

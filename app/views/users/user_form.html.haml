@@ -1,4 +1,4 @@
-%h1= @user.new_record? ? "Neuen User erfassen" : @user.full_name + " editieren"
+%h1= @user.new_record? ? "Neuen Benutzer erfassen" : @user.full_name + " editieren"
 
 .form
   = simple_form_for @user do |f|

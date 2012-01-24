@@ -1,0 +1,30 @@
+%h1
+  Alle Benutzer
+
+.actions
+    
+  - if can? :create, User  
+    .new_customer    
+      = link_to 'neuen Benutzer erfassen', new_user_path()
+%hr
+
+/ %ul.pagination
+/   %strong Springen zu:
+/   - User.pagination_letters.each do |letter|
+/     %li
+/       = link_to letter, customers_path(:letter => letter)
+
+#users
+  .users.round
+    - @users.each do |user|
+      .user
+        %ul
+          %li.username_column
+            = link_to "#{user.username}", user
+          %li.email_column
+            = user.email
+          %li.edit_column
+            - if can? :update, User
+              = link_to  "editieren", edit_user_path(user)
+          %hr
+    / = render 'users/shared/display_users'
