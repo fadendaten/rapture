@@ -42,11 +42,12 @@ class User < ActiveRecord::Base
     user.last_name = attributes[:last_name]
     user.email = attributes[:email]
     user.password = generate_new_password
-    attributes[:user_roles].each { |role| user.user_roles << role }
+    attributes[:user_role_ids].each { |id| user.user_roles << UserRole.find(id) }
     user.save!
+    user
   end
   
-  def generate_new_password
+  def self.generate_new_password
     "test123"
   end
 

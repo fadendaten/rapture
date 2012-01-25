@@ -14,7 +14,8 @@ class UsersController < ApplicationController
   end
   
   def create
-    if @user.build(params[:user])
+    @user = User.build(params[:user])
+    if @user.valid?
       redirect_to @user, :flash => { :success => "Benutzer wurde erfolgreich erfasst." }
     else
       @title = "Benutzer erfassen"
