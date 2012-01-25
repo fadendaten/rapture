@@ -6,7 +6,7 @@ describe CustomersController do
   before(:each) do
     @customer = Factory(:customer)
     @user = Factory(:user)
-    @user.user_roles << Factory(:user_role)
+    @user.user_roles << Factory(:admin)
   end
 
   describe "GET 'new'" do
