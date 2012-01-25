@@ -11,5 +11,8 @@
     .field
       = f.input :email,                 :label => 'E-Mail:'
     .field
-      = f.association :user_roles,      :as => :check_boxes, :label => 'Berechtigung:'
+      %label
+        Berechtigung:
+      .assoc_items
+        = f.association :user_roles, :label => false, :as => :check_boxes, :item_wrapper_tag => :div
     = f.submit "Speichern", :id => "submit"
