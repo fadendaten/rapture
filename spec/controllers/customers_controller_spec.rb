@@ -11,7 +11,7 @@ describe CustomersController do
 
   describe "GET 'new'" do
     
-    describe "for non-signed in users" do
+    describe "for non-signed-in users" do
       
       it "should deny access" do
         get :new
@@ -20,7 +20,7 @@ describe CustomersController do
       
     end
     
-    describe "for signed in users" do
+    describe "for signed-in users" do
       
       before(:each) do
         test_sign_in(@user)
@@ -33,9 +33,93 @@ describe CustomersController do
 
       it "should have the right title" do
         get :new
-        response.should have_selector( 'title', :content => "Kunden erfassen")
+        response.should have_selector('title', :content => "Kunden erfassen")
       end
       
+      it "should have a company name field" do
+        get :new
+        response.should have_selector("input[name='customer[company]'][type='text']")
+      end
+
+      it "should have an email field" do
+        get :new
+        response.should have_selector("input[name='customer[email]'][type='text']")
+      end
+
+      it "should have a phone field" do
+        get :new
+        response.should have_selector("input[name='customer[phone]'][type='text']")
+      end
+
+      it "should have a mobile field" do
+        get :new
+        response.should have_selector("input[name='customer[mobile]'][type='text']")
+      end
+      
+      it "should have a fax field" do
+        get :new
+        response.should have_selector("input[name='customer[fax]'][type='text']")
+      end
+      
+    end
+    
+  end
+  
+  describe "GET 'index'" do
+    
+    describe "for non-signed-in users" do
+      
+      it "should deny access" do
+        get :index
+        response.should redirect_to(signin_path)
+      end
+      
+    end
+    
+    describe "for signed-in users" do
+      
+      before(:each) do
+        test_sign_in(@user)
+      end
+      
+      it "should return http success" do
+        get :index
+        response.should be_success
+      end
+      
+      it "should have the right title" do
+        get :index
+        response.should have_selector('title', :content => "Alle Kunden")
+      end
+      
+    end
+    
+  end
+  
+  describe "GET 'show'" do
+    
+    before(:each) do
+      test_sign_in(@user)
+    end
+    
+    it "should be successful" do
+      get :show, :id => @customer
+      response.should be_success
+    end
+    
+    it "should find the right user" do
+      get :show, :id => @customer
+      assigns(:customer).should == @customer
+    end
+    
+    it "should have the right title" do
+      get :show, :id => @customer
+      response.should have_selector('title', :content => @customer.company)
+    end
+    
+    it "should have the customers's company name" do
+      get :show, :id => @customer
+      response.should have_selector('h1', :content => @customer.company) 
     end
     
   end
@@ -51,7 +135,7 @@ describe CustomersController do
       
     end
     
-    describe "for signed in users" do
+    describe "for signed-in users" do
       
       before(:each) do
         test_sign_in(@user)

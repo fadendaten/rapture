@@ -5,7 +5,7 @@ class CustomersController < ApplicationController
   before_filter :authenticate
   
   def index
-    @title = "Home"
+    @title = "Alle Kunden"
     @customers = Customer.alphabetical_group(params[:letter])
   end
   
