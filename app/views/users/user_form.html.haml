@@ -20,5 +20,5 @@
     -if can? :update, User
       .field
         = f.association :user_roles, :label => 'Berechtigung:'
-      
+        
     = f.submit "Speichern", :id => "submit"
