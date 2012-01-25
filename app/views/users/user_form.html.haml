@@ -9,19 +9,7 @@
     .field
       = f.input :last_name,             :label => 'Nachname:'
     .field
-<<<<<<< HEAD
-      = f.input :email,                 :label => 'E-Mail:'  
-    .field
-      = f.association :user_roles,      :label => 'Berechtigung:'
-      
-=======
       = f.input :email,                 :label => 'E-Mail:'
     .field
-      = f.input :password,              :label => 'Password:'
-    .field
-      = f.input :password_confirmation, :label => 'Bestätigen:'
-    .field
       = f.association :user_roles,      :as => :check_boxes, :label => 'Berechtigung:'
-        
->>>>>>> ff71e0fc13a84fbcef8706314e6665181db8ae85
     = f.submit "Speichern", :id => "submit"
