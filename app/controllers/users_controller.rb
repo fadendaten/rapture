@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   load_and_authorize_resource
-  skip_load_resource :only => [:create, :update]
+  skip_load_resource :only => [:create]
   
   def index
     @title = "Alle Benutzer"
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.build(params[:user])
-    if @user.valid?
+    if @user.save
       redirect_to @user, :flash => { :success => "Benutzer wurde erfolgreich erfasst." }
     else
       @title = "Benutzer erfassen"
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
   
   def update
-    if  @user.update_attributes(params[:user])
+    if  @user.update_attributes!(params[:user])
        redirect_to @user, :flash => { :success => "Informationen angepasst." }
      else
        @title = "#{@user} editieren"

@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(:version => 20120120164050) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
-    t.integer  "customer_id"
     t.integer  "parent_id"
     t.string   "parent_type"
   end

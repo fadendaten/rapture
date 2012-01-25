@@ -29,7 +29,8 @@ class User < ActiveRecord::Base
                          :format     => { :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :password,   :presence => true,
                          :confirmation => true,
-                         :length       => { :within => 6..40 }
+                         :length       => { :within => 6..40 },
+                         :if           => :password_validation_required? 
   validates :first_name, :presence => true
   validates :last_name,  :presence => true
                        
@@ -47,7 +48,6 @@ class User < ActiveRecord::Base
         user.user_roles << UserRole.find(id)
       end
     }
-    user.save!
     user
   end
   
