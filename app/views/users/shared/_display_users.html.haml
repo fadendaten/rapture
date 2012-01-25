@@ -4,7 +4,10 @@
       %li.username_column
         = link_to "#{user.username}", user
       %li.email_column
-        = user.email
+        = mail_to user.email
+      %li.roles_column
+        - if user.user_roles.first
+          = user.user_roles.first.name
       %li.edit_column
         - if can? :update, User
           = link_to  "editieren", edit_user_path(user)
