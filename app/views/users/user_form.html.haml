@@ -10,15 +10,11 @@
       = f.input :last_name,             :label => 'Nachname:'
     .field
       = f.input :email,                 :label => 'E-Mail:'
-      
-    -if can? :update, User
-      .field
-        = f.input :password,              :label => 'Password:'
-      .field
-        = f.input :password_confirmation, :label => 'Bestätigen:'
-        
-    -if can? :update, User
-      .field
-        = f.association :user_roles,      :as => :check_boxes, :label => 'Berechtigung:'
+    .field
+      = f.input :password,              :label => 'Password:'
+    .field
+      = f.input :password_confirmation, :label => 'Bestätigen:'
+    .field
+      = f.association :user_roles,      :as => :check_boxes, :label => 'Berechtigung:'
         
     = f.submit "Speichern", :id => "submit"
