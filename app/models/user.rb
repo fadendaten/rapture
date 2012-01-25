@@ -65,5 +65,11 @@ class User < ActiveRecord::Base
     }
   end
   
+  # def update_user_attributes(attributes)
+  #    unless attributes[:password].blank?
+  #      
+  #    
+  #  end
+  
 end
 

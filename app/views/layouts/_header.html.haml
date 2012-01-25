@@ -4,11 +4,11 @@
     %li.current_user
       - if current_user
         Eingeloggt als
-        = current_user.full_name
+        = link_to "#{current_user.full_name}", current_user
     %li
       = link_to "Home", root_path
     
-    -if can? :read, User
+    -if can? :read , User
       %li
         = link_to "Benutzer", users_path
     - if signed_in?
