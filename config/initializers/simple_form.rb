@@ -32,7 +32,6 @@ config.error_notification_tag = :span
 config.wrapper_tag = :div
 
   # CSS class to add to all wrapper tags.
-config.item_wrapper_class = :simple_form_wrapper
 
   # CSS class to add to the wrapper if the field has errors.
 config.wrapper_error_class = :field_with_errors
