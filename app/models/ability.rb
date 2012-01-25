@@ -26,22 +26,23 @@ class Ability
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
     
     if !user.nil?
-      define_sudo_abilities  if user.has_role?(:sudo)
-      define_admin_abilities if user.has_role?(:admin)
       define_base_abilities  if user.has_role?(:base)
+      define_admin_abilities if user.has_role?(:admin)
+      define_sudo_abilities  if user.has_role?(:sudo)
     end
   end
   
-  def define_sudo_abilities
-    can :manage, :all
+  def define_base_abilities
+    can :read, :all
+    cannot :manage, User
   end
   
   def define_admin_abilities
     can :manage, Customer
   end
   
-  def define_base_abilities
-    can :read, :all
+  def define_sudo_abilities
+    can :manage, :all
   end
   
 end
