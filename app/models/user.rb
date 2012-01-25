@@ -21,7 +21,6 @@ class User < ActiveRecord::Base
   has_many :user_roles, :through => :user_role_assignments
   
   attr_accessible :username, :email, :password, :password_confirmation, :first_name, :last_name
-  
   validates :username,   :presence => true,
                          :length   => { :within => 4..40 },
                          :uniqueness => true
@@ -34,6 +33,21 @@ class User < ActiveRecord::Base
   validates :last_name,  :presence => true
                        
   before_save :encrypt_password
+  
+  def self.build(attributes)
+    user = User.new
+    user.username = attributes[:username]
+    user.first_name = attributes[:first_name]
+    user.last_name = attributes[:last_name]
+    user.email = attributes[:email]
+    user.password = generate_new_password
+    attributes[:user_roles].each { |role| user.user_roles << role }
+    user.save!
+  end
+  
+  def generate_new_password
+    "test123"
+  end
 
   def full_name
     "#{first_name} #{last_name}"

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   load_and_authorize_resource
-  
+  skip_load_resource :only => [:create, :update]
   
   def index
     @title = "Alle Benutzer"
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    if @user.save
+    if @user.build(params[:user])
       redirect_to @user, :flash => { :success => "Benutzer wurde erfolgreich erfasst." }
     else
       @title = "Benutzer erfassen"
