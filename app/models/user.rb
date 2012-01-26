@@ -38,16 +38,8 @@ class User < ActiveRecord::Base
   
   def self.build(attributes)
     user = User.new
-    user.username = attributes[:username]
-    user.first_name = attributes[:first_name]
-    user.last_name = attributes[:last_name]
-    user.email = attributes[:email]
+    self.set_info(user, attributes)
     user.password = generate_new_password
-    attributes[:user_role_ids].each { 
-      |id| unless id.blank?
-        user.user_roles << UserRole.find(id)
-      end
-    }
     user
   end
   
@@ -56,20 +48,11 @@ class User < ActiveRecord::Base
   end
   
   def set_attributes(attributes)
-    self.username = attributes[:username]
-    self.first_name = attributes[:first_name]
-    self.last_name = attributes[:last_name]
-    self.email = attributes[:email]
+    User.set_info(self, attributes)
     unless attributes[:password].blank?
       self.encrypted_password = ""
       self.password = attributes[:password]
     end
-    self.user_roles.clear
-    attributes[:user_role_ids].each { 
-      |id| unless id.blank?
-        self.user_roles << UserRole.find(id)
-      end
-    }
   end
 
   def full_name
@@ -82,5 +65,19 @@ class User < ActiveRecord::Base
     }
   end
   
+  private
+    def self.set_info(user, attributes)
+      user.username = attributes[:username]
+      user.first_name = attributes[:first_name]
+      user.last_name = attributes[:last_name]
+      user.email = attributes[:email]
+      user.user_roles.clear
+      attributes[:user_role_ids].each { 
+        |id| unless id.blank?
+          user.user_roles << UserRole.find(id)
+        end
+      }
+    end
+
 end
 
