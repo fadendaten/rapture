@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  include SessionsHelper
   
   rescue_from CanCan::AccessDenied do |exception|
     security_breach_message = "You tried to bypass our security measures. " +

@@ -8,13 +8,13 @@
     %li
       = link_to "Home", root_path
     
-    -if can? :read , User
-      %li
-        = link_to "Benutzer", users_path
-    - if signed_in?
-      %li
-        = link_to "Ausloggen", signout_path, :method => :delete
-    - else
-      %li
-        = link_to "Einloggen", signin_path
+    / -if can? :read , User
+    /   %li
+    /     = link_to "Benutzer", users_path
+    / - if signed_in?
+    /   %li
+    /     = link_to "Ausloggen", signout_path, :method => :delete
+    / - else
+    /   %li
+    /     = link_to "Einloggen", signin_path
 %hr
