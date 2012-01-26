@@ -2,6 +2,7 @@ class CustomersController < ApplicationController
   
   # load_and_authorize_resource
   # skip_authorize_resource :only => [:index, :search]
+  before_filter :authenticate_user!
   
   def index
     @title = "Alle Kunden"

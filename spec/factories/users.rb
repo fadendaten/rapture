@@ -15,6 +15,9 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  username               :string(255)
+#  first_name             :string(255)
+#  last_name              :string(255)
 #
 
 # Read about factories at http://github.com/thoughtbot/factory_girl
