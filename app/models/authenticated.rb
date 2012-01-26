@@ -23,7 +23,7 @@ module Authenticated
   
   def encrypt_password
     self.salt = make_salt if new_record?
-    self.encrypted_password = encrypt(password) unless password.blank?
+    self.encrypted_password = encrypt(password) unless password.blank? && !encrypted_password.blank?
   end
 
   def encrypt(string)

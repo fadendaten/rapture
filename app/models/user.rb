@@ -54,6 +54,33 @@ class User < ActiveRecord::Base
   def self.generate_new_password
     "test123"
   end
+  
+  def update_attributes(attributes)
+    assign_values(attributes)
+    save
+  end
+  
+  def update_attributes!(attributes)
+    assign_values(attributes)
+    save!
+  end
+  
+  def assign_values(attributes)
+    username = attributes[:username]
+    first_name = attributes[:first_name]
+    last_name = attributes[:last_name]
+    email = attributes[:email]
+    unless attributes[:password].blank?
+      encrypted_password = ""
+      password = attributes[:password]
+    end
+    user_roles.clear
+    attributes[:user_role_ids].each { 
+      |id| unless id.blank?
+        user_roles << UserRole.find(id)
+      end
+    }
+  end
 
   def full_name
     "#{first_name} #{last_name}"
@@ -64,12 +91,6 @@ class User < ActiveRecord::Base
       |role| role.name.underscore.to_sym == role_sym
     }
   end
-  
-  # def update_user_attributes(attributes)
-  #    unless attributes[:password].blank?
-  #      
-  #    
-  #  end
   
 end
 
