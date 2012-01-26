@@ -6,6 +6,7 @@ gem 'haml'
 gem 'simple_form'
 gem 'paginate_alphabetically', :git => 'git://github.com/edendevelopment/paginate_alphabetically.git', :branch => 'bundler'
 gem 'cancan'
+gem 'devise'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

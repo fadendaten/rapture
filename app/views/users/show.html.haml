@@ -1,7 +1,0 @@
-%h1
-  = @user.username
-
-= render 'users/shared/detailed_user_info'
-%br
-- if can? :update, User
-  = link_to "editieren", edit_user_path(@user)
