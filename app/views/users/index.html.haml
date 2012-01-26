@@ -1,0 +1,19 @@
+%h1
+  Alle Benutzer
+
+.actions
+    
+  - if can? :create, User
+    .new_customer
+      = link_to 'neuen Benutzer erfassen', new_user_path()
+%hr
+
+/ %ul.pagination
+/ %strong Springen zu:
+/ - User.pagination_letters.each do |letter|
+/ %li
+/ = link_to letter, customers_path(:letter => letter)
+
+#users
+  .users.round
+    = render 'users/shared/display_users'

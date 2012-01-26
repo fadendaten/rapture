@@ -1,5 +1,15 @@
 Rapture::Application.routes.draw do
 
+  get "users/new"
+
+  get "users/create"
+
+  get "users/edit"
+
+  get "users/update"
+
+  get "users/show"
+
   devise_for :users
 
   root :to => 'customers#index'

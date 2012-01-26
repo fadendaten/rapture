@@ -28,14 +28,50 @@ class User < ActiveRecord::Base
   has_many :user_role_assignments
   has_many :user_roles, :through => :user_role_assignments
   
+  def self.build(attributes)
+    user = User.new
+    self.set_info(user, attributes)
+    user.password = generate_new_password
+    user
+  end
+  
+  def self.generate_new_password
+    "test123"
+  end
+  
+  def set_attributes(attributes)
+    User.set_info(self, attributes)
+    unless attributes[:password].blank?
+      self.encrypted_password = ""
+      self.password = attributes[:password]
+    end
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end
-
+  
   def has_role?(role_sym)
     self.user_roles.any? {
       |role| role.name.underscore.to_sym == role_sym
     }
   end
+  
+  private
+  
+    def self.set_info(user, attributes)
+      user.username = attributes[:username]
+      user.first_name = attributes[:first_name]
+      user.last_name = attributes[:last_name]
+      user.email = attributes[:email]
+      user.user_roles.clear
+      unless attributes[:user_role_ids].nil?
+        attributes[:user_role_ids].each do |id|
+          unless id.blank?
+            user.user_roles << UserRole.find(id)
+          end
+        end
+      end
+    end
    
 end
