@@ -1,0 +1,12 @@
+%h1 Einloggen
+
+.form
+  = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    .inputs
+      .field
+        = f.input :username, :required => false, :autofocus => true, :label => "Benutzername:"
+      .field
+        = f.input :password, :required => false, :label => "Passwort:"
+  
+    .actions
+      = f.button :submit, "Einloggen"
