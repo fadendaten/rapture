@@ -37,11 +37,12 @@ class Ability
   end
   
   def define_admin_abilities
+    define_base_abilities
     can :manage, Customer
-    can :read, :all
   end
   
   def define_sudo_abilities
+    define_admin_abilities
     can :manage, :all
   end
   
