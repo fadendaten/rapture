@@ -22,7 +22,7 @@ require 'spec_helper'
         :email => "dummy@dummy.com",
         :password => "test123",
         :first_name => "dummy",
-        :last_name => "dummy"  
+        :last_name => "dummy" 
       }
   end
   
@@ -121,7 +121,7 @@ require 'spec_helper'
     
   end
   
-  describe "password encription" do
+  describe "password encryption" do
     
     before(:each) do
       @user = User.create!(@attr)
@@ -137,6 +137,12 @@ require 'spec_helper'
     
     it "should have a salt" do
       @user.should respond_to(:salt)
+    end
+    
+    it "should only encrypt password if existing encrypted_password is blank" do
+      password_before_reencryption = @user.encrypted_password
+      @user.encrypt_password
+      password_before_reencryption.should == @user.encrypted_password
     end
     
     describe "authenticate method" do
@@ -160,4 +166,29 @@ require 'spec_helper'
     end
     
   end
+  
+  describe "set_attributes method" do
+    
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+    
+    it "should exist" do
+      @user.should respond_to(:set_attributes)
+    end
+    
+    it "should set new attributes given valid input" do
+      @user.set_attributes(@attr.merge(:username => "Son Goku"))
+      @user.save.should be_true
+    end
+    
+    it "should not re-encrypt password if it is not changed" do
+      password_before_reencryption = @user.encrypted_password
+      @user.set_attributes(@attr.merge(:first_name => "Leeroy"))
+      @user.save
+      password_before_reencryption.should == @user.encrypted_password
+    end
+    
+  end
+  
 end

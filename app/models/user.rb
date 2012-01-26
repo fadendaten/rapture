@@ -72,11 +72,13 @@ class User < ActiveRecord::Base
       user.last_name = attributes[:last_name]
       user.email = attributes[:email]
       user.user_roles.clear
-      attributes[:user_role_ids].each { 
-        |id| unless id.blank?
-          user.user_roles << UserRole.find(id)
+      unless attributes[:user_role_ids].nil?
+        attributes[:user_role_ids].each do |id| 
+          unless id.blank?
+            user.user_roles << UserRole.find(id)
+          end
         end
-      }
+      end
     end
 
 end
