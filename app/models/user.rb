@@ -30,5 +30,16 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   
   has_many :user_role_assignments
-  has_many :user_roles, :through => :user_role_assignments 
+  has_many :user_roles, :through => :user_role_assignments
+  
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
+  def has_role?(role_sym)
+    self.user_roles.any? {
+      |role| role.name.underscore.to_sym == role_sym
+    }
+  end
+   
 end

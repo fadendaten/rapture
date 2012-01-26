@@ -6,32 +6,32 @@ namespace :db do
     task :seed => :environment do
       Rake::Task['db:reset'].invoke
       
-      # # Create roles
-      # sudo_role  = UserRole.create!(:name => "sudo")
-      # admin_role = UserRole.create!(:name => "admin")
-      # base_role  = UserRole.create!(:name => "base")
-      # 
-      # # Create users
-      # sudo = User.create!(:username   => "sudo", 
-      #                     :email      => "sudo@sudo.com",
-      #                     :password   => "test123",
-      #                     :first_name => "Simon",
-      #                     :last_name  => "Fuetzgue")
-      # sudo.user_roles << sudo_role
-      # 
-      # admin = User.create!(:username   => "admin",
-      #                      :email      => "admin@admin.com",
-      #                      :password   => "test123", 
-      #                      :first_name => "Chrigu",
-      #                      :last_name  => "Da Boss")
-      # admin.user_roles << admin_role
-      # 
-      # base = User.create!(:username   => "spongebob",
-      #                     :email      => "squarepants@bikinibottom.com",
-      #                     :password   => "test123",
-      #                     :first_name => "Felix",
-      #                     :last_name  => "Uhu")
-      # base.user_roles << base_role
+      # Create roles
+      sudo_role  = UserRole.create!(:name => "sudo")
+      admin_role = UserRole.create!(:name => "admin")
+      base_role  = UserRole.create!(:name => "base")
+      
+      # Create users
+      sudo = User.create!(:username   => "sudo", 
+                          :email      => "sudo@sudo.com",
+                          :password   => "test123",
+                          :first_name => "Simon",
+                          :last_name  => "Fuetzgue")
+      sudo.user_roles << sudo_role
+      
+      admin = User.create!(:username   => "admin",
+                           :email      => "admin@admin.com",
+                           :password   => "test123", 
+                           :first_name => "Chrigu",
+                           :last_name  => "Da Boss")
+      admin.user_roles << admin_role
+      
+      base = User.create!(:username   => "spongebob",
+                          :email      => "squarepants@bikinibottom.com",
+                          :password   => "test123",
+                          :first_name => "Felix",
+                          :last_name  => "Uhu")
+      base.user_roles << base_role
       
       # Create customers
       500.times do

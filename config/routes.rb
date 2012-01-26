@@ -5,6 +5,7 @@ Rapture::Application.routes.draw do
   root :to => 'customers#index'
   
   resources :customers
+  resources :users
   
   post  '/search' => 'customers#search'
   
