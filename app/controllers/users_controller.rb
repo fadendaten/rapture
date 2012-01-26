@@ -29,7 +29,8 @@ class UsersController < ApplicationController
   end
   
   def update
-    if  @user.update_attributes!(params[:user])
+    @user.set_attributes(params[:user])
+    if  @user.save
        redirect_to @user, :flash => { :success => "Informationen angepasst." }
      else
        @title = "#{@user} editieren"

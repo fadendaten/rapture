@@ -55,29 +55,19 @@ class User < ActiveRecord::Base
     "test123"
   end
   
-  def update_attributes(attributes)
-    assign_values(attributes)
-    save
-  end
-  
-  def update_attributes!(attributes)
-    assign_values(attributes)
-    save!
-  end
-  
-  def assign_values(attributes)
-    username = attributes[:username]
-    first_name = attributes[:first_name]
-    last_name = attributes[:last_name]
-    email = attributes[:email]
+  def set_attributes(attributes)
+    self.username = attributes[:username]
+    self.first_name = attributes[:first_name]
+    self.last_name = attributes[:last_name]
+    self.email = attributes[:email]
     unless attributes[:password].blank?
-      encrypted_password = ""
-      password = attributes[:password]
+      self.encrypted_password = ""
+      self.password = attributes[:password]
     end
-    user_roles.clear
+    self.user_roles.clear
     attributes[:user_role_ids].each { 
       |id| unless id.blank?
-        user_roles << UserRole.find(id)
+        self.user_roles << UserRole.find(id)
       end
     }
   end
