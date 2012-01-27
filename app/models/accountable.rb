@@ -56,7 +56,7 @@ module Accountable
                       :city => "",
                       :country_code => ""}
       base.comma do
-        company
+        company 'Firmenname'
         email
         phone
         mobile
