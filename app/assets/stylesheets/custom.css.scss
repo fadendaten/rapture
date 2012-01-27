@@ -7,15 +7,13 @@ nav, section {
 }
 
 nav {
-	float:right;
-	margin-top: 20px;
-	font-size: 150%;
+	font-size: 200%;
 	font-weight: bold;
 	white-space: nowrap;
+	margin-bottom: 5px;
 	
 	a {
 		padding: 0 5px;
-		font-weight: bold;
 		text-decoration: none;
 	}
 	
@@ -32,7 +30,16 @@ nav {
 			padding: 0.2em 0;
 		}
 	}
-	
+}
+
+#left {
+	float: left;
+}
+
+#right {
+	float: right;
+	font-size: 120%;
+	margin-top:10px;
 }
 
 hr {
@@ -60,6 +67,10 @@ h3 {
 
 .form {
   width: 50%;
+}
+
+.container {
+	margin-top: 20px;
 }
 
 // Simple form
@@ -100,6 +111,9 @@ h3 {
 
 .current_user {
 	margin-right: 10px;
+}
+
+.new_action {
 }
 
 /* ----- SimpleForm Styles ----- */

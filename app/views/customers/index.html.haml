@@ -2,13 +2,8 @@
   Alle Kunden
 
 .actions
-  .search_function
-    = form_tag '/search', {:controller => 'customers', :action => 'search', :id => 'customer_search'} do
-      = search_field_tag 'search', params[:search], {:id => 'search_field'}
-      = submit_tag "Kunden suchen"
-    
   - if can? :create, Customer  
-    .new_customer    
+    .new_action    
       = link_to 'neuen Kunden erfassen', new_customer_path()
 %hr
 
