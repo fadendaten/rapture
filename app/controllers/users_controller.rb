@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   load_and_authorize_resource
-  # skip_load_resource :only => [:create]
+  skip_load_resource :only => [:create]
   
   def index
     @title = "Alle Benutzer"
@@ -15,12 +15,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.build(params[:user])
-      if @user.save!
+      if @user.save
         redirect_to @user, :flash => { :success => "Benutzer wurde erfolgreich erfasst." }
       else
         @title = "Benutzer erfassen"
-        puts "DSHNBUANHUDLSBHULDSBHLUSDFHBUZ"
-        render 'user_form', :flash => { :success => "Etwas ist schief gelaufen. Bitte versuchen sie es nochmal."}
+        render 'user_form'
       end
   end
 
@@ -31,10 +30,11 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_without_password(params[:user])
-      @user.update_roles(params[:user][:user_role_ids])
+      @user.set_roles(params[:user][:user_role_ids])
       redirect_to @user, :flash => { :success => "Informationen angepasst." }
     else
       @title = "#{@user} editieren"
+      flash.now[:error] = "Etwas ist schiefgelaufen, bitte versuchen sie es noch ein paar mal."
       render 'user_form'
     end
   end

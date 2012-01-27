@@ -65,10 +65,10 @@ class User < ActiveRecord::Base
     }
   end
   
-  def set_roles(attributes)
-    unless attributes.nil?
+  def set_roles(role_ids)
+    unless role_ids.nil?
       self.user_roles.clear
-      attributes.each do |id|
+      role_ids.each do |id|
         unless id.blank?
           self.user_roles << UserRole.find(id)
         end
