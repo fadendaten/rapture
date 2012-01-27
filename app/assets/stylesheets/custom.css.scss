@@ -9,13 +9,12 @@ nav, section {
 nav {
 	float:right;
 	margin-top: 20px;
-	font-size: 150%;
+	font-size: 200%;
 	font-weight: bold;
 	white-space: nowrap;
 	
 	a {
 		padding: 0 5px;
-		font-weight: bold;
 		text-decoration: none;
 	}
 	
@@ -32,6 +31,16 @@ nav {
 			padding: 0.2em 0;
 		}
 	}
+}
+
+#left {
+	float: left;
+}
+
+#right {
+	float: right;
+	font-size: 110%;
+  margin-bottom: -10px;
 	
 }
 

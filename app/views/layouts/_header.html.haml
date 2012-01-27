@@ -1,16 +1,18 @@
-
-%nav.round
+%nav.round#left
+  %ul
+    %li
+      = link_to "Kunden", root_path
+    
+    -if can? :manage , User
+      %li
+        = link_to "Einstellungen", users_path
+%nav.round#right
   %ul
     %li.current_user
       - if current_user
         Eingeloggt als
         = link_to current_user.full_name, current_user
-    %li
-      = link_to "Home", root_path
-    
-    -if can? :read , User
-      %li
-        = link_to "Benutzer", users_path
+        
     - if signed_in?
       %li
         = link_to "Ausloggen", destroy_user_session_path, :method => :delete
