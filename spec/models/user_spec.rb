@@ -142,14 +142,7 @@ require 'spec_helper'
       @user.set_attributes(@attr.merge(:username => "Son Goku"))
       @user.save.should be_true
     end
-    
-    it "should not re-encrypt password if it is not updated" do
-      password_before_reencryption = @user.encrypted_password
-      @user.set_attributes(@attr.merge(:first_name => "Leeroy"))
-      @user.save
-      password_before_reencryption.should == @user.encrypted_password
-    end
-    
+
     it "should re-encrypt password if it is updated" do
       password_before_reencryption = @user.encrypted_password
       @user.set_attributes(@attr.merge(:password => "jenkins"))
