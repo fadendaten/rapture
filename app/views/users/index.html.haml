@@ -2,18 +2,29 @@
   Alle Benutzer
 
 .actions
-    
   - if can? :create, User
-    .new_customer
+    .new_action
       = link_to 'neuen Benutzer erfassen', new_user_path()
 %hr
-
-/ %ul.pagination
-/ %strong Springen zu:
-/ - User.pagination_letters.each do |letter|
-/ %li
-/ = link_to letter, customers_path(:letter => letter)
 
 #users
   .users.round
     = render 'users/shared/display_users'
+    
+%h1
+  Alle Sprachen
+
+.actions
+  - if can? :create, Language
+    .new_action
+      = link_to 'neue Sprache erfassen', new_language_path()
+%hr
+
+%h1
+  Alle Länder
+
+.actions
+  - if can? :create, Country
+    .new_action
+      = link_to 'neues Land erfassen', new_country_path()
+%hr

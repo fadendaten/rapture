@@ -6,8 +6,12 @@ Rapture::Application.routes.draw do
   
   resources :customers
   resources :users
+  resources :languages
+  resources :country
   
   post  '/search' => 'customers#search'
+  
+  match '/settings', :to => 'users#index'
   
   
 #  match '/new',           :to => 'customers#new'
