@@ -15,10 +15,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.build(params[:user])
-      if @user.save
+      if current_user.valid_password?(params[:user][:password]) && @user.save
         redirect_to @user, :flash => { :success => "Benutzer wurde erfolgreich erfasst." }
       else
         @title = "Benutzer erfassen"
+        flash.now[:error] = "Etwas ist schiefgelaufen, bitte versuchen sie es noch ein paar mal."
         render 'user_form'
       end
   end
@@ -29,15 +30,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.valid_password?(params[:user][:password])
-      if @user.update_without_password(params[:user])
-        @user.set_roles(params[:user][:user_role_ids])
-        redirect_to @user, :flash => { :success => "Informationen angepasst." }
-      else
-        @title = "#{@user} editieren"
-        flash.now[:error] = "Etwas ist schiefgelaufen, bitte versuchen sie es noch ein paar mal."
-        render 'user_form'
-      end
+    if current_user.valid_password?(params[:user][:password]) && @user.update_without_password(params[:user])
+      @user.set_roles(params[:user][:user_role_ids])
+      redirect_to @user, :flash => { :success => "Informationen angepasst." }
+    else
+      @title = "#{@user.username} editieren"
+      flash.now[:error] = "Etwas ist schiefgelaufen, bitte versuchen sie es noch ein paar mal."
+      render 'user_form'
     end
   end
 
