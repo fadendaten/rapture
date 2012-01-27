@@ -42,20 +42,13 @@ class User < ActiveRecord::Base
   
   def self.build(attributes)
     user = User.new
-    self.set_info(user, attributes)
+    self.update_without_password(attributes)
     user.password = generate_new_password
     user
   end
   
   def self.generate_new_password
     "test123"
-  end
-  
-  def set_attributes(attributes)
-    User.set_info(self, attributes)
-    unless attributes[:password].blank?
-      self.password = attributes[:password]
-    end
   end
 
   def full_name
@@ -68,22 +61,29 @@ class User < ActiveRecord::Base
     }
   end
   
+  def update_roles(attributes)
+    unless attributes.nil?
+      self.user_roles.clear
+      attributes.each do |id|
+        unless id.blank?
+          self.user_roles << UserRole.find(id)
+        end
+      end
+    end
+    self.save!
+  end
+  
+  
   private
   
-    def self.set_info(user, attributes)
+    def set_attributes
       user.username = attributes[:username]
       user.first_name = attributes[:first_name]
       user.last_name = attributes[:last_name]
       user.email = attributes[:email]
-      user.user_roles.clear
-      unless attributes[:user_role_ids].nil?
-        attributes[:user_role_ids].each do |id|
-          unless id.blank?
-            user.user_roles << UserRole.find(id)
-          end
-        end
-      end
+      update_roles(attributes[:user_role_ids])
     end
+
     
     def password_validation_required?
       self.encrypted_password.blank? || self.new_record?

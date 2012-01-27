@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.build(params[:user])
-      if @user.save
+      if @user.save!
         redirect_to @user, :flash => { :success => "Benutzer wurde erfolgreich erfasst." }
       else
         @title = "Benutzer erfassen"
@@ -29,8 +29,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user.set_attributes(params[:user])
-    if @user.save
+    if @user.update_without_password(params[:user])
+      @user.update_roles(params[:user][:user_role_ids])
       redirect_to @user, :flash => { :success => "Informationen angepasst." }
     else
       @title = "#{@user} editieren"
