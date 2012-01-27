@@ -1,4 +1,8 @@
 de:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: ! 'Gültigkeitsprüfung ist fehlgeschlagen: %{errors}'
   date:
     abbr_day_names:
     - So
