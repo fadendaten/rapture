@@ -8,7 +8,7 @@ de:
   devise:
     failure:
       already_authenticated: 'Sie sind bereits eingeloggt.'
-      unauthenticated: 'Sie müssen sich anmelden bevor Sie weiterfahren können.'
+      unauthenticated: 'Bitte loggen Sie sich ein.'
       unconfirmed: 'Sie müssen Ihren Account bestätigen, bevor Sie weiterfahren können.'
       locked: 'Ihr Account ist gesperrt.'
       invalid: 'Ungültige Anmeldedaten.'
