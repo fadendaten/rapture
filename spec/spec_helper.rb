@@ -39,9 +39,9 @@ Spork.prefork do
     # rspec-rails.
     config.infer_base_class_for_anonymous_controllers = false
     
-    def test_sign_in(user)
-      controller.sign_in(user)
-    end
+    # Devise
+    
+    # config.include Devise::TestHelpers, :type => :controller
     
   end
 end
@@ -62,8 +62,6 @@ end
 # - These instructions should self-destruct in 10 seconds.  If they don't,
 #   feel free to delete them.
 #
-
-
 
 
 

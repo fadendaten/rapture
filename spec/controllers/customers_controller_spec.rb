@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe CustomersController do
+  include Devise::TestHelpers
   render_views
   
   before(:each) do
@@ -15,7 +16,7 @@ describe CustomersController do
       
       it "should deny access" do
         get :new
-        response.should redirect_to(root_path)
+        response.should redirect_to(new_user_session_path)
       end
       
     end
@@ -23,7 +24,7 @@ describe CustomersController do
     describe "for signed-in users" do
       
       before(:each) do
-        test_sign_in(@user)
+        sign_in :user, @user
       end
       
       it "should return http success" do
@@ -71,7 +72,7 @@ describe CustomersController do
       
       it "should deny access" do
         get :index
-        response.should redirect_to(signin_path)
+        response.should redirect_to(new_user_session_path)
       end
       
     end
@@ -79,7 +80,7 @@ describe CustomersController do
     describe "for signed-in users" do
       
       before(:each) do
-        test_sign_in(@user)
+        sign_in :user, @user
       end
       
       it "should return http success" do
@@ -99,7 +100,7 @@ describe CustomersController do
   describe "GET 'show'" do
     
     before(:each) do
-      test_sign_in(@user)
+      sign_in :user, @user
     end
     
     it "should be successful" do
@@ -138,7 +139,7 @@ describe CustomersController do
     describe "for signed-in users" do
       
       before(:each) do
-        test_sign_in(@user)
+        sign_in :user, user
       end
       
       it "should return http success" do

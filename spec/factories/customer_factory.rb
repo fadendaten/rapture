@@ -1,11 +1,11 @@
 FactoryGirl.define do
-  factory :customer do
-    company     "Foo_Bar Inc"
-    phone       "031 123 12 34"
-    mobile      "079 123 12 34"
-    fax         "031 123 12 34"
-    email       "foo@bar.com"
-    language    "English"
-    homepage    "http://www.foobar.com"
+  factory :customer do |customer|
+    customer.company     "Foo_Bar Inc"
+    customer.phone       "031 123 12 34"
+    customer.mobile      "079 123 12 34"
+    customer.fax         "031 123 12 34"
+    customer.email       "foo@bar.com"
+    customer.language    "English"
+    customer.homepage    "http://www.foobar.com"
   end
 end
