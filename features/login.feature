@@ -9,7 +9,7 @@ Feature: Login
     And I fill in "Benutzername:" with "dummy"
     And I fill in "Passwort:" with "foobar"
     When I press "Einloggen"
-    Then I should be on the customers page
+    Then I should be on the home page
     And I should see "Kunden"
   
   

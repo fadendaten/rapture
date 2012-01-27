@@ -16,6 +16,9 @@ module NavigationHelpers
       
     when /the new customer page/
       new_customer_path
+      
+    when /the signin page/
+      new_user_session_path
          
     when /path "(.+)"/
       path_to_pickle $1
