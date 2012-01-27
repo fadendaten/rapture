@@ -128,52 +128,6 @@ require 'spec_helper'
     
   end
   
-  describe "password encryption" do
-    
-    before(:each) do
-      @user = User.create!(@attr)
-    end
-    
-    it "should have an encrypted password attribute" do
-      @user.should respond_to(:encrypted_password)
-    end
-    
-    it "should set the encrypted password attribute" do
-      @user.encrypted_password.should_not be_blank
-    end
-    
-    it "should have a salt" do
-      @user.should respond_to(:salt)
-    end
-    
-    it "should only encrypt password if existing encrypted_password is blank" do
-      password_before_reencryption = @user.encrypted_password
-      @user.encrypt_password
-      password_before_reencryption.should == @user.encrypted_password
-    end
-    
-    describe "authenticate method" do
-      
-      it "should exist" do
-        User.should respond_to(:authenticate)
-      end
-      
-      it "should return nil on username/password mismatch" do
-        User.authenticate(@attr[:username], "wrongpass").should be_nil
-      end
-      
-      it "should return nil for a username with no user" do
-        User.authenticate("i_belong_to_no_one", @attr[:password]).should be_nil
-      end
-      
-      it "should return the user on username/password match" do
-        User.authenticate(@attr[:username], @attr[:password]).should == @user
-      end
-      
-    end
-    
-  end
-  
   describe "set_attributes method" do
     
     before(:each) do

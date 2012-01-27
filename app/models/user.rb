@@ -86,7 +86,7 @@ class User < ActiveRecord::Base
     end
     
     def password_validation_required?
-      self.encrypted_password.blank?
+      self.encrypted_password.blank? || self.new_record?
     end
    
 end
