@@ -5,6 +5,9 @@
   - if can? :create, Customer  
     .new_action    
       = link_to 'neuen Kunden erfassen', new_customer_path()
+      
+.export_as_csv
+  = link_to "EXCEL", download_customers_path, :method => 'post'
 %hr
 
 %ul.pagination

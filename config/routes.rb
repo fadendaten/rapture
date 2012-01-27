@@ -4,12 +4,18 @@ Rapture::Application.routes.draw do
 
   root :to => 'customers#index'
   
-  resources :customers
+  resources :customers do
+    collection do
+      post :download
+      post :search
+    end
+  end
   resources :users
   resources :languages
   resources :country
   
-  post  '/search' => 'customers#search'
+  # post  '/search' => 'customers#search'
+  # post  '/download' => 'customers#download'
   
   match '/settings', :to => 'users#index'
   

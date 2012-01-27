@@ -11,9 +11,13 @@ class CustomersController < ApplicationController
     respond_to do |format|
       format.html
       format.csv do
-        send_data(@customers.to_comma, :filename => "kunden.csv", :type => "text/csv")
+        send_data(Customer.all.to_comma, :filename => "kunden.csv", :type => "text/csv")
       end
     end
+  end
+  
+  def download
+    send_data(Customer.all.to_comma, :filename => "kunden.csv", :type => "text/csv")
   end
   
   def new
