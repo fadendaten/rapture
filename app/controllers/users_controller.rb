@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   skip_load_resource :only => [:create]
   
   def index
-    @title = "Alle Benutzer"
+    @title = "Einstellungen"
     @users = User.all
   end
   

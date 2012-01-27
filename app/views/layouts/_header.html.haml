@@ -1,19 +1,22 @@
 %nav.round#left
-  %ul
-    %li
-      = link_to "Kunden", root_path
-    
-    -if can? :manage , User
-      %li
-        = link_to "Einstellungen", users_path
+  - if signed_in?
+    %span.search_function
+      = form_tag '/search', {:controller => 'customers', :action => 'search', :id => 'customer_search'} do
+        = search_field_tag 'search', params[:search], {:id => 'search_field'}
+        = submit_tag "Kunden suchen"
 %nav.round#right
   %ul
-    %li.current_user
-      - if current_user
+    - if signed_in?
+      %li.current_user
         Eingeloggt als
         = link_to current_user.full_name, current_user
+      %li
+        = link_to "Kunden", root_path
         
-    - if signed_in?
+      - if can? :manage , User
+        %li
+          = link_to "Einstellungen", users_path
+          
       %li
         = link_to "Ausloggen", destroy_user_session_path, :method => :delete
     - else

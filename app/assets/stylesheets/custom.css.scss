@@ -7,11 +7,10 @@ nav, section {
 }
 
 nav {
-	float:right;
-	margin-top: 20px;
 	font-size: 200%;
 	font-weight: bold;
 	white-space: nowrap;
+	margin-bottom: 5px;
 	
 	a {
 		padding: 0 5px;
@@ -39,9 +38,8 @@ nav {
 
 #right {
 	float: right;
-	font-size: 110%;
-  margin-bottom: -10px;
-	
+	font-size: 120%;
+	margin-top:10px;
 }
 
 hr {
@@ -69,6 +67,10 @@ h3 {
 
 .form {
   width: 50%;
+}
+
+.container {
+	margin-top: 20px;
 }
 
 // Simple form
