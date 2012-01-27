@@ -7,6 +7,13 @@ class CustomersController < ApplicationController
   def index
     @title = "Alle Kunden"
     @customers = Customer.alphabetical_group(params[:letter])
+    
+    respond_to do |format|
+      format.html
+      format.csv do
+        send_data(@customers.to_comma, :filename => "kunden.csv", :type => "text/csv")
+      end
+    end
   end
   
   def new
