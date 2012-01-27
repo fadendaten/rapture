@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120127142108) do
+ActiveRecord::Schema.define(:version => 20120127154542) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line_1"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20120127142108) do
     t.string   "type"
     t.integer  "parent_id"
     t.string   "parent_type"
+    t.string   "country"
   end
 
   create_table "comments", :force => true do |t|
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(:version => 20120127142108) do
     t.string   "last_name"
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 

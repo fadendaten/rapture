@@ -12,6 +12,10 @@ module Accountable
     def act_as_customer
       include CustomerInstanceMethods
     end
+    
+    def act_as_csvable
+      include ActAsCSV
+    end
   end
   
   module AddressableInstanceMethods
@@ -40,6 +44,28 @@ module Accountable
       end
     end
 
+  end
+  
+  module ActAsCSV
+    
+    def self.included(base)
+      address_lines = {:line_1 => "",
+                      :line_2 => "",
+                      :line_3 => "",
+                      :zip_code => "",
+                      :city => "",
+                      :country_code => ""}
+      base.comma do
+        company
+        email
+        phone
+        mobile
+        fax
+        contact_address address_lines.merge(:line_1 => "Kontaktadresse")
+        delivery_address address_lines.merge(:line_1 => "Lieferadresse")
+        invoice_address address_lines.merge(:line_1 => "Rechnungsadresse")
+      end
+    end
   end
   
 end
