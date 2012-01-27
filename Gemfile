@@ -7,6 +7,7 @@ gem 'simple_form'
 gem 'paginate_alphabetically', :git => 'git://github.com/edendevelopment/paginate_alphabetically.git', :branch => 'bundler'
 gem 'cancan'
 gem 'devise'
+gem 'comma' #adds the comma macro to active record for csv export
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
