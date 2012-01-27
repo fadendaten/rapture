@@ -22,7 +22,7 @@
 
 class User < ActiveRecord::Base
   
-  devise :database_authenticatable, :recoverable, :rememberable, :trackable
+  devise :database_authenticatable, :rememberable, :trackable
   attr_accessible :username, :email, :password, :password_confirmation, :first_name, :last_name, :remember_me
   
   has_many :user_role_assignments
