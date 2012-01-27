@@ -7,7 +7,8 @@ de:
 
   devise:
     failure:
-      unauthenticated: 'Sie müssen sich anmelden oder registrieren, bevor Sie weiterfahren können.'
+      already_authenticated: 'Sie sind bereits eingeloggt.'
+      unauthenticated: 'Sie müssen sich anmelden bevor Sie weiterfahren können.'
       unconfirmed: 'Sie müssen Ihren Account bestätigen, bevor Sie weiterfahren können.'
       locked: 'Ihr Account ist gesperrt.'
       invalid: 'Ungültige Anmeldedaten.'
@@ -15,8 +16,8 @@ de:
       timeout: 'Ihre Sitzung ist abgelaufen, bitte melden Sie sich erneut an.'
       inactive: 'Ihr Account ist nicht aktiv.'
     sessions:
-      signed_in: 'Erfolgreich angemeldet.'
-      signed_out: 'Erfolgreich abgemeldet.'
+      signed_in: 'Erfolgreich eingeloggt.'
+      signed_out: 'Erfolgreich ausgeloggt.'
     passwords:
       send_instructions: 'Sie erhalten in wenigen Minuten eine E-Mail mit der Anleitung, wie Sie ihr Passwort zurücksetzten können.' 
       updated: 'Ihr Passwort wurde geändert. Sie sind angemeldet.'

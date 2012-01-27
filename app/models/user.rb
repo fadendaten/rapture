@@ -22,11 +22,23 @@
 
 class User < ActiveRecord::Base
   
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :recoverable, :rememberable, :trackable
   attr_accessible :username, :email, :password, :password_confirmation, :first_name, :last_name, :remember_me
   
   has_many :user_role_assignments
   has_many :user_roles, :through => :user_role_assignments
+  
+  validates :username,   :presence => true,
+                         :length   => { :within => 4..40 },
+                         :uniqueness => true
+  validates :email,      :presence   => true,
+                         :format     => { :with => /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :password,   :presence     => true,
+                         :confirmation => true,
+                         :length       => { :within => 6..40 },
+                         :if           => :password_validation_required?
+  validates :first_name, :presence => true
+  validates :last_name,  :presence => true
   
   def self.build(attributes)
     user = User.new
@@ -42,7 +54,6 @@ class User < ActiveRecord::Base
   def set_attributes(attributes)
     User.set_info(self, attributes)
     unless attributes[:password].blank?
-      self.encrypted_password = ""
       self.password = attributes[:password]
     end
   end
@@ -72,6 +83,10 @@ class User < ActiveRecord::Base
           end
         end
       end
+    end
+    
+    def password_validation_required?
+      self.encrypted_password.blank?
     end
    
 end
