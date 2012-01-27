@@ -19,6 +19,7 @@ class Customer < ActiveRecord::Base
   include Accountable
   act_as_addressable
   act_as_customer
+  act_as_csv
 
   has_many :comments, :as => :parent, :dependent => :destroy
   

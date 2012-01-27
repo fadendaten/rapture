@@ -13,7 +13,7 @@ module Accountable
       include CustomerInstanceMethods
     end
     
-    def act_as_csvable
+    def act_as_csv
       include ActAsCSV
     end
   end
