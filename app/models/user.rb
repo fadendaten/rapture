@@ -23,7 +23,7 @@
 class User < ActiveRecord::Base
   
   devise :database_authenticatable, :rememberable, :trackable
-  attr_accessible :username, :email, :password, :password_confirmation, :first_name, :last_name, :remember_me
+  attr_accessible :username, :email, :password, :password_confirmation, :first_name, :last_name, :remember_me, :user_role_ids
   
   has_many :user_role_assignments
   has_many :user_roles, :through => :user_role_assignments
@@ -42,7 +42,11 @@ class User < ActiveRecord::Base
   
   def self.build(attributes)
     user = User.new
-    self.update_without_password(attributes)
+    user.username = attributes[:username]
+    user.first_name = attributes[:first_name]
+    user.last_name = attributes[:last_name]
+    user.email = attributes[:email]
+    user.set_roles(attributes[:user_role_ids])
     user.password = generate_new_password
     user
   end
@@ -61,7 +65,7 @@ class User < ActiveRecord::Base
     }
   end
   
-  def update_roles(attributes)
+  def set_roles(attributes)
     unless attributes.nil?
       self.user_roles.clear
       attributes.each do |id|
@@ -70,20 +74,9 @@ class User < ActiveRecord::Base
         end
       end
     end
-    self.save!
   end
   
-  
   private
-  
-    def set_attributes
-      user.username = attributes[:username]
-      user.first_name = attributes[:first_name]
-      user.last_name = attributes[:last_name]
-      user.email = attributes[:email]
-      update_roles(attributes[:user_role_ids])
-    end
-
     
     def password_validation_required?
       self.encrypted_password.blank? || self.new_record?

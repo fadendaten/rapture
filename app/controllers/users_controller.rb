@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   load_and_authorize_resource
-  skip_load_resource :only => [:create]
+  # skip_load_resource :only => [:create]
   
   def index
     @title = "Alle Benutzer"
@@ -19,7 +19,8 @@ class UsersController < ApplicationController
         redirect_to @user, :flash => { :success => "Benutzer wurde erfolgreich erfasst." }
       else
         @title = "Benutzer erfassen"
-        render 'user_form'
+        puts "DSHNBUANHUDLSBHULDSBHLUSDFHBUZ"
+        render 'user_form', :flash => { :success => "Etwas ist schief gelaufen. Bitte versuchen sie es nochmal."}
       end
   end
 
