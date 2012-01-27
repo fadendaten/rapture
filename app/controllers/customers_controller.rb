@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
   
-  # load_and_authorize_resource
-  # skip_authorize_resource :only => [:index, :search]
+  load_and_authorize_resource
+  skip_authorize_resource :only => [:index, :search]
   before_filter :authenticate_user!
   
   def index
@@ -10,7 +10,6 @@ class CustomersController < ApplicationController
   end
   
   def new
-    @customer = Customer.new
     @title = "Kunden erfassen"
     render 'forms'
   end
@@ -26,13 +25,11 @@ class CustomersController < ApplicationController
   end
   
   def edit
-    @customer = Customer.find(params[:id])
     @title = "#{@customer} editieren"
     render 'forms'
   end
   
   def update
-    @customer = Customer.find(params[:id])
      if  @customer.update_attributes(params[:customer])
        redirect_to @customer, :flash => { :success => "Informationen angepasst." }
      else
