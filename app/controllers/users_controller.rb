@@ -29,13 +29,15 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_without_password(params[:user])
-      @user.set_roles(params[:user][:user_role_ids])
-      redirect_to @user, :flash => { :success => "Informationen angepasst." }
-    else
-      @title = "#{@user} editieren"
-      flash.now[:error] = "Etwas ist schiefgelaufen, bitte versuchen sie es noch ein paar mal."
-      render 'user_form'
+    if current_user.valid_password?(params[:user][:password])
+      if @user.update_without_password(params[:user])
+        @user.set_roles(params[:user][:user_role_ids])
+        redirect_to @user, :flash => { :success => "Informationen angepasst." }
+      else
+        @title = "#{@user} editieren"
+        flash.now[:error] = "Etwas ist schiefgelaufen, bitte versuchen sie es noch ein paar mal."
+        render 'user_form'
+      end
     end
   end
 

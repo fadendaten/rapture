@@ -15,4 +15,7 @@
         Berechtigung:
       .assoc_items
         = f.association :user_roles, :label => false, :as => :check_boxes, :item_wrapper_tag => :div
+        
+    .field
+      = f.input :password, :label => "Authentifizierung:"
     = f.submit "Speichern", :id => "submit"
