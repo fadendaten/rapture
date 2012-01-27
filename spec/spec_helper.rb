@@ -41,7 +41,7 @@ Spork.prefork do
     
     # Devise
     
-    # config.include Devise::TestHelpers, :type => :controller
+     config.include Devise::TestHelpers, :type => :controller
     
   end
 end
