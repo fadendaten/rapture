@@ -56,7 +56,7 @@ module Accountable
     
     def update_new_customer_flag
       Customer.all.each do |c|
-        c.new_customer = true #if c.created_at >= Time.now - 1.second # @@new_customer_duration
+        c.new_customer = false if c.created_at + @@new_customer_duration < Time.now
         c.save!
       end
     end
