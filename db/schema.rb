@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120127154542) do
+ActiveRecord::Schema.define(:version => 20120130100347) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line_1"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(:version => 20120127154542) do
     t.string   "homepage"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "new_customer", :default => true
+    t.integer  "rating"
   end
 
   add_index "customers", ["company"], :name => "index_customers_on_company", :unique => true
