@@ -25,9 +25,11 @@ class Address < ActiveRecord::Base
   validates :zip_code,     :presence => true
   validates :city,         :presence => true
 
-  
   def lines
-    [line_1, line_2, line_3]
+    lines = [self.line_1]
+    lines << self.line_2 unless self.line_2.blank?
+    lines << self.line_3 unless self.line_3.blank?
+    lines
   end
   
 end
