@@ -5,7 +5,7 @@ end
 
 Given /^I am logged in as a "([^"]*)"$/ do |arg1|
   @user = Factory(:user)
-  @user.user_roles << Factory(:"#{arg1}")
+  @user.user_roles << Factory(arg1.to_sym)
   
   step %{I go to the home page}
   step %{I fill in "Benutzername:" with "#{@user.username}"}
