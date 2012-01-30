@@ -9,6 +9,4 @@
         = f.input :password, :required => false, :label => "Passwort:"
   
     .actions
-      = f.button :submit, "Einloggen"
-      
-= link_to "Passwort vergessen?", new_user_password_path
+      = f.button :submit, "Einloggen", :id => "submit" 
