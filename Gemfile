@@ -8,6 +8,7 @@ gem 'paginate_alphabetically', :git => 'git://github.com/edendevelopment/paginat
 gem 'cancan'
 gem 'devise'
 gem 'comma' #adds the comma macro to active record for csv export
+gem 'whenever' #cron job handling
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
