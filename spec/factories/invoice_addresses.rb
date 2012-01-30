@@ -14,6 +14,7 @@
 #  type         :string(255)
 #  parent_id    :integer(4)
 #  parent_type  :string(255)
+#  country      :string(255)
 #
 
 # Read about factories at http://github.com/thoughtbot/factory_girl

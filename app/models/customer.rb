@@ -2,16 +2,18 @@
 #
 # Table name: customers
 #
-#  id         :integer(4)      not null, primary key
-#  company    :string(255)
-#  phone      :string(255)
-#  mobile     :string(255)
-#  fax        :string(255)
-#  email      :string(255)
-#  language   :string(255)
-#  homepage   :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id           :integer(4)      not null, primary key
+#  company      :string(255)
+#  phone        :string(255)
+#  mobile       :string(255)
+#  fax          :string(255)
+#  email        :string(255)
+#  language     :string(255)
+#  homepage     :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#  new_customer :boolean(1)      default(TRUE)
+#  rating       :integer(4)
 #
 
 class Customer < ActiveRecord::Base
