@@ -3,5 +3,6 @@
 
 = render 'customers/shared/detailed_customer_info'
 %br
-- if can? :update, Customer
-  = link_to "editieren", edit_customer_path(@customer)
+.edit
+  - if can? :update, Customer
+    = link_to "editieren", edit_customer_path(@customer)

@@ -43,26 +43,27 @@
         = link_to "#{@customer.homepage}", @customer.homepage, :target => "_blank"
       %hr
 %br
-.address    
-  %h3 
-    Kontaktadresse
-  - if @customer.contact_address.nil?
-    %div keine
-  - else
-    = render 'customers/shared/address', :address => @customer.contact_address
-    
-.address    
-  %h3 
-    Rechnungsadresse
-  - if @customer.invoice_address.nil?
-    %div keine
-  - else
-    = render 'customers/shared/address', :address => @customer.invoice_address
-    
-.address    
-  %h3 
-    Lieferadresse
-  - if @customer.delivery_address.nil?
-    %div keine
-  - else
-    = render 'customers/shared/address', :address => @customer.delivery_address
+.addresses
+  .address    
+    %h3 
+      Kontaktadresse
+    - if @customer.contact_address.nil?
+      %div keine
+    - else
+      = render 'customers/shared/address', :address => @customer.contact_address
+      
+  .address    
+    %h3 
+      Rechnungsadresse
+    - if @customer.invoice_address.nil?
+      %div keine
+    - else
+      = render 'customers/shared/address', :address => @customer.invoice_address
+      
+  .address    
+    %h3 
+      Lieferadresse
+    - if @customer.delivery_address.nil?
+      %div keine
+    - else
+      = render 'customers/shared/address', :address => @customer.delivery_address
