@@ -24,9 +24,9 @@ module Accountable
       base.has_one :invoice_address,  :as => :parent, :dependent => :destroy
       base.has_one :delivery_address, :as => :parent, :dependent => :destroy
       
-      base.accepts_nested_attributes_for :contact_address,  :reject_if => lambda { |a| a[:line_1].blank? }
-      base.accepts_nested_attributes_for :invoice_address,  :reject_if => lambda { |a| a[:line_1].blank? }
-      base.accepts_nested_attributes_for :delivery_address, :reject_if => lambda { |a| a[:line_1].blank? }
+      base.accepts_nested_attributes_for :contact_address,  :reject_if => lambda { |a| a[:line_1].blank? && a[:zip_code].blank? && a[:city].blank? }
+      base.accepts_nested_attributes_for :invoice_address,  :reject_if => lambda { |a| a[:line_1].blank? && a[:zip_code].blank? && a[:city].blank? }
+      base.accepts_nested_attributes_for :delivery_address, :reject_if => lambda { |a| a[:line_1].blank? && a[:zip_code].blank? && a[:city].blank? }
     end
   end
   
@@ -47,7 +47,6 @@ module Accountable
   end
   
   module ActAsCSV
-    
     def self.included(base)
       address_lines = {:line_1 => "",
                       :line_2 => "",
