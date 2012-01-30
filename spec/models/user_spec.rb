@@ -128,28 +128,29 @@ require 'spec_helper'
     
   end
   
-  # describe "set_attributes method" do
-  #     
-  #     before(:each) do
-  #       @user = User.create!(@attr)
-  #     end
-  #     
-  #     it "should exist" do
-  #       User.should respond_to(:set_attributes)
-  #     end
-  #     
-  #     it "should set new attributes given valid input" do
-  #       @user.set_attributes(@attr.merge(:username => "Son Goku"))
-  #       @user.save.should be_true
-  #     end
-  # 
-  #     it "should re-encrypt password if it is updated" do
-  #       password_before_reencryption = @user.encrypted_password
-  #       @user.set_attributes(@attr.merge(:password => "jenkins"))
-  #       @user.save
-  #       password_before_reencryption.should_not == @user.encrypted_password
-  #     end
-  #     
-  #   end
+  describe "build method" do
+      
+      before(:each) do
+        @user = User.build(@attr)
+      end
+      
+      it "should exist" do
+        User.should respond_to(:build)
+      end
+      
+      it "should set new attributes given valid input" do
+        @user = User.build(@attr.merge(:username => "Son Goku"))
+        @user.save.should be_true
+      end
+  
+      it "should re-encrypt password if it is updated" do
+        @user.save
+        password_before_reencryption = @user.encrypted_password
+        @user.password = "jenkins"
+        @user.save
+        password_before_reencryption.should_not == @user.encrypted_password
+      end
+      
+    end
   
 end
