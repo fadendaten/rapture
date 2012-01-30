@@ -22,7 +22,7 @@
 
 class User < ActiveRecord::Base
   
-  devise :database_authenticatable, :rememberable, :trackable
+  devise :database_authenticatable, :rememberable, :trackable, :recoverable 
   attr_accessible :username, :email, :password, :password_confirmation, :first_name, :last_name, :remember_me, :user_role_ids
   
   has_many :user_role_assignments
@@ -39,6 +39,10 @@ class User < ActiveRecord::Base
                          :if           => :password_validation_required?
   validates :first_name, :presence => true
   validates :last_name,  :presence => true
+  
+  def to_s
+    username
+  end
   
   def self.build(attributes)
     user = User.new
