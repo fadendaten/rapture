@@ -32,16 +32,23 @@
       %hr
     %li
       %span.column_left
+        Homepage:
+      %span.column_right
+        = link_to "#{@customer.homepage}", @customer.homepage, :target => "_blank"
+      %hr
+    %li
+      %span.column_left
         Korrespondenzsprache:
       %span.column_right
         = @customer.language
       %hr
     %li
       %span.column_left
-        Homepage:
+        Rating:
       %span.column_right
-        = link_to "#{@customer.homepage}", @customer.homepage, :target => "_blank"
+        = @customer.rating
       %hr
+
 %br
 .addresses
   .address    

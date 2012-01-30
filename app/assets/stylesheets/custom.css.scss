@@ -42,6 +42,12 @@ nav {
 	margin-top:10px;
 }
 
+#submit {
+	width: auto;
+	margin-top: 20px;
+	float: right;
+}
+
 hr {
 	height: 3px;
 }
@@ -65,34 +71,46 @@ h3 {
 	font-size: 1.5em;
 }
 
-.form {
-  width: 65%;
-}
-
 .container {
 	margin-top: 20px;
 }
 
 // Simple form
 
+.form {
+  width: 65%;
+}
+
 .simple_form {
+	
+	.column_left {
+		float: left;
+		display: inline-block;
+		width: 40%;
+	}
+	
+	.column_right {
+		float: right;
+		display: inline-block;
+		width: 60%;
+	}
 
   input {
-    float: right;
+		float: right;
+		width: 60%;
   }
   
   select {
-    margin-left: 95px;
-  }
-  
-  #submit {
-		margin-top: 20px;
-		float: left;
+		width: 30%;
   }
 
-.field {
-	margin-bottom: 15px;
-}
+	.field {
+		margin-bottom: 15px;
+	}
+
+	.select {
+		margin-bottom: 55px;
+	}
 
 	.field_with_errors {
 		border: solid;
