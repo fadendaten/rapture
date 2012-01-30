@@ -19,7 +19,7 @@ class UsersController < ApplicationController
         redirect_to @user, :flash => { :success => "Benutzer wurde erfolgreich erfasst." }
       else
         @title = "Benutzer erfassen"
-        flash.now[:error] = "Etwas ist schiefgelaufen, bitte versuchen sie es noch ein paar mal."
+        flash.now[:error] = "Die Authentifizierung ist fehlgeschlagen."
         render 'user_form'
       end
   end
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
       redirect_to @user, :flash => { :success => "Informationen angepasst." }
     else
       @title = "#{@user.username} editieren"
-      flash.now[:error] = "Etwas ist schiefgelaufen, bitte versuchen sie es noch ein paar mal."
+      flash.now[:error] = "Die Authentifizierung ist fehlgeschlagen."
       render 'user_form'
     end
   end

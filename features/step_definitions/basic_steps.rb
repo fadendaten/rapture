@@ -12,3 +12,12 @@ Given /^I am logged in as a "([^"]*)"$/ do |arg1|
   step %{I fill in "Passwort:" with "#{@user.password}"}
   step %{I press "Einloggen"}
 end
+
+
+Given /^There is a "([^"]*)" role$/ do |arg1|
+  UserRole.create(:name => arg1)
+  # @user = Factory(:user)
+  #   @user.user_roles << Factory(:sudo)
+  #   @user.user_roles << Factory(:admin)
+  #   @user.user.roles << Factory(:base)
+end

@@ -53,4 +53,5 @@ group :test do
   gem 'cucumber-rails'
   gem 'webrat'
   gem 'database_cleaner'
+  gem 'launchy'
 end
