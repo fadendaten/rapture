@@ -36,6 +36,10 @@ module Accountable
       company
     end
     
+    def new?
+      self.new_customer
+    end
+    
     def format_homepage_url
       unless homepage.blank? || homepage.starts_with?("http://", "https://")
         self.homepage = "http://#{homepage}"

@@ -222,6 +222,22 @@ describe Customer do
       
     end
     
+    describe "new customer flag" do
+      
+      it "should exist" do
+        @customer.should respond_to(:new_customer)
+      end
+      
+      it "should have a new? getter method" do
+        @customer.should respond_to(:new?)
+      end
+      
+      it "new? method should return true" do
+        @customer.new?.should be_true
+      end
+      
+    end
+    
   end
   
   describe "search function" do
