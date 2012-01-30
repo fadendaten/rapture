@@ -1,5 +1,7 @@
 %h1
   = @customer.company
+  -if @customer.new?
+    = image_tag ("new.gif")
 
 = render 'customers/shared/detailed_customer_info'
 %br
