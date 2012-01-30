@@ -1,4 +1,7 @@
 .customer_info
+  -if @customer.new?
+    .new
+      = image_tag("new.gif")
   %ul
     %li
       %span.column_left
@@ -42,6 +45,7 @@
       %span.column_right
         = link_to "#{@customer.homepage}", @customer.homepage, :target => "_blank"
       %hr
+  
 %br
 .addresses
   .address    
