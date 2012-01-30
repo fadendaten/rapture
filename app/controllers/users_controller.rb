@@ -41,6 +41,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @title = @user.username
   end
 
 end
