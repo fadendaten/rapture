@@ -1,13 +1,13 @@
 .field
   = f.input :company,  :label => 'Firmenname:', :size => "10"
 .field
-  = f.input :phone,    :label => 'Telefon:'
+  = f.input :phone,    :as => :string,            :label => 'Telefon:'
 .field
   = f.input :mobile,   :label => 'Mobile:'
 .field
   = f.input :fax,      :label => 'Fax:'
 .field
-  = f.input :email,    :label => 'E-Mail:'
+  = f.input :email,    :as => :string,            :label => 'E-Mail:'
 .field
   = f.input :homepage, :label => 'Homepage:'
 .select

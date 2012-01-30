@@ -13,10 +13,7 @@ Rapture::Application.routes.draw do
   resources :users
   resources :languages
   resources :country
-  
-  # post  '/search' => 'customers#search'
-  # post  '/download' => 'customers#download'
-  
+    
   match '/settings', :to => 'users#index'
   
   
