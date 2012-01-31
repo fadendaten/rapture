@@ -24,7 +24,8 @@ module NavigationHelpers
       path_to_pickle $1
       
     when /the show page for (.+)/
-      polymorphic_path(model($1))
+      puts "EARNRSTNRSTGNJGR #{Customer.find_by_company($1)}"
+      customer_path Customer.find_by_company($1)
       
     when /the new page for a label/
       new_label_path()

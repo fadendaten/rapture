@@ -4,8 +4,8 @@ Feature: Search
   I want fast and reliable search possibilities
   
   Scenario: normal user searches for customer Chuck Testa
-    Given A customer with companyname "Chuck Testa" exists
-    And A customer with companyname "Anne Banne" exists
+    Given A customer with company name "Chuck Testa" exists
+    And A customer with company name "Anne Banne" exists
     And I am logged in as a "admin"
     And I am on the home page
     And I should see "Alle Kunden"

@@ -1,5 +1,5 @@
 
-Given /^A customer with companyname "([^"]*)" exists$/ do |arg1|
+Given /^A customer with company name "([^"]*)" exists$/ do |arg1|
   Factory.create(:customer, :company => arg1)
 end
 
