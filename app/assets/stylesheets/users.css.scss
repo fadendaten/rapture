@@ -15,25 +15,41 @@
 	}
 }
 
+//settings
+
 .username_column {
 	margin-left: 10px;
-	width: 280px;
+	width: 29%;
 }
 
 .email_column {
-	width: 280px;
+	width: 29%;
 }
 
 .roles_column {
-	width: 280px;
+	width: 29%;
 }
 
 .edit_column {
-	width: 80px;
+	width: 10%;
 	float: right;
 	text-align: right;
 }
 
-#user_settings, #language_settings, #country_settings, #further_settings {
-	display: none;
+ul {
+	margin: 0;
+	padding: 0;
+	li {
+		list-style-type: none;
+	}
+}
+
+.toggle_button {
+	float: right;
+}
+
+.settings {
+	border: solid thin black;
+	padding: 10px;
+	margin: 10px;
 }

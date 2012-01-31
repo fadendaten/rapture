@@ -2,26 +2,26 @@
   %li
     Benutzereinstellungen
     %span
-    = link_to_function "anzeigen", "toggle('user_settings', 'user')", :id => "user"
-    %hr
+      %button.toggle_button#togglebutton_user anzeigen
+    %hr.fat
     = render 'users/shared/user_settings'
   %li
     Spracheinstellungen
     %span
-      = link_to_function "anzeigen", "toggle('language_settings', 'language')", :id => "language"
-    %hr
+      %button.toggle_button#togglebutton_language anzeigen
+    %hr.fat
     = render 'users/shared/language_settings'
   %li
     Ländereinstellungen
     %span
-      = link_to_function "anzeigen", "toggle('country_settings', 'country')", :id => "country"
-    %hr
+      %button.toggle_button#togglebutton_country anzeigen
+    %hr.fat
     = render 'users/shared/country_settings'
   %li
     Weitere Einstellungen
     %span
-      = link_to_function "anzeigen", "toggle('further_settings', 'further')", :id => "further"
-    %hr
+      %button.toggle_button#togglebutton_further anzeigen
+    %hr.fat
     = render 'users/shared/further_settings'
     
     
