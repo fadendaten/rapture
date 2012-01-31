@@ -9,6 +9,7 @@ gem 'cancan'
 gem 'devise'
 gem 'comma' #adds the comma macro to active record for csv export
 gem 'whenever' #cron job handling
+gem 'jquery-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -23,7 +24,6 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'
