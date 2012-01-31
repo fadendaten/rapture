@@ -91,7 +91,7 @@ describe CustomersController do
         get :index
         response.should have_selector('title', :content => "Alle Kunden")
       end
-      
+
     end
     
   end
@@ -121,7 +121,7 @@ describe CustomersController do
       get :show, :id => @customer
       response.should have_selector('h1', :content => @customer.company) 
     end
-    
+      
   end
   
   describe "GET 'edit'" do
@@ -153,6 +153,58 @@ describe CustomersController do
       
     end
     
+  end
+  
+  describe "Test 'NEW' status" do
+    
+    before(:each) do
+      sign_in :user, @user
+    end
+      
+    describe "for old customers" do
+      
+      before(:each) do
+        @customer.created_at = Time.now - 3.years
+        @customer.save!
+        Customer.new_customer_duration = 5.months
+        Customer.update_new_customer_flag
+      end
+      
+      it "should have no 'new' image on the index page" do
+        get :index
+        response.should have_selector('a', :content => @customer.company)
+        response.should_not have_selector('img', :src => "/assets/new_small.gif")
+      end
+      
+      it "should have no 'new' image on the show page" do
+        get :show, :id => @customer
+        response.should have_selector('h1', :content => @customer.company)
+        response.should_not have_selector('img', :src => "/assets/new.gif")
+      end
+    end
+      
+    describe "for new customers" do
+      
+      before(:each) do
+        @customer.created_at = Time.now
+        @customer.save!
+        Customer.new_customer_duration = 5.months
+        Customer.update_new_customer_flag
+      end
+      
+      it "should have a 'new' image on the index page" do
+        get :index
+        response.should have_selector('a', :content => @customer.company)
+        response.should have_selector('img', :src => "/assets/new_small.gif")
+      end
+      
+      it "should have a 'new' image on the show page" do
+        get :show, :id => @customer
+        response.should have_selector('h1', :content => @customer.company)
+        response.should have_selector('img', :src => "/assets/new.gif")
+      end
+    end
+        
   end
 
 end
