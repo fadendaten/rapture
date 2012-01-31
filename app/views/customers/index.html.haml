@@ -7,7 +7,7 @@
       = button_to 'neuen Kunden erfassen', new_customer_path(), :method => :get, :class => "button"
 
   #export_as_csv
-    = button_to "EXCEL", download_customers_path, :method => 'post', :class => "button"
+    = button_to "EXCEL", download_customers_path, :method => :post, :class => "button"
 %hr
 
 %ul.pagination
