@@ -7,4 +7,4 @@
 %br
 .edit
   - if can? :update, Customer
-    = link_to "editieren", edit_customer_path(@customer)
+    = button_to "editieren", edit_customer_path(@customer), :method => :get

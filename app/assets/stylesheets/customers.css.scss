@@ -19,47 +19,54 @@
 }
 
 .company_column {
-	margin-left: 10px;
-	width: 280px;
+	width: 30%;
 }
 
 .phone_column {
-	width: 280px;
+	width: 30%;
 }
 
 .email_column {
-	width: 280px;
+	width: 30%;
 }
 
 .edit_column {
-	width: 80px;
-	text-align: right;
+	width: 10%;
 }
 
 .actions {
+	width: auto;
 	overflow: auto;
-	margin-bottom: 10px;
+	margin-top: 10px;
+	.new_action {
+		float: left;
+	}
+	#export_as_csv {
+		margin-left: 10px;
+		float: left;
+	}
 }
 
 .search_function {
-	float:left;
+	float: left;
 }
 
 // Show page
 
 .customer_info {
-	width: 45%;
+	width: 50%;
 	ul {
 		margin: 0;
 		padding: 0;
 		li {
 			list-style-type: none;
 			.column_left {
+				width: 40%;
 				font-weight: bold;
-				width: 300px;
 			}
 			.column_right {
-				float: right;
+				width: 60%;
+				text-align: right;
 			}
 		}
 	}
