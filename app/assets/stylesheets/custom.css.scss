@@ -111,20 +111,25 @@ h3 {
 	.select {
 		margin-bottom: 55px;
 	}
-
+	
 	.field_with_errors {
-		border: solid;
-		border-color: red;
-		padding-right: 15px;
-		padding-left: 15px;
 		
+		border: solid thin red;
+		padding: 10px;
 		
 		.error {
-			color: red;
-			background-color: white;
+			width: 50%;
 			border: none;
+			background-color: white;
+			font-family: sans-serif;
+			color: red;
+			position: relative;
+			top: 5px;
+			left: 110px;
 		}
+		
 	}
+
 }
 
 .current_user {
@@ -175,10 +180,6 @@ label.collection_radio {
 	margin-right: 10px;
   vertical-align: -2px;
   margin-left:   2px;
-}
-
-.field_with_errors {
-  background-color: #ff3333;
 }
 
 input.radio {
