@@ -58,5 +58,12 @@ class CustomersController < ApplicationController
     @customers = Customer.search(params[:search])
     render 'index'
   end
-    
+  
+  def new_customer_duration
+    duration = params[:duration]
+    date_type = params[:date_type]
+    new_duration = duration.to_i.send(date_type)
+    Customer.new_customer_duration = new_duration
+    redirect_to settings_path
+  end
 end
