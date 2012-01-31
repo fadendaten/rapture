@@ -3,12 +3,11 @@
 = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
 
   = f.input :reset_password_token, :as => :hidden
-  = f.error :reset_password_token # changed german transl. of 'blank' in devise.de.yml to 'Passwort und Bestätigung...' to display correct error msg.
+  / = f.full_error :reset_password_token # changed german transl. of 'blank' in devise.de.yml to 'Passwort und Bestätigung...' to display correct error msg.
 
   .inputs
     .field
       = f.input :password, :label => "Neues Passwort", :required => false
-      = f.full_error :password
     .field
       = f.input :password_confirmation, :label => "Neues Passwort bestätigen", :required => false
 
