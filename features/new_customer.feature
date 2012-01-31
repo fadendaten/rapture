@@ -3,15 +3,15 @@ Feature: New customer
   As a user
   I want to be able to create new customers
   
-  Scenario: admin user follows link to create new customer
+  Scenario: admin user presses button to create new customer
     Given I am logged in as a "admin"
-    And I should see "neuen Kunden erfassen"
-    When I follow "neuen Kunden erfassen"
+    And I should see "neuen Kunden erfassen" button
+    When I press "neuen Kunden erfassen"
     Then I should see "Neuen Kunden erfassen"
     
   Scenario: admin user fills out form and submits it
     Given I am logged in as a "admin"
-    And I follow "neuen Kunden erfassen"
+    And I press "neuen Kunden erfassen"
     When I fill in "Firmenname:" with "Fadendaten"
     And I fill in "Telefon:" with "034 445 39 08"
     And I press "Speichern"
@@ -20,7 +20,7 @@ Feature: New customer
     
   Scenario: admin user fills out form with complete address information
     Given I am logged in as a "admin"
-    And I follow "neuen Kunden erfassen"
+    And I press "neuen Kunden erfassen"
     When I fill in "Firmenname:" with "Victoria's Secret"
     And I fill in "Telefon:" with "1234567890"
     And I fill in "Zeile 1:" with "Secretstreet 1"
@@ -32,7 +32,7 @@ Feature: New customer
     
   Scenario: admin user fills out form with incomplete address information
     Given I am logged in as a "admin"
-    And I follow "neuen Kunden erfassen"
+    And I press "neuen Kunden erfassen"
     When I fill in "Firmenname:" with "Victoria's Secret"
     And I fill in "Telefon:" with "1234567890"
     And I fill in "Stadt:" with "Columbus"
