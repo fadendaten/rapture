@@ -237,6 +237,9 @@ label.collection_check_boxes {
 }
 
 .assoc_items {
+	input {
+		width: auto;
+	}
 	float: none;
 	position: relative;
 	display: block;
