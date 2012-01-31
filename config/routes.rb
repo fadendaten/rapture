@@ -16,6 +16,7 @@ Rapture::Application.routes.draw do
     
   match '/settings', :to => 'users#index'
   
+  match '/new_customer_duration', :to => 'customers#new_customer_duration', :via => 'post'
   
 #  match '/new',           :to => 'customers#new'
 #  match '/show',          :to => 'customers#show'
