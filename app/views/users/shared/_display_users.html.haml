@@ -10,5 +10,5 @@
           = user.user_roles.first.name
       %li.edit_column
         - if can? :update, User
-          = link_to "editieren", edit_user_path(user)
+          = button_to "editieren", edit_user_path(user), :method => :get, :class => "button"
       %hr

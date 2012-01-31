@@ -1,32 +1,32 @@
-%h1
+%h1.column_left
   Alle Benutzer
 
-.actions
+.column_right.actions
   - if can? :create, User
     .new_action
-      = link_to 'neuen Benutzer erfassen', new_user_path()
+      = button_to 'neuen Benutzer erfassen', new_user_path(), :method => :get, :class => "button"
 %hr
 
 #users
   .users.round
     = render 'users/shared/display_users'
     
-%h1
+%h1.column_left
   Alle Sprachen
 
-.actions
+.column_right.actions
   - if can? :create, Language
     .new_action
-      = link_to 'neue Sprache erfassen', new_language_path()
+      = button_to 'neue Sprache erfassen', new_language_path(), :method => :get, :class => "button"
 %hr
 
-%h1
+%h1.column_left
   Alle Länder
 
-.actions
+.column_right.actions
   - if can? :create, Country
     .new_action
-      = link_to 'neues Land erfassen', new_country_path()
+      = button_to 'neues Land erfassen', new_country_path(), :method => :get, :class => "button"
 %hr
 
 %h1
