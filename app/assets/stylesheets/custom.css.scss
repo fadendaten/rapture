@@ -32,6 +32,27 @@ nav {
 	}
 }
 
+.button {
+   font-size:12px;
+   font-family:sans-serif;
+   height:25px;
+   background-color:#EEEEEE;
+   background-image:url(back05.gif);
+   border-style:outset;
+   border-color:#CCCCCC;
+   border-width:2px;
+}
+
+.column_left {
+	width: 50%;
+	float: left;
+}
+
+.column_right {
+	width: 50%;
+	float: right;
+}
+
 #left {
 	float: left;
 }
@@ -39,7 +60,7 @@ nav {
 #right {
 	float: right;
 	font-size: 120%;
-	margin-top:10px;
+	margin-top: 10px;
 }
 
 #submit {
@@ -103,6 +124,10 @@ h3 {
   select {
 		width: 30%;
   }
+
+	.button {
+		width: auto;
+	}
 
 	.field {
 		margin-bottom: 15px;

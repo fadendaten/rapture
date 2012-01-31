@@ -12,5 +12,5 @@
         = customer.email
       %li.edit_column
         - if can? :update, Customer
-          = link_to  "editieren", edit_customer_path(customer)
+          = button_to  "editieren", edit_customer_path(customer), :method => :get, :class => "button"
       %hr
