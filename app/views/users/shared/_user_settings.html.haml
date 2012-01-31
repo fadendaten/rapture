@@ -1,0 +1,13 @@
+#user_settings  
+  %h1.column_left
+    Benutzereinstellungen
+
+  .column_right.actions
+    - if can? :create, User
+      .new_action
+        = button_to 'neuen Benutzer erfassen', new_user_path(), :method => :get, :class => "button"
+  %hr
+
+  #users
+    .users.round
+      = render 'users/shared/display_users'

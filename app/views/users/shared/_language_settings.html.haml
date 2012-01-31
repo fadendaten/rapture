@@ -1,0 +1,9 @@
+#language_settings    
+  %h1.column_left
+    Spracheinstellungen
+
+  .column_right.actions
+    - if can? :create, Language
+      .new_action
+        = button_to 'neue Sprache erfassen', new_language_path(), :method => :get, :class => "button"
+  %hr

@@ -1,0 +1,9 @@
+#country_settings
+  %h1.column_left
+    Ländereinstellungen
+
+  .column_right.actions
+    - if can? :create, Country
+      .new_action
+        = button_to 'neues Land erfassen', new_country_path(), :method => :get, :class => "button"
+  %hr

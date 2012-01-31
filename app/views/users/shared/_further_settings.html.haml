@@ -1,0 +1,8 @@
+#further_settings
+  %h1
+    Weitere Einstellungen
+  .actions
+    = form_tag '/new_customer_duration', {:controller => 'customers', :action => 'new_customer_duration', :id => 'new_customer_duration'} do
+      = select_tag 'duration', options_for_select(1...24, 5)
+      = select_tag 'date_type', options_for_select({"Tage" => 'days', "Wochen" => 'weeks', "Monate" => 'months', "Jahre" => 'years'}, 'months')
+      = submit_tag "NEU setzen"
