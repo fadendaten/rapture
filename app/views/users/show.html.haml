@@ -4,4 +4,4 @@
 = render 'users/shared/detailed_user_info'
 %br
 - if can? :update, User
-  = link_to "editieren", edit_user_path(@user)
+  = button_to "editieren", edit_user_path(@user), :method => :get, :class => "button"
