@@ -89,6 +89,25 @@ h3 {
 	margin-top: 20px;
 }
 
+.person_info {
+	width: 50%;
+	ul {
+		margin: 0;
+		padding: 0;
+		li {
+			list-style-type: none;
+			.column_left {
+				width: 40%;
+				font-weight: bold;
+			}
+			.column_right {
+				width: 60%;
+				text-align: right;
+			}
+		}
+	}
+}
+
 // Simple form
 
 .form {

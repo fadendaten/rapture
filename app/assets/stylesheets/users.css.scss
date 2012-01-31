@@ -33,24 +33,3 @@
 	float: right;
 	text-align: right;
 }
-
-// show page
-
-.user_info {
-	width: 45%;
-	ul {
-		margin: 0;
-		padding: 0;
-		li {
-			list-style-type: none;
-			.column_left {
-				font-weight: bold;
-				width: 300px;
-			}
-			.column_right {
-				float: right;
-				text-align: right;
-			}
-		}
-	}
-}
