@@ -4,6 +4,7 @@ de:
       not_found: "nicht gefunden"
       already_confirmed: "wurde bereits bestätigt"
       not_locked: "ist nicht gesperrt"
+      blank: "Passwort und Bestätigung müssen übereinstimmen"
 
   devise:
     failure:
