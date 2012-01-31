@@ -7,12 +7,12 @@ Feature: New user
     Given I am logged in as a "sudo"
     And I should see "Einstellungen"
     When I follow "Einstellungen"
-    Then I should see "neuen Benutzer erfassen"
+    Then I should see "neuen Benutzer erfassen" button
     
   Scenario: sudo creates new sudo user
     Given I am logged in as a "sudo"
     And I follow "Einstellungen"
-    And I follow "neuen Benutzer erfassen"
+    And I press "neuen Benutzer erfassen"
     Then I should be on the new user page
     And I fill in "Benutzername:" with "Dani"
     And I fill in "Vorname:" with "Daniel"
@@ -31,7 +31,7 @@ Feature: New user
     And There is a "admin" role
     And There is a "base" role
     And I follow "Einstellungen"
-    And I follow "neuen Benutzer erfassen"
+    And I press "neuen Benutzer erfassen"
     Then I should be on the new user page
     And I fill in "Benutzername:" with "Dani"
     And I fill in "Vorname:" with "Daniel"
@@ -50,7 +50,7 @@ Feature: New user
     And There is a "admin" role
     And There is a "base" role
     And I follow "Einstellungen"
-    And I follow "neuen Benutzer erfassen"
+    And I press "neuen Benutzer erfassen"
     Then I should be on the new user page
     And I fill in "Benutzername:" with "Dani"
     And I fill in "Vorname:" with "Daniel"

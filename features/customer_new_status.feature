@@ -6,7 +6,7 @@ Feature: Customer new status
   Scenario: admin user creates new customer, evaluates customers 'new' status
     Given I am logged in as a "admin"
     And A customer with company name "Dani" exists
-    When I go to the path "Dani"
+    When I follow "Dani"
     Then I should see "new.gif"
   
   

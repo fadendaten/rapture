@@ -3,7 +3,7 @@ Feature: New customer
   As a user
   I want to be able to create new customers
   
-  Scenario: admin user follows link to create new customer
+  Scenario: admin user presses button to create new customer
     Given I am logged in as a "admin"
     And I should see "neuen Kunden erfassen" button
     When I press "neuen Kunden erfassen"
