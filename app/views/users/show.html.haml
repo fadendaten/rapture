@@ -1,5 +1,7 @@
 %h1
   = @user.username
+  -if @user == current_user
+    = button_to "eigene Angaben ändern", edit_user_registration_path, :method => :get, :class => "button"
 
 = render 'users/shared/detailed_user_info'
 %br
