@@ -1,0 +1,19 @@
+!!! 5
+%html
+  %head    
+    %meta{'http-equiv' => 'Content-Type', :content => 'text/html'}/
+  %body
+    Wilkommen zu rapture 
+    = @user.full_name
+    %br
+    Kürzlich wurde ein Account für Sie erstellt. Klicken Sie hier:
+    %br
+    = link_to @url, @url
+    %br
+    um das grosse Abenteuer zu starten!
+    %br
+    Ihre Account-Daten:
+    Benutzername:
+    = @user.username
+    Passwort:
+    = @user.password

@@ -12,10 +12,16 @@ class UsersController < ApplicationController
     @title = "Benutzer erfassen"
     render 'user_form'
   end
-
+  
   def create
     @user = User.build(params[:user])
       if current_user.valid_password?(params[:user][:password]) && @user.save
+        begin
+          UserMailer.welcome_email(@user).deliver
+        rescue
+          Rails.logger.warn "No email could be sent!"
+          flash[:error] = "Es konnte keine email gesendet werden!!!"
+        end
         redirect_to @user, :flash => { :success => "Benutzer wurde erfolgreich erfasst." }
       else
         @title = "Benutzer erfassen"

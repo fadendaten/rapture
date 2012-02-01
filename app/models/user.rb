@@ -55,10 +55,6 @@ class User < ActiveRecord::Base
     user
   end
   
-  def self.generate_new_password
-    "test123"
-  end
-
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -81,6 +77,11 @@ class User < ActiveRecord::Base
   end
   
   private
+  
+    def self.generate_new_password
+      a = [('a'..'z'),('0'..'9')].map{|i| i.to_a}.flatten
+      password_confirmation = (0..7).map{a[rand(a.length)] }.join
+    end
     
     def password_validation_required?
       self.encrypted_password.blank? || self.new_record? || self.reset_password_period_valid?
