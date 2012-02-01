@@ -6,14 +6,18 @@
     Wilkommen zu rapture 
     = @user.full_name
     %br
-    Kürzlich wurde ein Account für Sie erstellt. Klicken Sie hier:
+    Kürzlich wurde ein Account für Sie erstellt.
+    %p
+    Um das grosse Abenteuer zu starten müssen Sie nur auf den unten dargestellten Link klicken.
     %br
+    Nach dem Einloggen können Sie auf ihren Namen klicken, um persönliche Einstellungen vorzunehmen.
+    %p
     = link_to @url, @url
-    %br
-    um das grosse Abenteuer zu starten!
-    %br
+    %hr
     Ihre Account-Daten:
+    %p
     Benutzername:
     = @user.username
+    %p
     Passwort:
     = @user.password
