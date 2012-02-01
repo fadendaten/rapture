@@ -23,5 +23,5 @@
       %label
         Rating:
     %span.column_right
-      = f.select :rating, options_for_select([1, 2, 3, 4, 5], @customer.rating), {:include_blank => 'Keine'}
+      = f.select :rating, options_for_select([1, 2, 3], @customer.rating), {:include_blank => 'Keine'}
   %br
