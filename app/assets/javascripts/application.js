@@ -6,17 +6,14 @@
 //
 // = require jquery
 // = require jquery_ujs
+// = require jquery-ui
 // = require_tree .
 
-function toggle(showHideDiv, switchTextDiv) {
-	var ele = document.getElementById(showHideDiv);
-	var text = document.getElementById(switchTextDiv);
-	if(ele.style.display == "block") {
-    		ele.style.display = "none";
-		text.innerHTML = "anzeigen";
-  	}
-	else {
-		ele.style.display = "block";
-		text.innerHTML = "verstecken";
-	}
-}
+$(function(){
+	$(".settings").hide();
+	$('.toggle_button').click(function(){
+	  idelem = $(this).attr('id');
+	  idelemdiv = idelem.replace('togglebutton_', 'toggle_');
+	  $('#'+idelemdiv).slideToggle("fast");
+	});
+});
