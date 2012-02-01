@@ -1,19 +1,23 @@
-%h2 Edit "#{current_user.username}"
+%h2 #{@user.full_name} editieren
 
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
   = f.error_notification
 
-  .inputs
+  .form
     .field
-      = f.input :username, :required => true, :autofocus => true
+      = f.input :username, :required => true, :label => "Benutzername:", :autofocus => true
     .field
-      = f.input :password, :required => false # :hint => "leave it blank if you don't want to change it"
+      = f.input :first_name, :label => 'Vorname:'
     .field
-      = f.input :password_confirmation, :required => false
+      = f.input :last_name, :label => 'Nachname:'
     .field
-      = f.input :current_password, :required => true # :hint => "we need your current password to confirm your changes"
-
-  .actions
-    = f.button :submit, "Update"
-
-= link_to "Back", :back
+      = f.input :email, :label => 'E-Mail:'
+    .field
+      = f.input :password, :required => false, :label => "neues Passwort:"
+    .field
+      = f.input :password_confirmation, :required => false, :label => "neues Passwort bestätigen:"
+    .field
+      = f.input :current_password, :required => true, :label => "altes Passwort:"
+    .actions
+      = f.button :submit, "Speichern", :class => "button"
+      = button_to "Abbrechen", :back, :method => :get, :class => "button"
