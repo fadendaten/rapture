@@ -101,7 +101,6 @@ de:
       year: Jahr
   errors:
     format: ! '%{attribute} %{message}'
-    attributes:
     messages:
       accepted: muss akzeptiert werden
       blank: muss ausgefüllt werden
