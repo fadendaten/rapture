@@ -18,3 +18,5 @@
     .field
       = f.input :password, :label => "Authentifizierung:"
     = f.submit "Speichern", :class => "button"
+  .right
+    = button_to "Abbrechen", :back, :method => :get, :class => "button"

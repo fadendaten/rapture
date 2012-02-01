@@ -1,9 +1,7 @@
 %h2 #{@user.full_name} editieren
 
-= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-  = f.error_notification
-
-  .form
+.form
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
     .field
       = f.input :username, :required => true, :label => "Benutzername:", :autofocus => true
     .field
@@ -20,4 +18,5 @@
       = f.input :current_password, :required => true, :label => "altes Passwort:"
     .actions
       = f.button :submit, "Speichern", :class => "button"
-      = button_to "Abbrechen", :back, :method => :get, :class => "button"
+  .right
+    = button_to "Abbrechen", :back, :method => :get, :class => "button"
