@@ -11,7 +11,6 @@ module Accountable
     
     def act_as_customer
       include CustomerInstanceMethods
-      extend CustomerClassMethods
     end
     
     def act_as_csv
@@ -32,6 +31,23 @@ module Accountable
   end
   
   module CustomerInstanceMethods
+    def self.included(base)
+      base.extend CustomerClassMethods
+    end
+    
+    module CustomerClassMethods
+      def new_customer_duration=(duration)
+        @@new_customer_duration = duration
+      end
+
+      def update_new_customer_flag
+        Customer.all.each do |c|
+          c.new_customer = false if c.created_at + @@new_customer_duration < Time.now
+          c.save!
+        end
+      end
+    end
+    
     def to_s
       company
     end
@@ -45,19 +61,6 @@ module Accountable
         self.homepage = "http://#{homepage}"
       else
         self.homepage = homepage
-      end
-    end
-  end
-  
-  module CustomerClassMethods
-    def new_customer_duration=(duration)
-      @@new_customer_duration = duration
-    end
-    
-    def update_new_customer_flag
-      Customer.all.each do |c|
-        c.new_customer = false if c.created_at + @@new_customer_duration < Time.now
-        c.save!
       end
     end
   end

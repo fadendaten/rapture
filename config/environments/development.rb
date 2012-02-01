@@ -20,14 +20,14 @@ Rapture::Application.configure do
   config.action_mailer.raise_delivery_errors = false
   
   # Setup mailer
-  config.action_mailer.smtp_settings = {
-      :address              => "smtp.gmail.com",
-      :port                 => 587,
-      :domain               => 'domain.com',
-      :user_name            => 'email_address@domain.com',
-      :password             => 'password',
-      :authentication       => :plain,
-      :enable_starttls_auto => true  }
+  # config.action_mailer.smtp_settings = {
+  #     :address              => "smtp.gmail.com",
+  #     :port                 => 587,
+  #     :domain               => 'domain.com',
+  #     :user_name            => 'email_address@domain.com',
+  #     :password             => 'password',
+  #     :authentication       => :plain,
+  #     :enable_starttls_auto => true  }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
