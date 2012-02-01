@@ -28,4 +28,6 @@
           = render 'customers/shared/address_fields', :f => builder
           %br
       
-      = f.submit "Speichern", :class => "button"
+    = f.submit "Speichern", :class => "button"
+.right
+  = button_to "Abbrechen", :back, :method => :get, :class => "button"

@@ -22,7 +22,7 @@
 
 class User < ActiveRecord::Base
   
-  devise :database_authenticatable, :rememberable, :trackable, :recoverable 
+  devise :database_authenticatable, :rememberable, :trackable, :recoverable, :registerable
   attr_accessible :username, :email, :password, :password_confirmation, :first_name, :last_name, :remember_me, :user_role_ids
   
   has_many :user_role_assignments
@@ -83,7 +83,7 @@ class User < ActiveRecord::Base
   private
     
     def password_validation_required?
-      self.encrypted_password.blank? || self.new_record?
+      self.encrypted_password.blank? || self.new_record? || self.reset_password_period_valid?
     end
    
 end

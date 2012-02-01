@@ -1,20 +1,22 @@
-%h2 Edit "#{resource_name.to_s.humanize}"
+%h2 #{@user.full_name} editieren
 
-= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-  = f.error_notification
-
-  .inputs
-    = f.input :email, :required => true, :autofocus => true
-    = f.input :password, :hint => "leave it blank if you don't want to change it", :required => false
-    = f.input :password_confirmation, :required => false
-    = f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true
-
-  .actions
-    = f.button :submit, "Update"
-
-%h3 Cancel my account
-
-%p Unhappy?
-  = link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete
-
-= link_to "Back", :back
+.form
+  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+    .field
+      = f.input :username, :required => true, :label => "Benutzername:", :autofocus => true
+    .field
+      = f.input :first_name, :label => 'Vorname:'
+    .field
+      = f.input :last_name, :label => 'Nachname:'
+    .field
+      = f.input :email, :label => 'E-Mail:'
+    .field
+      = f.input :password, :required => false, :label => "neues Passwort:"
+    .field
+      = f.input :password_confirmation, :required => false, :label => "neues Passwort bestätigen:"
+    .field
+      = f.input :current_password, :required => true, :label => "altes Passwort:"
+    .actions
+      = f.button :submit, "Speichern", :class => "button"
+  .right
+    = button_to "Abbrechen", :back, :method => :get, :class => "button"
