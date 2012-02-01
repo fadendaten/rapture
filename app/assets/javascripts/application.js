@@ -9,11 +9,39 @@
 // = require jquery-ui
 // = require_tree .
 
-$(function(){
-	$(".settings").hide();
-	$('.toggle_button').click(function(){
-	  idelem = $(this).attr('id');
-	  idelemdiv = idelem.replace('togglebutton_', 'toggle_');
-	  $('#'+idelemdiv).slideToggle("fast");
+jQuery(function($) {
+		
+	$(function(){
+		$(".settings").hide();
+		$('.toggle_button').click(function(){
+		  idelem = $(this).attr('id');
+		  idelemdiv = idelem.replace('togglebutton_', 'toggle_');
+		  $('#'+idelemdiv).slideToggle("fast");
+		});
 	});
+	
+	$(".address_printer_form").submit(function(){
+	  var form = $(this);
+	  console.log("1")
+	  //clean up
+	  $(this).children("input[type='hidden']").remove();
+	  console.log("2")    
+	  var reg = /_ids/
+	  var inputs = []
+	  var checked = $(".printables input[type='checkbox']").
+	    filter(function(){
+	      return $(this).attr("id").search(reg) > 1;
+	  }).filter(function(){
+	      return $(this).attr("checked");
+	  });
+	  console.log(checked.serialize())
+	  checked.each(function(){
+	    var c = $(this).clone()
+	    c.attr("type", "hidden");
+
+	    form.append(c)
+	  });
+	  console.log(form.serialize());
+	});
+	
 });

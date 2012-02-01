@@ -1,0 +1,2 @@
+module Pdfs::AddressStickersControllerHelper
+end
