@@ -9,6 +9,8 @@
   #export_as_csv
     = button_to "EXCEL", download_customers_path, :method => :post, :class => "button"
 %hr
+= render 'customers/shared/printer_form'
+%hr
 
 %ul.pagination
   %strong Springen zu:
@@ -18,4 +20,7 @@
 
 #customers
   .customers.round
-    = render 'customers/shared/display_customers'
+    - @customers.each do |customer|
+      .customer
+        %ul.printables
+          = render 'customers/shared/display_customer', :customer => customer, :checkboxes => true

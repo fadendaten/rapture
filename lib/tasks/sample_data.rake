@@ -38,7 +38,13 @@ namespace :db do
         company = Faker::Name.name
         phone   = Faker::PhoneNumber.phone_number
         email   = Faker::Internet.email
-        Customer.create!(:company => company, :phone => phone, :email => email)
+        
+        # Create contact address for customer
+        contact_address = ContactAddress.new(:line_1 => Faker::Address.street_address, 
+                                             :zip_code => Faker::Address.zip_code, 
+                                             :city => Faker::Address.city)
+                                             
+        Customer.create!(:company => company, :phone => phone, :email => email, :contact_address => contact_address)
       end
       
       # Customer.all.each do |c|
