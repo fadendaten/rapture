@@ -12,11 +12,13 @@
 = render 'customers/shared/printer_form'
 %hr
 
-%ul.pagination
+%ul.alphabetical_pagination
   %strong Springen zu:
   - Customer.pagination_letters.each do |letter|
     %li
       = link_to letter, customers_path(:letter => letter)
+  %li
+    = link_to "alle", customers_path(:letter => "")
 %hr
 #customers
   .customers
