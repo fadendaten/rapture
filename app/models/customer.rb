@@ -57,6 +57,10 @@ class Customer < ActiveRecord::Base
     start_with_query.sort!
     start_with_query | found_customers
   end
+  
+  def rating_to_stars
+    "* " * self.rating unless rating.nil
+  end
 
 end
 

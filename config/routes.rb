@@ -13,7 +13,7 @@ Rapture::Application.routes.draw do
   resources :customers do
     collection do
       post :download
-      post :search
+      post :search , :to => 'customers#index'
     end
   end
   resources :users

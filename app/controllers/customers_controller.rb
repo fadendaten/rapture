@@ -6,8 +6,14 @@ class CustomersController < ApplicationController
   
   def index
     @title = "Alle Kunden"
-    @customers = Customer.alphabetical_group(params[:letter])
-    
+    if params[:sort]
+      @customers = Customer.sorted(params[:sort]).page(params[:page])
+    elsif params[:search]
+      @customers = Customer.search(params[:search]) 
+    else
+      @customers = Customer.alphabetical_group(params[:letter]).page(params[:page])
+    end
+
     respond_to do |format|
       format.html
       format.csv do
@@ -55,7 +61,7 @@ class CustomersController < ApplicationController
   
   def search
     @title = "Home"
-    @customers = Customer.search(params[:search])
+
     render 'index'
   end
   

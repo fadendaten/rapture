@@ -4,7 +4,6 @@ gem 'rails', '3.1.0'
 gem 'mysql2', '~>0.3.0'
 gem 'haml'
 gem 'simple_form'
-gem 'paginate_alphabetically', :git => 'git://github.com/edendevelopment/paginate_alphabetically.git', :branch => 'bundler'
 gem 'cancan'
 gem 'devise'
 gem 'comma' # Adds the comma macro to active record for csv export
@@ -12,6 +11,10 @@ gem 'whenever' # Cron job handling
 gem 'jquery-rails'
 gem 'prawn' # PDF
 gem 'prawn_rails'
+
+gem 'paginate_alphabetically', :git => 'git://github.com/edendevelopment/paginate_alphabetically.git', :branch => 'bundler' # Alphabetical pagination
+gem 'kaminari' # Pagination
+gem 'sorted' # Sorting stuff
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

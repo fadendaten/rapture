@@ -12,31 +12,39 @@
 		padding: 0;
 		li {
 			list-style-type: none;
-			display: inline-block;
 			padding: 0.2em 0;
 		}
 	}
 }
 
 .company_column {
-	width: 26%;
+	display: inline-block;
+	width: 25%;
 }
 
 .phone_column {
-	width: 26%;
+	display: inline-block;
+	width: 20%;
 }
 
 .email_column {
-	width: 26%;
+	display: inline-block;
+	width: 25%;
 }
 
 .edit_column {
-	width: 10%;
+	display: inline-block;
+	width: 8%;
+}
+
+.rating_column {
+	display: inline-block;
+	width: 8%;
 }
 
 .checkbox_column {
 	float:right;
-	width: 6%;
+	width: 5%;
 }
 
 .actions {

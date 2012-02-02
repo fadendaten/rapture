@@ -8,6 +8,8 @@
   = customer.phone
 %li.email_column
   = customer.email
+%li.rating_column
+  / # = customer.rating_to_stars
 %li.edit_column
   - if can? :update, Customer
     = button_to  "editieren", edit_customer_path(customer), :method => :get

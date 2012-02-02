@@ -1,7 +1,7 @@
 %nav.round#left
   - if signed_in?
     %span.search_function
-      = form_tag search_customers_path, {:controller => 'customers', :action => 'search', :id => 'customer_search'} do
+      = form_tag search_customers_path, {:controller => 'customers', :action => 'index', :id => 'customer_search'} do
         = search_field_tag 'search', params[:search], {:id => 'search_field'}
         = submit_tag "Kunden suchen", :class => "button"
 %nav.round#right
