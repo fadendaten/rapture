@@ -10,10 +10,10 @@
   = customer.email
 %li.rating_column
   = customer.rating_to_stars
-%li.edit_column
-  - if can? :update, Customer
+- if checkboxes
+  %li.checkbox_column
+    = check_box_tag "customer_ids[]", customer.id, :checked => true   
+- if can? :update, Customer
+  %li.edit_column
     = button_to  "editieren", edit_customer_path(customer), :method => :get
-%li.checkbox_column
-  - if checkboxes
-    = check_box_tag "customer_ids[]", customer.id, :checked => true
 %hr

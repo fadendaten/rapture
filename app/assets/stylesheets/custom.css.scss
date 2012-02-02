@@ -32,7 +32,6 @@ nav {
 	}
 }
 
-
 .button_cancel {
 	float: right;
 	width: auto;
@@ -44,7 +43,6 @@ nav {
 }
 
 .column_right {
-	width: 50%;
 	float: right;
 }
 
@@ -65,6 +63,7 @@ nav {
 }
 
 .fat {
+	font-weight: bold;
 	height: 3px;
 }
 
@@ -232,7 +231,6 @@ input.radio {
 }
 
 input.check_boxes {
-	float: none;
 	position: relative;
 	margin-right: 10px;
 }
