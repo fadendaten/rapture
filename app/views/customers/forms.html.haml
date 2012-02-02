@@ -1,40 +1,32 @@
 %h1= @customer.new_record? ? "Neuen Kunden erfassen" : @customer.company + " editieren"
 
 .form
-  %hr
-  %h3
-    Firma
   = simple_form_for @customer do |f|
     = render 'customers/shared/company_fields', :f => f
     %br
-    %hr
-    
     #contact_address
-      %h3
-        Kontaktadresse
-      - @customer.build_contact_address unless @customer.contact_address
-      = f.simple_fields_for :contact_address do |builder|
-        = render 'customers/shared/address_fields', :f => builder
-        %br
-        %hr
+      %fieldset
+        %legend Kontaktadresse
+        - @customer.build_contact_address unless @customer.contact_address
+        = f.simple_fields_for :contact_address do |builder|
+          = render 'customers/shared/address_fields', :f => builder
+          %br
     
     #invoice_address  
-      %h3
-        Rechnungsadresse
-      - @customer.build_invoice_address unless @customer.invoice_address
-      = f.simple_fields_for :invoice_address do |builder|
-        = render 'customers/shared/address_fields', :f => builder
-        %br
-        %hr
+      %fieldset
+        %legend Rechnungsadresse
+        - @customer.build_invoice_address unless @customer.invoice_address
+        = f.simple_fields_for :invoice_address do |builder|
+          = render 'customers/shared/address_fields', :f => builder
+          %br
     
     #delivery_address  
-      %h3
-        Lieferungsadresse
-      - @customer.build_delivery_address unless @customer.delivery_address
-      = f.simple_fields_for :delivery_address do |builder|
-        = render 'customers/shared/address_fields', :f => builder
-        %br
-        %hr
+      %fieldset
+        %legend Lieferungsadresse
+        - @customer.build_delivery_address unless @customer.delivery_address
+        = f.simple_fields_for :delivery_address do |builder|
+          = render 'customers/shared/address_fields', :f => builder
+          %br
       
     = f.submit "Speichern", :class => "button"
 .right

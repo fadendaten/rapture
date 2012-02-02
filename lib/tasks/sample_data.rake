@@ -42,12 +42,12 @@ namespace :db do
       end
       
       # Customer.all.each do |c|
-      #         c.created_at = Time.now - 2.years if c.id < 200
-      #         c.save
-      #       end
-      #       
-      #       Customer.new_customer_duration = 5.months
-      #       Customer.update_new_customer_flag
+      #   c.created_at = Time.now - 2.years if c.id < 200
+      #   c.save!
+      # end
+      # 
+      # Customer.new_customer_duration = 5.months
+      # Customer.update_new_customer_flag
     end
   end
 end

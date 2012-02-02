@@ -1,25 +1,27 @@
-.field
-  = f.input :company,  :label => 'Firmenname:', :size => "10"
-.field
-  = f.input :phone,    :as => :string, :label => 'Telefon:'
-.field
-  = f.input :mobile,   :label => 'Mobile:'
-.field
-  = f.input :fax,      :label => 'Fax:'
-.field
-  = f.input :email,    :as => :string, :label => 'E-Mail:'
-.field
-  = f.input :homepage, :label => 'Homepage:'
-.select
-  %span.column_left
-    %label
-      Korrespondenzsprache:
-  %span.column_right
-    = f.select :language, options_for_select(["Deutsch", "Français", "Italiano", "English"], @customer.language)
-.select
-  %span.column_left
-    %label
-      Rating:
-  %span.column_right
-    = f.select :rating, options_for_select([1, 2, 3, 4, 5], @customer.rating), {:include_blank => 'Keine'}
-%br
+%fieldset
+  %legend Firma
+  .field
+    = f.input :company,  :label => 'Firmenname:', :size => "10"
+  .field
+    = f.input :phone,    :as => :string, :label => 'Telefon:'
+  .field
+    = f.input :mobile,   :label => 'Mobile:'
+  .field
+    = f.input :fax,      :label => 'Fax:'
+  .field
+    = f.input :email,    :as => :string, :label => 'E-Mail:'
+  .field
+    = f.input :homepage, :label => 'Homepage:'
+  .select
+    %span.column_left
+      %label
+        Korrespondenzsprache:
+    %span.column_right
+      = f.select :language, options_for_select(["Deutsch", "Français", "Italiano", "English"], @customer.language)
+  .select
+    %span.column_left
+      %label
+        Rating:
+    %span.column_right
+      = f.select :rating, options_for_select([1, 2, 3], @customer.rating), {:include_blank => 'Keine'}
+  %br

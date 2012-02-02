@@ -66,4 +66,5 @@ class CustomersController < ApplicationController
     Customer.new_customer_duration = new_duration
     redirect_to settings_path
   end
+  
 end
