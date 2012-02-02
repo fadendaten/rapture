@@ -14,6 +14,7 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    Ascii85 (1.0.1)
     actionmailer (3.1.0)
       actionpack (= 3.1.0)
       mail (~> 2.3.0)
@@ -122,7 +123,16 @@ GEM
     mysql2 (0.3.11)
     nokogiri (1.5.0)
     orm_adapter (0.0.6)
+    pdf-reader (1.0.0)
+      Ascii85 (~> 1.0.0)
+      ruby-rc4
     polyglot (0.3.3)
+    prawn (0.12.0)
+      pdf-reader (>= 0.9.0)
+      ttfunk (~> 1.0.2)
+    prawn_rails (0.0.8)
+      prawn (>= 0.11.1)
+      rails (>= 3.0.0)
     rack (1.3.6)
     rack-cache (1.0.3)
       rack (>= 0.4)
@@ -163,6 +173,7 @@ GEM
       activesupport (>= 3.0)
       railties (>= 3.0)
       rspec (~> 2.8.0)
+    ruby-rc4 (0.1.4)
     rubyzip (0.9.5)
     sass (3.1.12)
     sass-rails (3.1.5)
@@ -191,6 +202,7 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    ttfunk (1.0.3)
     turn (0.8.3)
       ansi
     tzinfo (0.3.31)
@@ -230,6 +242,8 @@ DEPENDENCIES
   launchy
   mysql2 (~> 0.3.0)
   paginate_alphabetically!
+  prawn
+  prawn_rails
   rails (= 3.1.0)
   rspec-rails
   sass-rails (~> 3.1.0)

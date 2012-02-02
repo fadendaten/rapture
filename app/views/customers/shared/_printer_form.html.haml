@@ -1,0 +1,22 @@
+-#needs addressable
+-#needs address_type if one should already be selected
+-addressable ||= []
+-address_type ||= nil
+
+.inline
+  = form_tag(url_for(pdfs_router_path), :target => "_blank", :class => "address_printer_form") do |f|
+    - if addressable.respond_to? :each
+      - addressable.each do |addr|
+        = hidden_field_tag "#{addr.class}_ids[]", "#{addr.id}"
+    - else
+      = hidden_field_tag "#{addressable.class}_ids[]", "#{addressable.id}"
+    
+    - if address_type
+      = hidden_field_tag "address_type", address_type
+    - else
+      - type_options = options_for_select([["Kontakt", :contact_address], ["Rechnung", :invoice_address], ["Liefer", :delivery_address]])
+      = select_tag "address_type", type_options
+      
+    - options = options_for_select([["Umschlag C5", :envelope_c5], ["A4 3x", :address_stickers_3], ["A4 3x Economy", :address_stickers_3_economy], ["A4 24x", :address_stickers_24]])  
+    = select_tag "template", options
+    = submit_tag "PDF"

@@ -24,12 +24,30 @@ class Address < ActiveRecord::Base
   validates :line_1,       :presence => true
   validates :zip_code,     :presence => true
   validates :city,         :presence => true
+  
+  def name
+    self.parent.to_s
+  end
+  
+  def location_lines
+    #move back to old behaviour
+    return lines
+    
+    return lines unless includes_name?
+    l = lines
+    l.shift
+    l
+  end
 
   def lines
     lines = [self.line_1]
     lines << self.line_2 unless self.line_2.blank?
     lines << self.line_3 unless self.line_3.blank?
     lines
+  end
+  
+  def location_s(delimiter = "\n")
+    self.location_lines.join(delimiter) + "#{delimiter}#{zip_code} #{city}" # + delimiter + self.country.to_s
   end
   
   def google_maps_url

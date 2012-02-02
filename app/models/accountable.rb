@@ -51,7 +51,7 @@ module Accountable
     def to_s
       company
     end
-
+    
     def new?
       self.new_customer
     end 
