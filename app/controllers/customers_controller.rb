@@ -9,7 +9,7 @@ class CustomersController < ApplicationController
     if params[:sort]
       @customers = Customer.sorted(params[:sort]).page(params[:page])
     elsif params[:search]
-      @customers = Customer.search(params[:search]) 
+      @customers = Customer.search(params[:search])
     else
       @customers = Customer.alphabetical_group(params[:letter]).page(params[:page])
     end
@@ -57,12 +57,6 @@ class CustomersController < ApplicationController
   def show
     @customer = Customer.find(params[:id])
     @title = @customer.company
-  end
-  
-  def search
-    @title = "Home"
-
-    render 'index'
   end
   
   def new_customer_duration
