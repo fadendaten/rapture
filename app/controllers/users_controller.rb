@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       if current_user.valid_password?(params[:user][:password]) && @user.save
         begin
           UserMailer.welcome_email(@user).deliver
-          flash[:success] = "Der neue Benutzer hat eine E-Mail mit den Account-Daten erhalten."
+          flash[:notice] = "Der neue Benutzer hat eine E-Mail mit den Account-Daten erhalten."
         rescue
           Rails.logger.warn "No email could be sent!"
           flash[:error] = "Es konnte keine email gesendet werden!!!"
