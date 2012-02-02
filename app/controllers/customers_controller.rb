@@ -9,7 +9,7 @@ class CustomersController < ApplicationController
     if !params[:sort].nil?
       @customers = Customer.sorted(params[:sort], "company ASC").page(params[:page])
     elsif !params[:search].nil?
-      @customers = Customer.search(params[:search])
+      @customers = Customer.search(params[:search]).page(params[:page])
     else
       @customers = Customer.alphabetical_group(params[:letter]).page(params[:page])
     end
