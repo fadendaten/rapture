@@ -1,4 +1,11 @@
 de:
+  views:
+    pagination:
+      truncate: ! ' '
+      next: ! 'weiter'
+      last: ! 'letzte'
+      first: ! 'erste'
+      previous: ! 'zurück'
   activerecord:
     errors:
       messages:
