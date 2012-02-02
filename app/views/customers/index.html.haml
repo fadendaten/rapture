@@ -21,18 +21,18 @@
 %hr
 #customers
   .customers
-    / .company_column
-    /   = link_to_sorted "Firmenname", :company
-    / .phone_column
-    /   = link_to_sorted "Telefon", :phone
-    / .email_column
-    /   = link_to_sorted "E-Mail", :email
-    / .rating_column
-    /   = link_to_sorted "Bewertung", :rating
+    .company_column
+      = link_to_sorted "Firmenname", :company
+    .phone_column
+      = link_to_sorted "Telefon", :phone
+    .email_column
+      = link_to_sorted "E-Mail", :email
+    .rating_column
+      = link_to_sorted "Bewertung", :rating
   %hr.spaced
     - @customers.each do |customer|
       .customer
         %ul.printables
           = render 'customers/shared/display_customer', :customer => customer, :checkboxes => true
           
-/ = paginate @customers
+= paginate @customers

@@ -6,9 +6,9 @@ class CustomersController < ApplicationController
   
   def index
     @title = "Alle Kunden"
-    if params[:sort]
-      @customers = Customer.sorted(params[:sort]).page(params[:page])
-    elsif params[:search]
+    if !params[:sort].nil?
+      @customers = Customer.sorted(params[:sort], "company ASC").page(params[:page])
+    elsif !params[:search].nil?
       @customers = Customer.search(params[:search])
     else
       @customers = Customer.alphabetical_group(params[:letter]).page(params[:page])
