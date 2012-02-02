@@ -5,8 +5,6 @@
 
 .inline
   = form_tag(url_for(pdfs_router_path), :target => "_blank", :class => "address_printer_form") do |f|
-    
-    
     - if addressable.respond_to? :each
       - addressable.each do |addr|
         = hidden_field_tag "#{addr.class}_ids[]", "#{addr.id}"

@@ -21,5 +21,10 @@
 
 FactoryGirl.define do
   factory :contact_address do
+    line_1       "NoWhere 23b"
+    line_2       "Everland District"
+    zip_code     "3423"
+    city         "Neverland"
+    country_code "CH"
   end
 end
