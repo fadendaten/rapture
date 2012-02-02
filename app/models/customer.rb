@@ -44,17 +44,7 @@ class Customer < ActiveRecord::Base
   
   #TODO: Refactor
   def self.search(search)
-    found_customers = where('LOWER(company) LIKE ?', "%#{search}%")
-
-    # sort mechanism: sorts results, ones that start with the search string are presented first,
-    # and results where the search string is somewhere in the result are presented afterwards.
-    # start_with_query = Array.new
-    # found_customers.each do |found|
-    #   start_with_query.push(found) if found.company.downcase.start_with?(search.downcase)
-    # end
-    # found_customers.sort!
-    # start_with_query.sort!
-    # start_with_query | found_customers
+    query_customers = where('LOWER(company) LIKE ?', "%#{search.downcase}%").order("company")
   end
   
   def rating_to_stars
