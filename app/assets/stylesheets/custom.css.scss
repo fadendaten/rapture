@@ -111,15 +111,13 @@ h3 {
 
 .cancel {
 	float: right;
-	margin-right: 10px;
-	margin-top: -5px;
-}
-
-.button_to {
-		background-color: red;
 }
 
 // Simple form
+
+form {
+	overflow: auto;
+}
 
 .form {
   width: 65%;
