@@ -1,10 +1,4 @@
 Rapture::Application.routes.draw do
-  
-  get "address_stickers_controller/address_stickers_24"
-
-  get "address_stickers_controller/address_stickers_3"
-
-  get "address_stickers_controller/envelope_c5"
 
   devise_for :users, :path => '' # , :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
   

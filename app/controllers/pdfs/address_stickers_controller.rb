@@ -23,7 +23,6 @@ class Pdfs::AddressStickersController < ApplicationController
       end
       @recipients.flatten!
       if @recipients.empty?
-        params.each {|name, value| puts "FUUUUUUUUUUUUUUUUUUU-: #{name} #{value}"}
         flash[:alert] = "SYSTEMFEHLER! Kein Emfpaenger gefunden."
         redirect_to :root
       end
