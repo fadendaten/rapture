@@ -19,6 +19,6 @@
           = f.association :user_roles, :label => false, :as => :check_boxes, :item_wrapper_tag => :div
       .field
         = f.input :password, :label => "Authentifizierung:"
-    = f.submit "Speichern", :class => "button"
-  .cancel
-    = button_to "Abbrechen", users_path, :method => :get, :class => "button"
+    = f.submit "Speichern", :class => "button", :wrapper_tag => :span
+    = link_to "Abbrechen", users_path, :method => :get, :class => "button"
+    .bottom

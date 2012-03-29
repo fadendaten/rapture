@@ -28,5 +28,5 @@
           = render 'customers/shared/address_fields', :f => builder
           %br
       = f.submit "Speichern", :class => "button", :wrapper_tag => :span
-      = button_to "Abbrechen", customers_path, :method => :get, :class => "button"
-    .bottom
+      = link_to "Abbrechen", customers_path
+      .bottom
