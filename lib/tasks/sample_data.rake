@@ -34,8 +34,8 @@ namespace :db do
       base.user_roles << base_role
       
       # Create customers
-      500.times do
-        company = Faker::Name.name
+      200.times do
+        company = Faker::Company.name
         phone   = Faker::PhoneNumber.phone_number
         email   = Faker::Internet.email
         
