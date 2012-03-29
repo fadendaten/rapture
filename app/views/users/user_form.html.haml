@@ -2,21 +2,23 @@
 
 .form
   = simple_form_for @user do |f|
-    .field
-      = f.input :username, :label => 'Benutzername:'
-    .field
-      = f.input :first_name, :label => 'Vorname:'
-    .field
-      = f.input :last_name, :label => 'Nachname:'
-    .field
-      = f.input :email, :label => 'E-Mail:'
-    .field
-      %label
-        Berechtigung:
-      .assoc_items
-        = f.association :user_roles, :label => false, :as => :check_boxes, :item_wrapper_tag => :div
-    .field
-      = f.input :password, :label => "Authentifizierung:"
+    %fieldset
+      %legend Angaben editieren
+      .field
+        = f.input :username, :label => 'Benutzername:'
+      .field
+        = f.input :first_name, :label => 'Vorname:'
+      .field
+        = f.input :last_name, :label => 'Nachname:'
+      .field
+        = f.input :email, :label => 'E-Mail:'
+      .field
+        %label
+          Berechtigung:
+        .assoc_items
+          = f.association :user_roles, :label => false, :as => :check_boxes, :item_wrapper_tag => :div
+      .field
+        = f.input :password, :label => "Authentifizierung:"
     = f.submit "Speichern", :class => "button"
-  .right
+  .cancel
     = button_to "Abbrechen", :back, :method => :get, :class => "button"

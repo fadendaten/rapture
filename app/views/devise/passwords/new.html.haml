@@ -3,7 +3,7 @@
 .form
   = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
     .field
-      = f.input :email, :required => false
+      = f.input :email, :label => "E-mail", :required => false
   
     .actions
       = f.button :submit, "Instruktionen senden", :id => "submit" 

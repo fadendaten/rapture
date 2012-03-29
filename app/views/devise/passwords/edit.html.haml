@@ -1,14 +1,13 @@
-%h1 Change your password
+%h1 Passwort ändern
 
-= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+.form
+  = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+    = f.input :reset_password_token, :as => :hidden
+    .inputs
+      .field
+        = f.input :password, :label => "Neues Passwort:", :required => false
+      .field
+        = f.input :password_confirmation, :label => "Neues Passwort bestätigen:", :required => false
 
-  = f.input :reset_password_token, :as => :hidden
-
-  .inputs
-    .field
-      = f.input :password, :label => "Neues Passwort", :required => false
-    .field
-      = f.input :password_confirmation, :label => "Neues Passwort bestätigen", :required => false
-
-  .actions
-    = f.button :submit, "Neues Passwort festlegen", :class => "button"
+    .actions
+      = f.button :submit, "Neues Passwort festlegen", :class => "button"
