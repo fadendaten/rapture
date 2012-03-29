@@ -27,6 +27,6 @@
         = f.simple_fields_for :delivery_address do |builder|
           = render 'customers/shared/address_fields', :f => builder
           %br
-      = f.submit "Speichern", :class => "button"
-  .cancel
-    = button_to "Abbrechen", customers_path, :method => :get, :class => "button"
+      = f.submit "Speichern", :class => "button", :wrapper_tag => :span
+      = button_to "Abbrechen", customers_path, :method => :get, :class => "button"
+    .bottom
