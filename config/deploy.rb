@@ -1,7 +1,8 @@
 # rvm
 $:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"                              # Load RVM's capistrano plugin.
-set :rvm_ruby_string, 'ruby-1.9.2-p136'        
+
+set :rvm_ruby_string, 'ruby-1.9.3-p0'        
 set :rvm_type, :user
 
 set :application, "rapture"
@@ -24,7 +25,7 @@ set :port, 2560
 set :user, "rapture" #ssh user
 set :password, "pR9hemex"
 
-# set :normalize_asset_timestamps, false
+# If you are using Passenger mod_rails uncomment this:
 
 namespace :deploy do
   task :start do ; end
@@ -61,12 +62,11 @@ namespace :bundler do
   end
 end
 
-# # HOOKS
-# after "deploy:update_code" do
-#   bundler.bundle_new_release
-#   deploy.symlink_shared
-# end
-
+# HOOKS
+after "deploy:update_code" do
+  bundler.bundle_new_release
+  deploy.symlink_shared
+end
 
 require File.dirname(__FILE__) + "/boot.rb"
 #require 'hoptoad_notifier/capistrano'
