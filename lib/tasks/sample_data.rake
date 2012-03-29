@@ -44,7 +44,7 @@ namespace :db do
       
       Customer.create!(:company => company, :phone => phone, :email => email, :contact_address => contact_address)
       
-      500.times do
+      200.times do
         company = Faker::Name.name
         phone   = Faker::PhoneNumber.phone_number
         email   = Faker::Internet.email
