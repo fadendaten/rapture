@@ -38,13 +38,14 @@ namespace :db do
       phone = "056 401 22 92"
       email = "raphael@pit-shoes.com"
       contact_address = ContactAddress.new(:line_1 => "Fashion Order Mall",
-                                           :line_2 => "Showroom 10-37/38"
+                                           :line_2 => "Showroom 10-37/38",
                                            :zip_code => 8957, 
                                            :city => "Spreitenbach")
       
       Customer.create!(:company => company, :phone => phone, :email => email, :contact_address => contact_address)
       
-      200.times do
+      Customer.new_customer_duration = 5.months
+      200.times do |t|
         company = Faker::Name.name
         phone   = Faker::PhoneNumber.phone_number
         email   = Faker::Internet.email
@@ -55,19 +56,11 @@ namespace :db do
                                              :city => Faker::Address.city)
                                              
         Customer.create!(:company => company, :phone => phone, :email => email, :contact_address => contact_address)
+        new_customer = Customer.last
+        new_customer.new_customer = false if new_customer.id < 100
+        new_customer.save!
       end
-      Rake::Task['db:set_new_time'].invoke
     end
-    
-    
-    task :set_new_time => :environment do
-      Customer.all.each do |c|
-        c.created_at = Time.now - 2.years if c.id < 200
-        c.save!
-      end
-      
-      Customer.new_customer_duration = 5.months
-      Customer.update_new_customer_flag
-    end
+
   end
 end
