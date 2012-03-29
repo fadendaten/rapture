@@ -15,22 +15,22 @@ namespace :db do
       sudo = User.create!(:username   => "sudo", 
                           :email      => "sudo@sudo.com",
                           :password   => "test123",
-                          :first_name => "Simon",
-                          :last_name  => "Fuetzgue")
+                          :first_name => "Alfred",
+                          :last_name  => "Moser")
       sudo.user_roles << sudo_role
       
       admin = User.create!(:username   => "admin",
                            :email      => "admin@admin.com",
                            :password   => "test123", 
-                           :first_name => "Chrigu",
-                           :last_name  => "Da Boss")
+                           :first_name => "Benjamin",
+                           :last_name  => "Käser")
       admin.user_roles << admin_role
       
-      base = User.create!(:username   => "spongebob",
-                          :email      => "squarepants@bikinibottom.com",
+      base = User.create!(:username   => "user",
+                          :email      => "dani_gerber@base.com",
                           :password   => "test123",
-                          :first_name => "Felix",
-                          :last_name  => "Uhu")
+                          :first_name => "Dani",
+                          :last_name  => "Gerber")
       base.user_roles << base_role
       
       # Create customers
