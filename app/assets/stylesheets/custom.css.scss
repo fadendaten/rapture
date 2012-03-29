@@ -32,11 +32,6 @@ nav {
 	}
 }
 
-.button_cancel {
-	float: right;
-	width: auto;
-}
-
 .column_left {
 	width: 50%;
 	float: left;
@@ -114,7 +109,15 @@ h3 {
 	}
 }
 
+.cancel {
+	float: right;
+}
+
 // Simple form
+
+form {
+	overflow: auto;
+}
 
 .form {
   width: 65%;
