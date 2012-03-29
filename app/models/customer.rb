@@ -44,7 +44,7 @@ class Customer < ActiveRecord::Base
   
   #TODO: Refactor
   def self.search(search)
-    query_customers = where('LOWER(company) LIKE ?', "%#{search.downcase}%").order("company")
+    query_customers = where('LOWER(company) LIKE ?', "#{search.downcase}%").order("company")
   end
   
   def rating_to_stars
