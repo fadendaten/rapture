@@ -19,7 +19,7 @@ gem 'sorted' # Sorting stuff
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem "capistrano", "~> 2.8.0" # Deployment
+gem "capistrano", "~> 2.11.2" # Deployment
 
 
 # Gems used only for assets and not required
@@ -42,6 +42,7 @@ end
 
 group :development do
   gem 'rspec-rails'
+  gem 'cucumber-rails'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
