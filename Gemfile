@@ -19,7 +19,7 @@ gem 'sorted' # Sorting stuff
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-gem "capistrano", "~> 2.11.2" # Deployment
+gem "capistrano", "~> 2.8.0" # Deployment
 
 
 # Gems used only for assets and not required
