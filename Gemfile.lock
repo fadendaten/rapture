@@ -4,13 +4,6 @@ GIT
   specs:
     annotate (2.4.1.beta1)
 
-GIT
-  remote: git://github.com/edendevelopment/paginate_alphabetically.git
-  revision: f9ed9c1b043de06a2c60dd11a324b2eb4657635b
-  branch: bundler
-  specs:
-    paginate_alphabetically (0.3.3)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -141,6 +134,7 @@ GEM
       net-ssh (>= 1.99.1)
     nokogiri (1.5.0)
     orm_adapter (0.0.6)
+    paginate_alphabetically (0.2.3)
     pdf-reader (1.0.0)
       Ascii85 (~> 1.0.0)
       ruby-rc4
@@ -262,7 +256,7 @@ DEPENDENCIES
   kaminari
   launchy
   mysql2 (~> 0.3.0)
-  paginate_alphabetically!
+  paginate_alphabetically (~> 0.2.3)
   prawn
   prawn_rails
   rails (= 3.1.0)
