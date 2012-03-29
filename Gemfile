@@ -12,7 +12,7 @@ gem 'jquery-rails'
 gem 'prawn' # PDF
 gem 'prawn_rails'
 
-gem "paginate_alphabetically", "~> 0.2.3" # Alphabetical pagination
+gem 'paginate_alphabetically', :git => 'git://github.com/edendevelopment/paginate_alphabetically.git', :branch => 'bundler' # Alphabetical pagination
 gem 'kaminari' # Pagination
 gem 'sorted' # Sorting stuff
 
@@ -21,6 +21,7 @@ gem 'sorted' # Sorting stuff
 
 gem "capistrano", "~> 2.8.0" # Deployment
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -28,6 +29,7 @@ group :assets do
   gem 'coffee-rails', "~> 3.1.0"
   gem 'uglifier'
 end
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -42,7 +44,7 @@ group :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem "annotate", "~> 2.4.0"
+  gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 end
 
 group :test do

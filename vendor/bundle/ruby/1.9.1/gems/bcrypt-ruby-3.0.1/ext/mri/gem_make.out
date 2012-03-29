@@ -1,0 +1,7 @@
+/Users/uhumac/.rvm/rubies/ruby-1.9.3-p0/bin/ruby extconf.rb 
+creating Makefile
+
+make
+compiling bcrypt_ext.c
+make: /usr/bin/gcc-4.2: Command not found
+make: *** [bcrypt_ext.o] Error 127
