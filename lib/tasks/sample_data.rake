@@ -34,6 +34,16 @@ namespace :db do
       base.user_roles << base_role
       
       # Create customers
+      company = "pit Shoes"
+      phone = "056 401 22 92"
+      email = "raphael@pit-shoes.com"
+      contact_address = ContactAddress.new(:line_1 => "Fashion Order Mall",
+                                           :line_2 => "Showroom 10-37/38"
+                                           :zip_code => 8957, 
+                                           :city => "Spreitenbach")
+      
+      Customer.create!(:company => company, :phone => phone, :email => email, :contact_address => contact_address)
+      
       500.times do
         company = Faker::Name.name
         phone   = Faker::PhoneNumber.phone_number
@@ -46,6 +56,7 @@ namespace :db do
                                              
         Customer.create!(:company => company, :phone => phone, :email => email, :contact_address => contact_address)
       end
+      Rake::Task['db:set_new_time'].invoke
     end
     
     
