@@ -21,4 +21,4 @@
         = f.input :password, :label => "Authentifizierung:"
     = f.submit "Speichern", :class => "button"
   .cancel
-    = button_to "Abbrechen", :back, :method => :get, :class => "button"
+    = button_to "Abbrechen", users_path, :method => :get, :class => "button"

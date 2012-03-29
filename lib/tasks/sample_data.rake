@@ -23,7 +23,7 @@ namespace :db do
                            :email      => "admin@admin.com",
                            :password   => "test123", 
                            :first_name => "Benjamin",
-                           :last_name  => "Käser")
+                           :last_name  => "Kaser")
       admin.user_roles << admin_role
       
       base = User.create!(:username   => "user",
