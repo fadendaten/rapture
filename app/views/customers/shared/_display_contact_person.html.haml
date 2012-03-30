@@ -1,50 +1,52 @@
 .person_info
   %ul
-    %li
-      %span.column_left
-        Vorname:
-      %span.column_right
-        = contact_person.first_name
-      %hr
-    %li
-      %span.column_left
-        Nachname:
-      %span.column_right
-        = contact_person.last_name
-      %hr
-    %li
-      %span.column_left
-        E-Mail:
-      %span.column_right
-        = contact_person.email
-      %hr
-    %li
-      %span.column_left
-        Telefon:
-      %span.column_right
-        = contact_person.phone
-      %hr
-    %li
-      %span.column_left
-        Mobile:
-      %span.column_right
-        = contact_person.mobile
-      %hr
-    %li
-      %span.column_left
-        Fax:
-      %span.column_right
-        = contact_person.fax
-      %hr
-    %li
-      %span.column_left
-        Beschreibung:
-      %span.column_right
-        = contact_person.description
-      %hr
-    %li
-      %span.column_left
-        Sprache:
-      %span.column_right
-        = contact_person.language
-      %hr
+    %fieldset
+      %legend Kontaktperson
+      %li
+        %span.column_left
+          Vorname:
+        %span.column_right
+          = contact_person.first_name
+        %hr
+      %li
+        %span.column_left
+          Nachname:
+        %span.column_right
+          = contact_person.last_name
+        %hr
+      %li
+        %span.column_left
+          E-Mail:
+        %span.column_right
+          = contact_person.email
+        %hr
+      %li
+        %span.column_left
+          Telefon:
+        %span.column_right
+          = contact_person.phone
+        %hr
+      %li
+        %span.column_left
+          Mobile:
+        %span.column_right
+          = contact_person.mobile
+        %hr
+      %li
+        %span.column_left
+          Fax:
+        %span.column_right
+          = contact_person.fax
+        %hr
+      %li
+        %span.column_left
+          Beschreibung:
+        %span.column_right
+          = contact_person.description
+        %hr
+      %li
+        %span.column_left
+          Sprache:
+        %span.column_right
+          = contact_person.language
+        %hr
