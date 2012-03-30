@@ -1,0 +1,14 @@
+%div.fields
+  .field
+    = f.input :first_name, :label => "Vorname:"
+  .field
+    = f.input :last_name, :label => "Nachname:"
+  .field
+    = f.input :phone, :label => "Telefon:"
+  .field
+    = f.input :mail, :label => "E-Mail:"
+  .field
+    = f.input :fax, :label => "Fax:"
+  %p
+    = f.hidden_field :_destroy
+    = link_to_function "löschen", "remove_fields(this)", :class => "button_caution"

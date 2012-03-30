@@ -11,7 +11,6 @@
 #  country_code :string(255)
 #  created_at   :datetime
 #  updated_at   :datetime
-#  type         :string(255)
 #  parent_id    :integer(4)
 #  parent_type  :string(255)
 #  country      :string(255)

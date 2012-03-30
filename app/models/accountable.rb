@@ -33,6 +33,8 @@ module Accountable
   module CustomerInstanceMethods
     def self.included(base)
       base.extend CustomerClassMethods
+      base.has_many :contact_people, :as => :parent, :dependent => :destroy
+      base.accepts_nested_attributes_for :contact_people, :reject_if => lambda { |a| a[:last_name].blank? }, :allow_destroy => true
     end
     
     module CustomerClassMethods
