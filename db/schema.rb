@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330070759) do
+ActiveRecord::Schema.define(:version => 20120330111711) do
 
   create_table "addresses", :force => true do |t|
     t.string   "line_1"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20120330070759) do
     t.integer  "parent_id"
     t.string   "parent_type"
     t.string   "country"
+    t.string   "type"
   end
 
   create_table "comments", :force => true do |t|

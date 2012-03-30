@@ -14,6 +14,7 @@
 #  parent_id    :integer(4)
 #  parent_type  :string(255)
 #  country      :string(255)
+#  type         :string(255)
 #
 
 class ContactAddress < Address
