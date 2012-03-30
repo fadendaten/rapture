@@ -52,7 +52,7 @@ class Address < ActiveRecord::Base
   
   def google_maps_url
     street = self.lines.last
-    street.gsub!(" ", "+")
+    street.gsub(" ", "+")
 
     "http://maps.google.com/?q=#{street}%2C+#{self.zip_code}+#{self.city}+#{self.country}"
   end
