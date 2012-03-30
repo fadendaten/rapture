@@ -46,7 +46,7 @@ namespace :db do
       
       Customer.new_customer_duration = 5.months
       200.times do |t|
-        company = Faker::Name.name
+        company = Faker::Company.name
         phone   = Faker::PhoneNumber.phone_number
         email   = Faker::Internet.email
         
