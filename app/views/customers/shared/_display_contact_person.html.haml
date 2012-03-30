@@ -1,0 +1,32 @@
+.person_info
+  %ul
+    %li
+      %span.column_left
+        Vorname:
+      %span.column_right
+        = contact_person.first_name
+      %hr
+    %li
+      %span.column_left
+        Nachname:
+      %span.column_right
+        = contact_person.last_name
+      %hr
+    %li
+      %span.column_left
+        Telefon:
+      %span.column_right
+        = contact_person.phone
+      %hr
+    %li
+      %span.column_left
+        E-Mail:
+      %span.column_right
+        = mail_to contact_person.email
+      %hr
+    %li
+      %span.column_left
+        Email:
+      %span.column_right
+        = mail_to @customer.email
+      %hr
