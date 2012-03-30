@@ -1,3 +1,16 @@
+GIT
+  remote: git://github.com/ctran/annotate_models.git
+  revision: ff1131daee8c03dbcc4966b7914b77a7e3a62f02
+  specs:
+    annotate (2.4.1.beta1)
+
+GIT
+  remote: git://github.com/edendevelopment/paginate_alphabetically.git
+  revision: f9ed9c1b043de06a2c60dd11a324b2eb4657635b
+  branch: bundler
+  specs:
+    paginate_alphabetically (0.3.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -32,7 +45,6 @@ GEM
     activesupport (3.1.0)
       multi_json (~> 1.0)
     addressable (2.2.6)
-    annotate (2.4.0)
     ansi (1.4.2)
     arel (2.2.1)
     autotest-fsevent (0.2.8)
@@ -42,7 +54,7 @@ GEM
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
     cancan (1.6.7)
-    capistrano (2.8.0)
+    capistrano (2.11.2)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -129,7 +141,6 @@ GEM
       net-ssh (>= 1.99.1)
     nokogiri (1.5.0)
     orm_adapter (0.0.6)
-    paginate_alphabetically (0.2.3)
     pdf-reader (1.0.0)
       Ascii85 (~> 1.0.0)
       ruby-rc4
@@ -233,17 +244,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
-  annotate (~> 2.4.0)
-  autotest-fsevent
-=======
   annotate!
   autotest-fsevent (~> 0.2.8)
->>>>>>> buttons
   autotest-growl
   autotest-standalone
   cancan
-  capistrano (~> 2.8.0)
+  capistrano (~> 2.11.2)
   coffee-rails (~> 3.1.0)
   comma
   cucumber-rails
@@ -256,7 +262,7 @@ DEPENDENCIES
   kaminari
   launchy
   mysql2 (~> 0.3.0)
-  paginate_alphabetically (~> 0.2.3)
+  paginate_alphabetically!
   prawn
   prawn_rails
   rails (= 3.1.0)
