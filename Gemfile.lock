@@ -47,7 +47,7 @@ GEM
     addressable (2.2.6)
     ansi (1.4.2)
     arel (2.2.1)
-    autotest-fsevent (0.2.7)
+    autotest-fsevent (0.2.8)
       sys-uname
     autotest-growl (0.2.16)
     autotest-standalone (4.5.9)
@@ -245,7 +245,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate!
-  autotest-fsevent
+  autotest-fsevent (~> 0.2.8)
   autotest-growl
   autotest-standalone
   cancan
