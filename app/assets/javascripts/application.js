@@ -43,6 +43,8 @@ jQuery(function($) {
 	  });
 	  console.log(form.serialize());
 	});
+	
+	$(".form input:visible:first").focus();
 });
 
 /*hide the surrounding .fields container and set the destroy-field to true*/
