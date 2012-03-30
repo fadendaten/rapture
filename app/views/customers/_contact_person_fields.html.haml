@@ -1,6 +1,4 @@
 #contact_people.column_half
-  %h3 Kontaktpersonen
   = f.simple_fields_for :contact_people do |builder|
     = render 'contact_people/contact_person_fields', :f => builder
-
   = link_to_add_fields "Person hinzufügen", :contact_people, f

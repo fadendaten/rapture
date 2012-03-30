@@ -41,6 +41,14 @@ nav {
 	float: right;
 }
 
+.right {
+	float: right;
+}
+
+.left {
+	float: left;
+}
+
 #left {
 	float: left;
 }
@@ -114,13 +122,19 @@ h3 {
 }
 
 .bottom {
-	margin-bottom: 5em;
+	margin-bottom: 4em;
 }
 
 // Simple form
 
 .form {
   width: 65%;
+
+	textarea{
+		float: right;
+		width: 58%;
+	}
+	
 }
 
 .simple_form {
