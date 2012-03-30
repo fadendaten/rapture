@@ -38,7 +38,13 @@
       %hr
     %li
       %span.column_left
-        :
+        Beschreibung:
       %span.column_right
-        = mail_to @customer.email
+        = contact_person.description
+      %hr
+    %li
+      %span.column_left
+        Sprache:
+      %span.column_right
+        = contact_person.language
       %hr
