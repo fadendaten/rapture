@@ -74,3 +74,14 @@
       %div keine
     - else
       = render 'customers/shared/address', :address => @customer.delivery_address
+      
+%br
+.contact_people
+  .contact_person
+    %h3 Kontaktpersonen
+    - if @customer.contact_people.empty?
+      %div keine
+    - else
+      = render 'customers/shared/display_contact_people', :contact_people => @customer.contact_people
+    
+      

@@ -35,7 +35,7 @@ GEM
     annotate (2.4.0)
     ansi (1.4.2)
     arel (2.2.1)
-    autotest-fsevent (0.2.7)
+    autotest-fsevent (0.2.8)
       sys-uname
     autotest-growl (0.2.16)
     autotest-standalone (4.5.9)
@@ -233,8 +233,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+<<<<<<< HEAD
   annotate (~> 2.4.0)
   autotest-fsevent
+=======
+  annotate!
+  autotest-fsevent (~> 0.2.8)
+>>>>>>> buttons
   autotest-growl
   autotest-standalone
   cancan
