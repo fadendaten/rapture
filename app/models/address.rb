@@ -11,19 +11,19 @@
 #  country_code :string(255)
 #  created_at   :datetime
 #  updated_at   :datetime
-#  type         :string(255)
 #  parent_id    :integer(4)
 #  parent_type  :string(255)
 #  country      :string(255)
+#  type         :string(255)
 #
 
 class Address < ActiveRecord::Base
   
   belongs_to :parent, :polymorphic => true
   
-  validates :line_1,       :presence => true
-  validates :zip_code,     :presence => true
-  validates :city,         :presence => true
+  validates :line_1,   :presence => true
+  validates :zip_code, :presence => true
+  validates :city,     :presence => true
   
   def name
     self.parent.to_s
@@ -52,7 +52,7 @@ class Address < ActiveRecord::Base
   
   def google_maps_url
     street = self.lines.last
-    street.gsub!(" ", "+")
+    street.gsub(" ", "+")
 
     "http://maps.google.com/?q=#{street}%2C+#{self.zip_code}+#{self.city}+#{self.country}"
   end

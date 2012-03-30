@@ -1,0 +1,31 @@
+%div.fields
+  %h4 Kontaktperson
+  
+  .field.input.string.optional
+    = f.label :primary, "Hauptkontakt:"
+    = f.check_box :primary
+  .field
+    = f.input :first_name, :label => "Vorname:"
+  .field
+    = f.input :last_name, :label => "Nachname:"
+  .field
+    = f.input :phone, :label => "Telefon:"
+  .field
+    = f.input :mobile, :label => "Mobile"
+  .field
+    = f.input :email, :label => "E-Mail:"
+  .field
+    = f.input :fax, :label => "Fax:"
+  .field.bottom
+    = f.input :description, :label => "Beschreibung:"
+  .field
+  .bottom
+    %span.column_left
+      %label
+        Korrespondenzsprache:
+    %span.column_right
+      = f.select :language, options_for_select(["Deutsch", "Français", "Italiano", "English"], @customer.language)
+  .field
+    = f.hidden_field :_destroy
+    = link_to_function "löschen", "remove_fields(this)"
+  %hr

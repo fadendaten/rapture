@@ -2,6 +2,7 @@
 
 .form
   = simple_form_for @customer do |f|
+
     = render 'customers/shared/company_fields', :f => f
     %br
     #contact_address
@@ -27,6 +28,12 @@
         = f.simple_fields_for :delivery_address do |builder|
           = render 'customers/shared/address_fields', :f => builder
           %br
-      = f.submit "Speichern", :class => "button"
-  .cancel
-    = button_to "Abbrechen", customers_path, :method => :get, :class => "button"
+  
+    #contact_people
+      %fieldset
+        %legend Kontaktpersonen
+        = render 'customers/contact_person_fields', :f => f
+      = f.submit "Speichern", :class => "button", :wrapper_tag => :span
+      = link_to "Abbrechen", customers_path
+      .bottom
+  

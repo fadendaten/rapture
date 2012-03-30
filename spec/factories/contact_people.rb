@@ -1,0 +1,22 @@
+# == Schema Information
+#
+# Table name: contact_people
+#
+#  id          :integer(4)      not null, primary key
+#  parent_id   :integer(4)
+#  parent_type :string(255)
+#  first_name  :string(255)
+#  last_name   :string(255)
+#  phone       :string(255)
+#  mail        :string(255)
+#  fax         :string(255)
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about factories at http://github.com/thoughtbot/factory_girl
+
+FactoryGirl.define do
+  factory :contact_person do
+  end
+end

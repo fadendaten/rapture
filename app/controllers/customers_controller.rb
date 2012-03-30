@@ -28,6 +28,7 @@ class CustomersController < ApplicationController
   
   def new
     @title = "Kunden erfassen"
+    @customer.contact_people.build
     render 'forms'
   end
   

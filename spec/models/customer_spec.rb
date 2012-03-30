@@ -252,4 +252,23 @@ describe Customer do
     
   end
   
+  describe "creating addresses" do
+    
+    before(:each) do
+      @attr = Factory.attributes_for(:customer)
+      @attr.merge!(:contact_address_attributes => { :line_1 => "Street 1", :zip_code => "3423", :city => "Ersigen" })
+      @attr.merge!(:invoice_address_attributes => { :line_1 => "Street 2", :zip_code => "3423", :city => "Ersigen" })
+      @attr.merge!(:delivery_address_attributes => { :line_1 => "Street 3", :zip_code => "3423", :city => "Ersigen" })
+      puts @attr
+    end
+        
+    it "should be successful given valid attributes" do
+      @customer = Customer.create(@attr)
+      @customer.contact_address.line_1.should == "Street 1"
+      @customer.invoice_address.line_1.should == "Street 2"
+      @customer.delivery_address.line_1.should == "Street 3"
+    end
+    
+  end
+  
 end
