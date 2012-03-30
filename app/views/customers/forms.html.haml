@@ -35,3 +35,7 @@
       %fieldset
         %legend Kontaktpersonen
         = render 'customers/contact_person_fields', :f => f
+      = f.submit "Speichern", :class => "button", :wrapper_tag => :span
+      = link_to "Abbrechen", customers_path
+      .bottom
+  
