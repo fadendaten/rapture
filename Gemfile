@@ -1,11 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0'
-gem 'mysql2', '~>0.3.0'
+gem 'rails', '3.1.7'
+gem "thin", "~> 1.4.1"
+gem 'mysql2', '~> 0.3.0'
 gem 'haml'
-gem 'simple_form'
+gem "simple_form", "~> 1.5.2"
 gem 'cancan'
-gem 'devise'
+gem "devise", "~> 1.5.3"
 gem 'comma' # Adds the comma macro to active record for csv export
 gem 'whenever' # Cron job handling
 gem 'jquery-rails'

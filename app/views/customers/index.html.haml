@@ -23,7 +23,7 @@
       = link_to letter, customers_path(:letter => letter)
   %li
     = link_to "alle", customers_path(:letter => "")
-
+    
 .company_column.fat
   = link_to_sorted "Firmenname", :company
 .phone_column.fat
@@ -32,6 +32,9 @@
   = link_to_sorted "E-Mail", :email
 .rating_column.fat
   = link_to_sorted "Bewertung", :rating
+  
+%br
+%br
 %hr.spaced.fat
 - @customers.each do |customer|
   .customer
