@@ -13,7 +13,7 @@ require 'spec_helper'
 describe UserRole do
   
   before(:each) do
-    @user_role = Factory(:sudo)
+    @user_role = FactoryGirl.create(:sudo)
   end
 
   it "should have a name attribute" do

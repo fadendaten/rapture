@@ -4,8 +4,8 @@ describe UsersController do
   render_views
   
   before(:each) do
-    @user = Factory(:user)
-    @user.user_roles << Factory(:sudo)
+    @user = FactoryGirl.create(:user)
+    @user.user_roles << FactoryGirl.create(:sudo)
     sign_in :user, @user
   end
 

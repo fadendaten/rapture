@@ -22,8 +22,8 @@ require 'spec_helper'
 describe Address do
   
   before(:each) do
-    @customer = Factory(:customer)
-    @attr = Factory(:address).attributes
+    @customer = FactoryGirl.create(:customer)
+    @attr = FactoryGirl.create(:address).attributes
   end
   
   it "should create new address instances with valid attributes" do

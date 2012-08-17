@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.7'
+gem 'rails', '3.1.8'
 gem "thin", "~> 1.4.1"
 gem 'mysql2', '~> 0.3.0'
 gem 'haml'
@@ -42,9 +42,6 @@ end
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :development do
-  gem 'rspec-rails'
-  gem 'cucumber-rails'
-  gem 'factory_girl_rails'
   gem 'faker'
   gem 'annotate', :git => 'git://github.com/ctran/annotate_models.git'
 end

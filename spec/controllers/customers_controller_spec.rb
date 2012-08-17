@@ -4,9 +4,9 @@ describe CustomersController do
   render_views
   
   before(:each) do
-    @customer = Factory(:customer)
-    @user = Factory(:user)
-    @user.user_roles << Factory(:admin)
+    @customer = FactoryGirl.create(:customer)
+    @user = FactoryGirl.create(:user)
+    @user.user_roles << FactoryGirl.create(:admin)
   end
 
   describe "GET 'new'" do
